@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Data } from '../models/data';
-import { DataService } from '../services/dataservice.service';
+import { RegistrationService } from '../services/registration.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { DataService } from '../services/dataservice.service';
 export class RegistrationComponent {
   dataForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private dataService: DataService) {
+  constructor(private fb: FormBuilder, private registrationService: RegistrationService) {
     this.dataForm = this.fb.group({
       blutzuckerwert: [null, [Validators.required, Validators.min(1), Validators.max(700)]],
       messzeitpunkt: [new Date().toISOString().substring(0, 16), Validators.required], // datetime-local
@@ -58,11 +58,12 @@ export class RegistrationComponent {
 
   }
   saveData(data: Data) {
-    this.dataService.saveData(data).subscribe({
-      next: (response) => {
+    this.registrationService.saveData(data).subscribe({
+      next: (response: any) => {
         console.log('Data saved successfully:', response);
       },
-      error: (error) => {
+      error: (error: any) => {
+        alert('Error saving data. Please try again later.');
         console.error('Error saving data:', error);
       }
     });

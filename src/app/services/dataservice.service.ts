@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Data } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
+import { Entry } from '../models/entry';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +11,9 @@ import { environment } from '../../environments/environment';
 export class DataService {
 
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
-   saveData(data: Data) {  
-     return this.httpClient.post<Data>(`${environment.apiBaseUrl}/data/savedata`, data);
-   }
+  getData(userId: string): Observable<Entry[]> {
+    return this.httpClient.get<Entry[]>(`${environment.apiBaseUrl}/data/getdata/${userId}`);
   }
+}

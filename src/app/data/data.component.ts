@@ -7,6 +7,9 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { formatDate } from '@angular/common';
 import { Utility } from '../utils/utility';
+import { DataService } from '../services/dataservice.service';
+import { UserService } from '../services/user.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-data',
@@ -16,6 +19,8 @@ import { Utility } from '../utils/utility';
   styleUrls: ['./data.component.css']
 })
 export class DataComponent implements OnInit {
+
+  userId: string = "1";
   entries: Entry[] = [];
   pagedEntries: Entry[] = [];
   currentPage = 1;
@@ -25,130 +30,43 @@ export class DataComponent implements OnInit {
   filteredValues: Entry[] = [];
   filteredGraphValues: Entry[] = [];
   chart: any;
-  user: any;
+  user!: User;
   fromDate: string = '';
   toDate: string = '';
   chartLabels: string[] = [];
   measurementTimeLabels: string[] = [];
   measurementValueLabels: number[] = [];
 
-  constructor(private datePipe: DatePipe) {
-
-    this.user = {
-      firstName: 'Mirza',
-      lastName: 'Jahic',
-      age: 42,
-      diabetesType: 'Type 2',
-      city: 'Schlieren',
-      unit: 'mg/dL'
-    };
-    this.entries.push(
-      {
-        dataEntryTime: new Date('2023-10-01T10:00'),
-        measurementTime: new Date('2023-10-01T09:00'),
-        value: 120,
-        sugarValue: 5.5,
-        unit: 'mg/dL',
-        referenceValue: 100,
-        status: 'normal'
-      },
-      {
-        dataEntryTime: new Date('2023-10-02T10:00'),
-        measurementTime: new Date('2023-10-02T09:00'),
-        value: 150,
-        sugarValue: 6.0,
-        unit: 'mg/dL',
-        referenceValue: 100,
-        status: 'high'
-      },
-      {
-        dataEntryTime: new Date('2024-10-03T10:00'),
-        measurementTime: new Date('2024-10-03T09:00'),
-        value: 90,
-        sugarValue: 4.0,
-        unit: 'mg/dL',
-        referenceValue: 100,
-        status: 'low'
-      },
-      {
-        dataEntryTime: new Date('2023-10-04T10:00'),
-        measurementTime: new Date('2023-10-04T09:00'),
-        value: 110,
-        sugarValue: 5.0,
-        unit: 'mg/dL',
-        referenceValue: 100,
-        status: 'normal'
-      },
-      {
-        dataEntryTime: new Date('2023-10-05T10:00'),
-        measurementTime: new Date('2023-10-05T09:00'),
-        value: 130,
-        sugarValue: 5.8,
-        unit: 'mg/dL',
-        referenceValue: 100,
-        status: 'elevated'
-      },
-      {
-        dataEntryTime: new Date('2024-01-05T10:00'),
-        measurementTime: new Date('2024-01-05T09:00'),
-        value: 130,
-        sugarValue: 12.8,
-        unit: 'mg/dL',
-        referenceValue: 100,
-        status: 'elevated'
-      },
-      {
-        dataEntryTime: new Date('2024-05-05T10:00'),
-        measurementTime: new Date('2024-05-05T09:00'),
-        value: 130,
-        sugarValue: 11.8,
-        unit: 'mg/dL',
-        referenceValue: 100,
-        status: 'elevated'
-      },
-      {
-        dataEntryTime: new Date('2024-05-05T15:00'),
-        measurementTime: new Date('2024-05-05T09:00'),
-        value: 130,
-        sugarValue: 5.8,
-        unit: 'mg/dL',
-        referenceValue: 100,
-        status: 'elevated'
-      },
-      {
-        dataEntryTime: new Date('2024-05-05T20:00'),
-        measurementTime: new Date('2024-05-05T09:00'),
-        value: 130,
-        sugarValue: 7.8,
-        unit: 'mg/dL',
-        referenceValue: 100,
-        status: 'elevated'
-      },
-      {
-        dataEntryTime: new Date('2024-10-05T10:00'),
-        measurementTime: new Date('2024-10-05T09:00'),
-        value: 130,
-        sugarValue: 7.8,
-        unit: 'mg/dL',
-        referenceValue: 100,
-        status: 'elevated'
-      }
-      , {
-        dataEntryTime: new Date('2025-01-05T10:00'),
-        measurementTime: new Date('2025-01-05T09:00'),
-        value: 130,
-        sugarValue: 9.8,
-        unit: 'mg/dL',
-        referenceValue: 100,
-        status: 'elevated'
-      }
-    );
-  }
+  constructor(private datePipe: DatePipe, private dataService: DataService, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.filteredValues = this.entries.slice();
-    this.sortByValue('default');
+    this.userService.getUser(this.userId).subscribe({
+      next: (user: User) => {
+        console.log('User data loaded:', user);
+        this.user = user;
+
+        // Now that user is loaded, call getData
+        this.dataService.getData(this.user.userId).subscribe({
+          next: (entry: Entry[]) => {
+            console.log('History data loaded:', entry);
+            this.entries = entry;
+            this.filteredValues = this.entries.slice();
+            this.sortByValue('default');
+          },
+          error: (err) => {
+            console.error('Failed to load historic data when calling service:', err);
+            alert('Failed to load historic data. Please try again later.');
+            this.entries = [];
+            this.filteredValues = [];
+          }
+        });
+      },
+      error: (err) => {
+        console.error("Couldn't load the user", err);
+      }
+    });
   }
+
 
   setupPagination(): void {
     this.totalPages = Math.ceil(this.filteredValues.length / this.pageSize);
@@ -182,9 +100,9 @@ export class DataComponent implements OnInit {
 
   sortByDate(order: 'asc' | 'desc' | 'default'): void {
     if (order === 'asc') {
-      this.filteredValues.sort((a, b) => a.measurementTime.getTime() - b.measurementTime.getTime());
+      this.filteredValues.sort((a, b) => new Date(a.measurementTime).getTime() - new Date(b.measurementTime).getTime());
     } else if (order === 'desc') {
-      this.filteredValues.sort((a, b) => b.measurementTime.getTime() - a.measurementTime.getTime());
+      this.filteredValues.sort((a, b) => new Date(b.measurementTime).getTime() - new Date(a.measurementTime).getTime());
     } else {
       this.filteredValues = this.entries.slice();
     }
@@ -245,8 +163,8 @@ export class DataComponent implements OnInit {
     // ➤ Add user details
     doc.setFontSize(11);
     const details = [
-      `Name: ${this.user.firstName} ${this.user.lastName}`,
-      `Age: ${this.user.age}`,
+      `Name: ${this.user.name} ${this.user.lastName}`,
+      `DoB: ${this.user.dob}`,
       `Diabetes Type: ${this.user.diabetesType}`,
       `City: ${this.user.city}`
     ];
