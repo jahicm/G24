@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diabetes Tagebuch</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container-fluid  my-4">
+    <h1 class="text-center mb-4">Diabetes Tagebuch</h1>
+
+    <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+      <div class="row g-3">
+        <!-- Linke Spalte -->
+        <div class="col-md-6">
+          <div class="mb-3">
+            <div
+              *ngIf="dataForm.controls['blutzuckerwert'].errors?.['min'] && dataForm.controls['blutzuckerwert'].touched"
+              class="text-danger">
+              Der Blutzuckerwert muss mindestens 1 sein.
+            </div>
+            <label for="blutzuckerwert" class="form-label">Blutzuckerwert:</label>
+            <div class="d-flex gap-2 align-items-center">
+              <input id="blutzuckerwert" type="number" formControlName="blutzuckerwert" class="form-control"
+                style="max-width: 100px;" />
+              <div class="btn-group" role="group" aria-label="Einheit">
+                <input type="radio" class="btn-check" name="einheit" id="btnradio1" formControlName="einheit"
+                  autocomplete="off" checked value="mg/dL">
+                <label class="btn btn-outline-primary" for="btnradio1">mg/dL</label>
+                <input type="radio" class="btn-check" name="einheit" id="btnradio2" formControlName="einheit"
+                  autocomplete="off" value="mmol/L">
+                <label class="btn btn-outline-primary" for="btnradio2">mmol/L</label>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="messzeitpunkt" class="form-label">Messzeitpunkt:</label>
+            <input type="datetime-local" class="form-control" id="messzeitpunkt" formControlName="messzeitpunkt">
+          </div>
+
+          <div class="mb-3">
+            <label for="messmethode" class="form-label">Messmethode:</label>
+            <select class="form-select" id="messmethode" formControlName="messmethode">
+              <option value="finger">Finger</option>
+              <option value="cgm">CGM</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="insulinTyp" class="form-label">Insulin Typ (optional):</label>
+            <input type="text" class="form-control" id="insulinTyp" formControlName="insulinTyp">
+          </div>
+
+          <div class="mb-3">
+            <label for="insulinMenge" class="form-label">Insulin Menge (Einheiten):</label>
+            <input type="number" class="form-control" id="insulinMenge" formControlName="insulinMenge" min="0">
+          </div>
+
+          <div class="mb-3">
+            <label for="mahlzeitTyp" class="form-label">Mahlzeit Typ:</label>
+            <select class="form-select" id="mahlzeitTyp" formControlName="mahlzeitTyp">
+              <option value="frühstück">Frühstück</option>
+              <option value="mittagessen">Mittagessen</option>
+              <option value="abendessen">Abendessen</option>
+              <option value="snack">Snack</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="kohlenhydrate" class="form-label">Kohlenhydrate (g):</label>
+            <input type="number" class="form-control" id="kohlenhydrate" formControlName="kohlenhydrate" min="0">
+          </div>
+        </div>
+
+        <!-- Rechte Spalte -->
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="sportArt" class="form-label">Sportart:</label>
+            <input type="text" class="form-control" id="sportArt" formControlName="sportArt">
+          </div>
+
+          <div class="mb-3">
+            <label for="sportDauer" class="form-label">Dauer (Minuten):</label>
+            <input type="number" class="form-control" id="sportDauer" formControlName="sportDauer" min="0">
+          </div>
+
+          <div class="mb-3">
+            <label for="medikamentName" class="form-label">Medikament Name:</label>
+            <input type="text" class="form-control" id="medikamentName" formControlName="medikamentName">
+          </div>
+
+          <div class="mb-3">
+            <label for="medikamentDosierung" class="form-label">Dosierung:</label>
+            <input type="text" class="form-control" id="medikamentDosierung" formControlName="medikamentDosierung">
+          </div>
+
+          <div class="mb-3">
+            <label for="symptome" class="form-label">Symptome:</label>
+            <input type="text" class="form-control" id="symptome" formControlName="symptome">
+          </div>
+
+          <div class="mb-3">
+            <label for="symptomeSchweregrad" class="form-label">Schweregrad:</label>
+            <select class="form-select" id="symptomeSchweregrad" formControlName="symptomeSchweregrad">
+              <option value="leicht">Leicht</option>
+              <option value="mittel">Mittel</option>
+              <option value="stark">Stark</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="stimmung" class="form-label">Stimmung:</label>
+            <select class="form-select" id="stimmung" formControlName="stimmung">
+              <option value="gut">Gut</option>
+              <option value="mittel">Mittel</option>
+              <option value="schlecht">Schlecht</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Gesamte Breite für Notizen und Button -->
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="notizen" class="form-label">Notizen:</label>
+            <textarea class="form-control" id="notizen" formControlName="notizen" rows="3"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="dataForm.invalid">Absenden</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

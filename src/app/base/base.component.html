@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diabetes Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div class="container py-4">
+
+    <!-- Erste Zeile: Readings & Form -->
+    <div class="row gy-4 gx-3">
+      <!-- Latest Readings -->
+      <div class="col-md-2">
+        <div class="card p-3 dashboard-card h-100">
+          <h6 class="text-primary">Latest Readings</h6>
+          <h2>112 <span class="badge bg-warning text-dark">High</span></h2>
+          <p class="text-muted mb-0">Apr 25, 2024, 08:15</p>
+        </div>
+      </div>
+
+      <!-- Weekly Average -->
+      <div class="col-md-2">
+        <div class="card p-3 dashboard-card h-100">
+          <h6 class="text-primary">Weekly Average</h6>
+          <h2>95 <span class="badge bg-success">Good</span></h2>
+        </div>
+      </div>
+
+      <!-- Add New Reading -->
+      <div class="col-md-4">
+        <div class="card p-3 dashboard-card h-100">
+          <h6 class="text-primary">Add New Reading</h6>
+          <form>
+            <input type="text" class="form-control mb-2" placeholder="Enter value" />
+            <div class="mb-3">
+              <label for="date-timeOfMeal" class="form-label">Time:</label>
+              <input type="datetime-local" class="form-control" id="date-timeOfMeal"
+                formControlName="date-timeOfMeal" />
+            </div>
+            <div>
+              <select>
+                <option>Fasting</option>
+                <option>Post-Meal</option>
+                <option>Before Sleep</option>
+              </select>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="unit" id="mg" value="mg/dL" checked/>
+              <label class="form-check-label" for="mg">mg/dL</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="unit" id="mmol" value="mmol/L"/>
+              <label class="form-check-label" for="mmol">mmol/L</label>
+            </div>
+            <button class="btn btn-primary btn-sm mt-2">
+              <i class="bi bi-plus-circle"></i> Save Reading
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card dashboard-card">
+          <div class="card-header bg-light text-primary fw-bold">
+            👤 Benutzerprofil
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mb-0">
+              <li><strong>Name:</strong> Max</li>
+              <li><strong>Nachname:</strong> Müster</li>
+              <li><strong>Alter:</strong> 42</li>
+              <li><strong>Diabetes-Typ:</strong> Typ 2</li>
+              <li><strong>Stadt:</strong> Schlieren</li>
+              <li><strong>Land:</strong> Schweiz</li>
+            </ul>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- Zweite Zeile: Blood Sugar Chart -->
+    <div class="row gy-4 gx-3 mt-2">
+      <div class="col-md-8">
+        <div class="card p-3 dashboard-card">
+          <h6 class="text-primary">Weekly Overview</h6>
+          <div class="chart-placeholder">
+            <app-chart [lineChartLabels]="measurementTimeLabels" [data]="measurementValueLabels"></app-chart>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-light shadow-sm dashboard-card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <h5 class="card-title text-primary">Data Summary</h5>
+              <button class="btn btn-sm btn-outline-info">
+                <i class="bi bi-cpu"></i> AI Analysis
+              </button>
+            </div>
+            <ul class="list-unstyled mt-3 mb-0">
+              <li><i class="bi bi-graph-up"></i> <strong>Weekly Avg:</strong> 95 mg/dL <span
+                  class="text-success">(Stable)</span></li>
+              <li><i class="bi bi-exclamation-triangle-fill text-warning"></i> 2 Readings > 140 mg/dL <small
+                  class="text-muted">(Last 7 days)</small></li>
+              <li><i class="bi bi-clock-fill"></i> <strong>Best Time:</strong> Morning (06:00–09:00)</li>
+              <li><i class="bi bi-clock-history"></i> <strong>Worst Time:</strong> Evening (20:00–23:00)</li>
+              <li><i class="bi bi-lightbulb"></i> <em>Tip:</em> Reduce carbs after 8 PM</li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dritte Zeile: Daily Medication & Carbs Intake -->
+    <div class="row gy-4 gx-3 mt-2">
+      <!-- Daily Medication -->
+      <div class="col-md-4">
+        <div class="card p-3 dashboard-card h-100">
+          <h6 class="text-primary">Daily Medication</h6>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" checked id="med1" />
+            <label class="form-check-label" for="med1">Glimepiride</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="med2" />
+            <label class="form-check-label" for="med2">Metformin</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="med3" />
+            <label class="form-check-label" for="med3">Atorvastatin</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carbs Intake -->
+      <div class="col-md-4">
+        <div class="card shadow-sm dashboard-card">
+          <div class="card-body">
+            <h5 class="card-title text-primary">HbA1c Prediction</h5>
+            <p class="display-6 fw-bold text-success">
+              {{ predictedHbA1c }}%
+            </p>
+            <p class="text-muted mb-0">Estimated from recent glucose data</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="card dashboard-card">
+          <div class="card-body">
+            <h6 class="card-title text-info">
+              🧠 Smart Insight
+            </h6>
+            <p class="mb-2">
+              „Deine abendlichen Blutzuckerwerte sind regelmäßig erhöht. Versuche, das Abendessen 1 Stunde früher zu
+              nehmen.“
+            </p>
+            <span class="badge bg-light text-dark">AI Suggestion</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
