@@ -8,10 +8,10 @@ import { DataService } from '../services/dataservice.service';
 
 @Component({
   selector: 'app-data',
-  templateUrl: './dataform.component.html',
+  templateUrl: './registration.component.html',
   imports: [ReactiveFormsModule, CommonModule],
 })
-export class DataFormComponent {
+export class RegistrationComponent {
   dataForm: FormGroup;
 
   constructor(private fb: FormBuilder, private dataService: DataService) {
