@@ -8,8 +8,8 @@ import autoTable from 'jspdf-autotable';
 import { formatDate } from '@angular/common';
 import { Utility } from '../utils/utility';
 import { DataService } from '../services/dataservice.service';
-import { UserService } from '../services/user.service';
 import { User } from '../models/user';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-data',
@@ -37,36 +37,25 @@ export class DataComponent implements OnInit {
   measurementTimeLabels: string[] = [];
   measurementValueLabels: number[] = [];
 
-  constructor(private datePipe: DatePipe, private dataService: DataService, private userService: UserService) { }
+  constructor(private datePipe: DatePipe, private dataService: DataService, private sharedService: SharedService) { }
 
   ngOnInit(): void {
-    this.userService.getUser(this.userId).subscribe({
-      next: (user: User) => {
-        console.log('User data loaded:', user);
-        this.user = user;
 
-        // Now that user is loaded, call getData
-        this.dataService.getData(this.user.userId).subscribe({
-          next: (entry: Entry[]) => {
-            console.log('History data loaded:', entry);
-            this.entries = entry;
-            this.filteredValues = this.entries.slice();
-            this.sortByValue('default');
-          },
-          error: (err) => {
-            console.error('Failed to load historic data when calling service:', err);
-            alert('Failed to load historic data. Please try again later.');
-            this.entries = [];
-            this.filteredValues = [];
-          }
-        });
-      },
-      error: (err) => {
-        console.error("Couldn't load the user", err);
+    this.sharedService.loadUser(this.userId);
+    this.sharedService.loadEntries(this.userId);
+    this.sharedService.user$.subscribe(user => {
+      if (user) {
+        this.user = user;
       }
     });
-  }
 
+    this.sharedService.entries$.subscribe(entries => {
+      this.filteredValues = entries.slice();
+      this.entries = entries;
+      this.setupPagination();
+    });
+
+  }
 
   setupPagination(): void {
     this.totalPages = Math.ceil(this.filteredValues.length / this.pageSize);

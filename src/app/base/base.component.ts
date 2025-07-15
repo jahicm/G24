@@ -2,6 +2,8 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ChartComponent } from '../chart/chart.component';
 import { Entry } from '../models/entry';
+import { SharedService } from '../services/shared.service';
+import { User } from '../models/user';
 
 
 @Component({
@@ -20,16 +22,29 @@ export class BaseComponent implements OnInit {
   chartLabels: string[] = [];
   measurementTimeLabels: string[] = [];
   measurementValueLabels: number[] = [];
+  user?: User | null;
 
-  constructor(private datePipe: DatePipe) { }
 
-  
+  constructor(private sharedService: SharedService, private datePipe: DatePipe) { }
+
+
   ngOnInit(): void {
-    const lastWeek = new Date();
-    lastWeek.setDate(lastWeek.getDate() - 7);
-    const today = this.datePipe.transform(new Date(), 'yyyy-MM-dd') || '';
-    const fromDate = this.datePipe.transform(lastWeek, 'yyyy-MM-dd') || '';
-    this.generateGraph(fromDate, today);
+    const userId = "1";
+    this.sharedService.loadUser(userId);
+    this.sharedService.loadEntries(userId);
+    this.sharedService.user$.subscribe(user => {
+      this.user = user;
+
+    });
+
+    this.sharedService.entries$.subscribe(entries => {
+      this.filteredValues = entries;
+      const lastWeek = new Date();
+      lastWeek.setDate(lastWeek.getDate() - 7);
+      const today = this.datePipe.transform(new Date(), 'yyyy-MM-dd') || '';
+      const fromDate = this.datePipe.transform(lastWeek, 'yyyy-MM-dd') || '';
+      this.generateGraph(fromDate, today);
+    });
   }
 
   generateGraph(fromDateString: string = '', today: string = ''): void {
