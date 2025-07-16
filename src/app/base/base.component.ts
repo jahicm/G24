@@ -4,17 +4,20 @@ import { ChartComponent } from '../chart/chart.component';
 import { Entry } from '../models/entry';
 import { SharedService } from '../services/shared.service';
 import { User } from '../models/user';
+import { UserService } from '../services/user.service';
+import { FormsModule } from '@angular/forms';
+import { Subject, takeUntil } from 'rxjs';
+import { DiabetesDashboard } from '../models/dashboard/diabetes-dashboard';
 
 
 @Component({
   selector: 'app-base',
-  imports: [CommonModule, ChartComponent],
+  imports: [CommonModule, ChartComponent, FormsModule],
   templateUrl: './base.component.html',
   styleUrl: './base.component.css',
 })
 export class BaseComponent implements OnInit {
 
-  predictedHbA1c: string = '5.6';
   filteredValues: Entry[] = [];
   filteredGraphValues: Entry[] = [];
   fromDate: string = '';
@@ -22,35 +25,57 @@ export class BaseComponent implements OnInit {
   chartLabels: string[] = [];
   measurementTimeLabels: string[] = [];
   measurementValueLabels: number[] = [];
-  user?: User | null;
+  user!: User | null;
+  unit: string = 'mg/dL';
+  timeOfMeal?: Date;
+  dateTime?: Date;
+  dashboard?: DiabetesDashboard;
+  private destroy$ = new Subject<void>();
 
-
-  constructor(private sharedService: SharedService, private datePipe: DatePipe) { }
+  constructor(private sharedService: SharedService, private datePipe: DatePipe, private userService: UserService) { }
 
 
   ngOnInit(): void {
-    const userId = "1";
+    const userId = "1"; // eventually from AuthService
+
     this.sharedService.loadUser(userId);
     this.sharedService.loadEntries(userId);
-    this.sharedService.user$.subscribe(user => {
-      this.user = user;
 
-    });
+    this.sharedService.user$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(user => {
+        this.user = user;
+      });
 
-    this.sharedService.entries$.subscribe(entries => {
-      this.filteredValues = entries;
-      const lastWeek = new Date();
-      lastWeek.setDate(lastWeek.getDate() - 7);
-      const today = this.datePipe.transform(new Date(), 'yyyy-MM-dd') || '';
-      const fromDate = this.datePipe.transform(lastWeek, 'yyyy-MM-dd') || '';
-      this.generateGraph(fromDate, today);
-    });
+    this.sharedService.entries$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(entries => {
+        this.filteredValues = entries;
+
+        const fromDate = new Date();
+        fromDate.setDate(fromDate.getDate() - 7);
+        const toDate = new Date();
+
+        this.generateGraph(fromDate, toDate);
+      });
+
+    this.sharedService.loadDashboard(userId);
+    this.sharedService.dashboardSubject$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(dashboard => {
+        if (dashboard) {
+          this.dashboard = dashboard;
+          console.log('Got diabetes dashboard:', dashboard);
+        }
+      });
+  }
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
-  generateGraph(fromDateString: string = '', today: string = ''): void {
+  generateGraph(fromDate: Date, toDate: Date): void {
 
-    const fromDate = new Date(fromDateString);
-    const toDate = new Date(today);
     fromDate.setHours(0, 0, 0, 0);
     toDate.setHours(23, 59, 59, 999);
 
@@ -65,4 +90,33 @@ export class BaseComponent implements OnInit {
 
     this.measurementValueLabels = this.filteredGraphValues.map(entry => entry.sugarValue);
   }
+  onSubmit(form: any): void {
+    const formData = form.value;
+    const userId = form.userId;
+    const measurementTime = formData.dateTime ? new Date(formData.dateTime) : new Date();
+    const sugarValue = Number(formData.sugarValue);
+    const value = sugarValue;
+    const dataEntryTime = new Date();
+    const referenceValue = 100; // example fixed value
+
+    let status: 'normal' | 'high' | 'low' | 'elevated' = 'normal';
+    if (sugarValue > 140) status = 'high';
+    else if (sugarValue < 70) status = 'low';
+    else if (sugarValue > 120) status = 'elevated';
+
+    const newEntry: Entry = {
+      dataEntryTime,
+      measurementTime,
+      sugarValue,
+      value,
+      unit: formData.unit,
+      referenceValue,
+      status
+    };
+
+    this.sharedService.addEntry(this.user!.userId, newEntry).subscribe(savedEntry => {
+      this.sharedService.loadEntries(this.user!.userId);
+    });
+  }
+
 }

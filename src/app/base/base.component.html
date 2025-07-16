@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Diabetes Dashboard</title>
+  <title>G24</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
@@ -19,8 +19,9 @@
       <div class="col-md-2">
         <div class="card p-3 dashboard-card h-100">
           <h6 class="text-primary">Latest Readings</h6>
-          <h2>112 <span class="badge bg-warning text-dark">High</span></h2>
-          <p class="text-muted mb-0">Apr 25, 2024, 08:15</p>
+          <h2>{{dashboard?.currentReading?.value}}<span
+              class="badge bg-warning text-dark">{{dashboard?.currentReading?.status}}</span></h2>
+          <p class="text-muted mb-0">{{dashboard?.currentReading?.timestamp}}</p>
         </div>
       </div>
 
@@ -28,7 +29,8 @@
       <div class="col-md-2">
         <div class="card p-3 dashboard-card h-100">
           <h6 class="text-primary">Weekly Average</h6>
-          <h2>95 <span class="badge bg-success">Good</span></h2>
+          <h2>{{dashboard?.weeklyAverage?.value}} <span
+              class="badge bg-success">{{dashboard?.weeklyAverage?.status}}</span></h2>
         </div>
       </div>
 
@@ -36,29 +38,29 @@
       <div class="col-md-4">
         <div class="card p-3 dashboard-card h-100">
           <h6 class="text-primary">Add New Reading</h6>
-          <form>
-            <input type="text" class="form-control mb-2" placeholder="Enter value" />
+          <form #readingForm="ngForm" (ngSubmit)="onSubmit(readingForm)">
+            <input type="text" class="form-control mb-2" placeholder="Enter value" name="sugarValue" ngModel required />
             <div class="mb-3">
               <label for="date-timeOfMeal" class="form-label">Time:</label>
-              <input type="datetime-local" class="form-control" id="date-timeOfMeal"
-                formControlName="date-timeOfMeal" />
+              <input type="datetime-local" class="form-control" id="date-timeOfMeal" name="dateTime" ngModel required />
             </div>
             <div>
-              <select>
+              <select name="timeOfMeal" ngModel required>
                 <option>Fasting</option>
                 <option>Post-Meal</option>
                 <option>Before Sleep</option>
               </select>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="unit" id="mg" value="mg/dL" checked/>
+              <input class="form-check-input" type="radio" name="unit" id="mg" value="mg/dL" ngModel required />
               <label class="form-check-label" for="mg">mg/dL</label>
             </div>
+
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="unit" id="mmol" value="mmol/L"/>
+              <input class="form-check-input" type="radio" name="unit" id="mmol" value="mmol/L" ngModel required />
               <label class="form-check-label" for="mmol">mmol/L</label>
             </div>
-            <button class="btn btn-primary btn-sm mt-2">
+            <button class="btn btn-primary btn-sm mt-2" [disabled]="readingForm.invalid">
               <i class="bi bi-plus-circle"></i> Save Reading
             </button>
           </form>
@@ -70,18 +72,17 @@
             👤 Benutzerprofil
           </div>
           <div class="card-body">
-            <ul class="list-unstyled mb-0">
-              <li><strong>Name:</strong> Max</li>
-              <li><strong>Nachname:</strong> Müster</li>
-              <li><strong>Alter:</strong> 42</li>
-              <li><strong>Diabetes-Typ:</strong> Typ 2</li>
-              <li><strong>Stadt:</strong> Schlieren</li>
-              <li><strong>Land:</strong> Schweiz</li>
+            <ul class="list-unstyled mb-0" *ngIf="user">
+              <li><strong>Name:</strong>{{user.name}}</li>
+              <li><strong>Nachname:</strong>{{user.lastName}}</li>
+              <li><strong>DoB:</strong> {{user.dob}}</li>
+              <li><strong>Diabetes-Type:</strong>{{user.diabetesType}}</li>
+              <li><strong>Unit:</strong>{{user.unit}}</li>
+              <li><strong>City:</strong> {{user.city}}</li>
+              <li><strong>Country:</strong> {{user.country}}</li>
             </ul>
           </div>
         </div>
-
-
       </div>
     </div>
 
@@ -118,8 +119,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Dritte Zeile: Daily Medication & Carbs Intake -->
     <div class="row gy-4 gx-3 mt-2">
       <!-- Daily Medication -->
       <div class="col-md-4">
@@ -139,14 +138,12 @@
           </div>
         </div>
       </div>
-
-      <!-- Carbs Intake -->
       <div class="col-md-4">
         <div class="card shadow-sm dashboard-card">
           <div class="card-body">
             <h5 class="card-title text-primary">HbA1c Prediction</h5>
             <p class="display-6 fw-bold text-success">
-              {{ predictedHbA1c }}%
+              {{dashboard?.currentReading?.predictedHbA1c }}%
             </p>
             <p class="text-muted mb-0">Estimated from recent glucose data</p>
           </div>
@@ -161,8 +158,7 @@
               🧠 Smart Insight
             </h6>
             <p class="mb-2">
-              „Deine abendlichen Blutzuckerwerte sind regelmäßig erhöht. Versuche, das Abendessen 1 Stunde früher zu
-              nehmen.“
+              {{dashboard?.insight?.text}}
             </p>
             <span class="badge bg-light text-dark">AI Suggestion</span>
           </div>
