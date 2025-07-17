@@ -1,4 +1,5 @@
 export interface Entry {
+  userId:string;
   dataEntryTime: Date;
   measurementTime: any;
   value: number;

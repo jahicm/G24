@@ -24,7 +24,7 @@ export class DataComponent implements OnInit {
   entries: Entry[] = [];
   pagedEntries: Entry[] = [];
   currentPage = 1;
-  pageSize = 3;
+  pageSize = 6;
   totalPages = 0;
   totalPagesArray: number[] = [];
   filteredValues: Entry[] = [];

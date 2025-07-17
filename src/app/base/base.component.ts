@@ -95,16 +95,17 @@ export class BaseComponent implements OnInit {
     const userId = form.userId;
     const measurementTime = formData.dateTime ? new Date(formData.dateTime) : new Date();
     const sugarValue = Number(formData.sugarValue);
-    const value = sugarValue;
+    const value = formData.timeOfMeal;
     const dataEntryTime = new Date();
     const referenceValue = 100; // example fixed value
-
+    const timeSlot = formData.measurementTime
     let status: 'normal' | 'high' | 'low' | 'elevated' = 'normal';
     if (sugarValue > 140) status = 'high';
     else if (sugarValue < 70) status = 'low';
     else if (sugarValue > 120) status = 'elevated';
 
     const newEntry: Entry = {
+      userId,
       dataEntryTime,
       measurementTime,
       sugarValue,
