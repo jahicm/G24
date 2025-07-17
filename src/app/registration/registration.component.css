@@ -1,0 +1,24 @@
+/* Zentriert das Formular */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card zentriert & schmal */
+.card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Optional: Button-Gruppe gleich breit */
+.btn-group label {
+  width: 100%;
+}
+
+/* Fehlermeldungen */
+.text-danger {
+  font-size: 0.875rem;
+  margin-top: 4px;
+}

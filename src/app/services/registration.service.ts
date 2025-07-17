@@ -2,17 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Data } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegistrationService {
-  
 
+  constructor(private httpClient: HttpClient) { }
 
-  constructor(private httpClient: HttpClient) {}
+  registerUser(user: User) {
+    console.log("Registration Service", user);
 
-   saveData(data: Data) {  
-     return this.httpClient.post<Data>(`${environment.apiBaseUrl}/data/savedata`, data);
-   }
+    return this.httpClient.post<User>(`${environment.apiBaseUrl}/data/registeruser`, user);
   }
+
+}
