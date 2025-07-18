@@ -4,9 +4,8 @@ import { ChartComponent } from '../chart/chart.component';
 import { Entry } from '../models/entry';
 import { SharedService } from '../services/shared.service';
 import { User } from '../models/user';
-import { UserService } from '../services/user.service';
 import { FormsModule } from '@angular/forms';
-import { Subject, takeUntil } from 'rxjs';
+import { filter, Subject, take, takeUntil } from 'rxjs';
 import { DiabetesDashboard } from '../models/dashboard/diabetes-dashboard';
 
 
@@ -32,17 +31,18 @@ export class BaseComponent implements OnInit {
   dashboard?: DiabetesDashboard;
   private destroy$ = new Subject<void>();
 
-  constructor(private sharedService: SharedService, private datePipe: DatePipe, private userService: UserService) { }
+  constructor(private sharedService: SharedService, private datePipe: DatePipe) { }
 
 
   ngOnInit(): void {
     const userId = "1"; // eventually from AuthService
 
-    this.sharedService.loadUser(userId);
+    this.sharedService.loadUser(userId, true);
     this.sharedService.loadEntries(userId);
+    this.sharedService.loadDashboard(userId, true);
 
     this.sharedService.user$
-      .pipe(takeUntil(this.destroy$))
+      .pipe(filter(user => !!user), take(1))  // Waits for real value
       .subscribe(user => {
         this.user = user;
       });
@@ -59,13 +59,11 @@ export class BaseComponent implements OnInit {
         this.generateGraph(fromDate, toDate);
       });
 
-    this.sharedService.loadDashboard(userId);
     this.sharedService.dashboardSubject$
       .pipe(takeUntil(this.destroy$))
       .subscribe(dashboard => {
         if (dashboard) {
           this.dashboard = dashboard;
-          console.log('Got diabetes dashboard:', dashboard);
         }
       });
   }

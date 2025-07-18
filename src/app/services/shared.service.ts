@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { User } from '../models/user';
 import { Entry } from '../models/entry';
 import { HttpClient } from '@angular/common/http';
@@ -11,11 +12,8 @@ import { DiabetesDashboard } from '../models/dashboard/diabetes-dashboard';
   providedIn: 'root'
 })
 export class SharedService {
-
-  private lastDashboardUserId: string | null = null;
   private userSubject = new BehaviorSubject<User | null>(null);
-
-  user$: Observable<User | null> = this.userSubject.asObservable();
+  user$ = this.userSubject.asObservable();
 
   private entriesSubject = new BehaviorSubject<Entry[]>([]);
   entries$: Observable<Entry[]> = this.entriesSubject.asObservable();
@@ -25,87 +23,157 @@ export class SharedService {
 
   private lastUserId: string | null = null;
   private lastEntriesUserId: string | null = null;
+  private lastDashboardUserId: string | null = null;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.loadUserFromSessionStorage();
+  }
 
-  /**
-   * Loads user only if not already loaded or if userId has changed
-   */
-  loadUser(userId: string): void {
-    if (this.lastUserId === userId && this.userSubject.value !== null) return;
+  private loadUserFromSessionStorage(): void {
+    const cachedUser = sessionStorage.getItem('cachedUser');
+    const cachedUserId = sessionStorage.getItem('lastUserId');
+    if (cachedUser && cachedUserId) {
+      console.log('Loading user from sessionStorage:', JSON.parse(cachedUser));
+      this.userSubject.next(JSON.parse(cachedUser));
+      this.lastUserId = cachedUserId;
+    } else {
+      console.log('No user data in sessionStorage');
+    }
+  }
+
+  private saveUserToSessionStorage(): void {
+    if (this.userSubject.value) {
+      console.log('Saving user to sessionStorage:', this.userSubject.value);
+      sessionStorage.setItem('cachedUser', JSON.stringify(this.userSubject.value));
+      sessionStorage.setItem('lastUserId', this.lastUserId || '');
+    }
+  }
+
+  loadUser(userId: string, forceReload: boolean = false): void {
+    if (!forceReload && this.lastUserId === userId && this.userSubject.value !== null) {
+      console.log('Using cached user from sessionStorage');
+      return;
+    }
+
+    if (!environment.production) {
+      console.log(`Loading user for ID: ${userId}`);
+    }
 
     this.httpClient.get<User>(`${environment.apiBaseUrl}/data/user/${userId}`)
-      .subscribe(user => {
-        this.lastUserId = userId;
-        if (!isEqual(this.userSubject.value, user)) {
-          this.userSubject.next(user);
-        }
-      });
+      .pipe(
+        catchError(error => {
+          console.error(`Error loading user for ID ${userId}:`, error);
+          return throwError(() => new Error('Failed to load user'));
+        }),
+        tap(user => {
+          this.lastUserId = userId;
+          if (!isEqual(this.userSubject.value, user)) {
+            this.userSubject.next(user);
+            this.saveUserToSessionStorage();
+            if (!environment.production) {
+              console.log(`Loaded user: ${user.lastName ?? 'Unknown'}`);
+            }
+          }
+        })
+      )
+      .subscribe();
   }
 
-  /**
-   * Loads entries only if not already loaded or if userId has changed
-   */
-  loadEntries(userId: string): void {
-    if (this.lastEntriesUserId === userId && this.entriesSubject.value.length > 0) return;
+  loadEntries(userId: string, forceReload: boolean = false): void {
+    if (!forceReload && this.lastEntriesUserId === userId && this.entriesSubject.value.length > 0) {
+      console.log('Using cached entries');
+      return;
+    }
 
     this.httpClient.get<Entry[]>(`${environment.apiBaseUrl}/data/getdata/${userId}`)
-      .subscribe(entries => {
-        this.lastEntriesUserId = userId;
-        if (!isEqual(this.entriesSubject.value, entries)) {
-          this.entriesSubject.next(entries);
-        }
-      });
+      .pipe(
+        catchError(error => {
+          console.error(`Error loading entries for ID ${userId}:`, error);
+          return throwError(() => new Error('Failed to load entries'));
+        }),
+        tap(entries => {
+          this.lastEntriesUserId = userId;
+          if (!isEqual(this.entriesSubject.value, entries)) {
+            this.entriesSubject.next(entries);
+            console.log('Updated entries:', entries);
+          }
+        })
+      )
+      .subscribe();
   }
 
-  /**
-   * Manual update for user with deep equality check
-   */
+  loadDashboard(userId: string, forceReload: boolean = false): void {
+    if (!forceReload && this.lastDashboardUserId === userId && this.dashboardSubject.value !== null) {
+      console.log('Using cached dashboard');
+      return;
+    }
+
+    this.httpClient.get(`${environment.apiBaseUrl}/data/dashboard/${userId}`)
+      .pipe(
+        catchError(error => {
+          console.error(`Error loading dashboard for ID ${userId}:`, error);
+          return throwError(() => new Error('Failed to load dashboard'));
+        }),
+        tap(response => {
+          console.log('Raw dashboard response:', response);
+          this.lastDashboardUserId = userId;
+          const dashboard = DiabetesDashboard.fromJson(JSON.stringify(response));
+          if (!isEqual(this.dashboardSubject.value, dashboard)) {
+            this.dashboardSubject.next(dashboard);
+            console.log('Updated dashboard:', dashboard);
+          }
+        })
+      )
+      .subscribe();
+  }
+
   updateUser(user: User): void {
     if (!isEqual(this.userSubject.value, user)) {
       this.userSubject.next(user);
+      this.saveUserToSessionStorage();
+      this.lastDashboardUserId = null;
+      this.dashboardSubject.next(null);
+      console.log('User updated, dashboard cache invalidated');
     }
   }
 
-  /**
-   * Manual update for entries with deep equality check
-   */
   updateEntries(entries: Entry[]): void {
     if (!isEqual(this.entriesSubject.value, entries)) {
       this.entriesSubject.next(entries);
+      console.log('Entries updated:', entries);
     }
   }
 
-  loadDashboard(userId: string): void {
-    if (this.lastDashboardUserId === userId && this.dashboardSubject.value !== null) return;
-
-    this.httpClient.get(`${environment.apiBaseUrl}/data/dashboard/${userId}`)
-      .subscribe(response => {
-        this.lastDashboardUserId = userId;
-
-        // Convert raw response JSON to DiabetesDashboard instance
-        const dashboard = DiabetesDashboard.fromJson(JSON.stringify(response));
-
-        if (!isEqual(this.dashboardSubject.value, dashboard)) {
-          this.dashboardSubject.next(dashboard);
-        }
-      });
+  addEntry(userId: string, entry: Entry): Observable<Entry> {
+    return this.httpClient.post<Entry>(`${environment.apiBaseUrl}/data/savedata`, entry)
+      .pipe(
+        tap(newEntry => {
+          if (this.lastEntriesUserId === userId) {
+            const currentEntries = this.entriesSubject.value;
+            const updatedEntries = [...currentEntries, newEntry];
+            this.entriesSubject.next(updatedEntries);
+            console.log('Added new entry:', newEntry);
+          }
+          this.lastDashboardUserId = null;
+          this.dashboardSubject.next(null);
+          console.log('Dashboard cache invalidated after adding entry');
+        }),
+        catchError(error => {
+          console.error('Error adding entry:', error);
+          return throwError(() => new Error('Failed to add entry'));
+        })
+      );
   }
 
-
-  /**
-   * Optional: Clear stored data (e.g. on logout)
-   */
   clear(): void {
     this.lastUserId = null;
     this.lastEntriesUserId = null;
+    this.lastDashboardUserId = null;
     this.userSubject.next(null);
     this.entriesSubject.next([]);
     this.dashboardSubject.next(null);
-    this.lastDashboardUserId = null;
+    sessionStorage.removeItem('cachedUser');
+    sessionStorage.removeItem('lastUserId');
+    console.log('SharedService cleared');
   }
-  addEntry(userId: string, entry: Entry): Observable<Entry> {
-    return this.httpClient.post<Entry>(`${environment.apiBaseUrl}/data/savedata`, entry);
-  }
-
 }

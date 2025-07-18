@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegistrationService } from '../services/registration.service';
 import { User } from '../models/user';
+import { SharedService } from '../services/shared.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-registration',
@@ -13,11 +15,11 @@ import { User } from '../models/user';
   ],
   styleUrls: ['./registration.component.css']
 })
-export class RegistrationComponent {
+export class RegistrationComponent implements OnInit {
   dataForm: FormGroup;
   medications: string[] = ['No medications', 'Insulin', 'Tablets'];
   user: User = {
-    userId: '',
+    userId: '2',
     name: '',
     lastName: '',
     dob: new Date(),
@@ -26,8 +28,9 @@ export class RegistrationComponent {
     diabetesType: '',
     medications: ''
   };
+  destroy$ = new Subject<void>();
 
-  constructor(private fb: FormBuilder, private registrationService: RegistrationService) {
+  constructor(private fb: FormBuilder, private registrationService: RegistrationService, private sharedService: SharedService) {
     this.dataForm = this.fb.group({
       name: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -38,7 +41,21 @@ export class RegistrationComponent {
       medication: ['', Validators.required],
     });
   }
+  ngOnInit(): void {
 
+    this.sharedService.loadUser(this.user.userId,true);
+    this.sharedService.user$.subscribe(user => {
+      if (user) {
+        this.user = user;
+        this.dataForm.patchValue(user);
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
   onSubmit() {
     if (this.dataForm.valid) {
 

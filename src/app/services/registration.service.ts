@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Data } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { User } from '../models/user';
 
@@ -13,7 +12,7 @@ export class RegistrationService {
 
   registerUser(user: User) {
     console.log("Registration Service", user);
-
+   
     return this.httpClient.post<User>(`${environment.apiBaseUrl}/data/registeruser`, user);
   }
 
