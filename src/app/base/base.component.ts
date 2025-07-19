@@ -38,7 +38,7 @@ export class BaseComponent implements OnInit {
     const userId = "1"; // eventually from AuthService
 
     this.sharedService.loadUser(userId, true);
-    this.sharedService.loadEntries(userId);
+    this.sharedService.loadEntries(userId,true);
     this.sharedService.loadDashboard(userId, true);
 
     this.sharedService.user$

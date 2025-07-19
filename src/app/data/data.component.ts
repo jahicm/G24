@@ -41,20 +41,18 @@ export class DataComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.sharedService.loadUser(this.userId);
-    this.sharedService.loadEntries(this.userId);
     this.sharedService.user$.subscribe(user => {
       if (user) {
         this.user = user;
       }
     });
-
     this.sharedService.entries$.subscribe(entries => {
       this.filteredValues = entries.slice();
       this.entries = entries;
       this.setupPagination();
     });
-
+    this.sharedService.loadUser(this.userId);
+    this.sharedService.loadEntries(this.userId);
   }
 
   setupPagination(): void {

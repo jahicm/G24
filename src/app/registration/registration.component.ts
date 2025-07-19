@@ -19,7 +19,7 @@ export class RegistrationComponent implements OnInit {
   dataForm: FormGroup;
   medications: string[] = ['No medications', 'Insulin', 'Tablets'];
   user: User = {
-    userId: '2',
+    userId: '1',
     name: '',
     lastName: '',
     dob: new Date(),
@@ -28,7 +28,6 @@ export class RegistrationComponent implements OnInit {
     diabetesType: '',
     medications: ''
   };
-  destroy$ = new Subject<void>();
 
   constructor(private fb: FormBuilder, private registrationService: RegistrationService, private sharedService: SharedService) {
     this.dataForm = this.fb.group({
@@ -43,27 +42,33 @@ export class RegistrationComponent implements OnInit {
   }
   ngOnInit(): void {
 
-    this.sharedService.loadUser(this.user.userId,true);
+    
     this.sharedService.user$.subscribe(user => {
       if (user) {
         this.user = user;
         this.dataForm.patchValue(user);
       }
     });
+    this.sharedService.loadUser(this.user.userId, false);
   }
 
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
-  onSubmit() {
-    if (this.dataForm.valid) {
-
-      this.user = this.dataForm.value;
-      this.registrationService.registerUser(this.user).subscribe({
-        next: (response) => console.log('User registered:', response),
-        error: (err) => console.error('Registration failed:', err)
-      });
+  onSubmit(): void {
+    if (this.dataForm.invalid) {
+      return;
     }
+
+    this.user = this.dataForm.value;
+
+    this.registrationService.registerUser(this.user).subscribe({
+      next: (response) => {
+        console.log('User registered:', response);
+        alert("Thank you!!");
+      },
+      error: (err) => {
+        console.error('Registration failed:', err);
+        alert("Registration failed. Please try again.");
+      }
+    });
   }
 }
+
