@@ -1,0 +1,104 @@
+{
+    "navigationbar": {
+        "home": "Startseite",
+        "registration": "Registrierung",
+        "history": "Verlauf",
+        "lab-report": "Laborbericht",
+        "statistics": "Statistiken"
+    },
+    "dashboard": {
+        "latest_reading": {
+            "latest-reading": "Neueste Messung"
+        },
+        "average": {
+            "weekly-average": "Wöchentlicher Durchschnitt"
+        },
+        "status": {
+            "normal": "Normal",
+            "high": "Hoch",
+            "low": "Niedrig",
+            "elevated": "Erhöht"
+        },
+        "add_reading": {
+            "add-new-reading": "Neue Blutzucker-Messung hinzufügen",
+            "placeholder": "Neuen Wert eingeben",
+            "time": "Messzeitpunkt",
+            "fasting": "Nüchtern",
+            "post-meal": "Nach der Mahlzeit",
+            "before-sleep": "Vor dem Schlafengehen",
+            "save-reading": "Messung speichern"
+        },
+        "user_profile": {
+            "user-profile": "Benutzerprofil:",
+            "name": "Vorname",
+            "surname": "Nachname",
+            "dob": "Geburtsdatum",
+            "diabetes-type": "Diabetestyp",
+            "unit": "Maßeinheit",
+            "city": "Stadt",
+            "country": "Land"
+        },
+        "summary": {
+            "data-summary": "Datenübersicht",
+            "weekly-avg": "Wöchentlicher Durchschnitt",
+            "readings": "Messungen",
+            "best-time": "Beste Zeit",
+            "worst-time": "Schlechteste Zeit",
+            "tip": "Tipp",
+            "stable": "Stabil",
+            "last-week": "Letzte 7 Tage",
+            "ai-summary": "KI-Zusammenfassung"
+        },
+        "smart_insight": {
+            "smart-insight": "Intelligente Erkenntnisse",
+            "ai-suggestion": "KI-Vorschlag"
+        },
+        "hba1c": {
+            "prediction": "HbA1c-Prognose",
+            "estimation": "Geschätzt aus aktuellen Glukosedaten"
+        },
+        "medications": {
+            "daily-medications": "Tägliche Medikation"
+        },
+        "line-chart": {
+            "weekly": "Wöchentliche Übersicht",
+            "chart-title": "Blutzuckerwert"
+        }
+    },
+    "registration": {
+        "title": "Registrierung",
+        "name": "Vorname",
+        "surname": "Nachname",
+        "dob": "Geburtsdatum",
+        "city": "Stadt",
+        "country": "Land",
+        "unit": "Bevorzugte Einheit",
+        "diabetes-type": "Diabetes-Typ",
+        "medication": "Medikation",
+        "select-medication": "Medikation auswählen",
+        "error-diabetes-type": "Bitte wählen Sie einen Diabetes-Typ aus",
+        "error-medication": "Bitte wählen Sie eine Medikation aus",
+        "send": "Senden",
+        "diabetes-type-1": "Typ 1",
+        "diabetes-type-2": "Typ 2",
+        "tablets": "Tabletten",
+        "insulin": "Insulin",
+        "no-medication": "Keine Medikation",
+        "select-option": "Medikation auswählen"
+    },
+    "statistics": {
+        "sugar-statistics": "Blutzuckerstatistik",
+        "start-date": "Startdatum",
+        "end-date": "Enddatum",
+        "start": "Start",
+        "normal": "Normal",
+        "high": "Hoch",
+        "low": "Niedrig",
+        "elevated": "Erhöht"
+    },
+    "analyser": {
+        "title": "PDF-Upload für KI-Analyse",
+        "upload": "Hochladen & Analysieren",
+        "analysys": "KI-Analyse"
+    }
+}

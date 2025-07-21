@@ -1,0 +1,104 @@
+{
+    "navigationbar": {
+        "home": "Home",
+        "registration": "Registration",
+        "history": "History",
+        "lab-report": "Lab Report",
+        "statistics": "Statistics"
+    },
+    "dashboard": {
+        "latest_reading": {
+            "latest-reading": "Latest Reading"
+        },
+        "average": {
+            "weekly-average": "Weekly Average"
+        },
+        "status": {
+            "normal": "normal",
+            "high": "High",
+            "low": "Low",
+            "elevated": "Elevated"
+        },
+        "add_reading": {
+            "add-new-reading": "Add New Sugar Reading",
+            "placeholder": "Enter new value",
+            "time": "Measured Time",
+            "fasting": "Fasting",
+            "post-meal": "Post-Meal",
+            "before-sleep": "Before-Sleep",
+            "save-reading": "Save Reading"
+        },
+        "user_profile": {
+            "user-profile": "User Profile:",
+            "name": "Name",
+            "surname": "Surname",
+            "dob": "DoB",
+            "diabetes-type": "Diabetes-Type",
+            "unit": "Measuring Unit",
+            "city": "City",
+            "country": "Country"
+        },
+        "summary": {
+            "data-summary": "Data Summary",
+            "weekly-avg": "Weekly Avg",
+            "readings": "Readings",
+            "best-time": "Best Time",
+            "worst-time": "Worst Time",
+            "tip": "Tip",
+            "stable": "Stable",
+            "last-week": "Last 7 days",
+            "ai-summary": "AI Summary"
+        },
+        "smart_insight": {
+            "smart-insight": "Smart Insight",
+            "ai-suggestion": "AI Suggestion"
+        },
+        "hba1c": {
+            "prediction": "HbA1c Prediction",
+            "estimation": "Estimated from recent glucose data"
+        },
+        "medications": {
+            "daily-medications": "Daily Medication"
+        },
+        "line-chart": {
+            "weekly": "Weekly Overview",
+            "chart-title": "Blood Sugar Value"
+        }
+    },
+    "registration": {
+        "title": "Registration",
+        "name": "Name",
+        "surname": "Surname",
+        "dob": "Date of Birth",
+        "city": "City",
+        "country": "Country",
+        "unit": "Preferred Unit",
+        "diabetes-type": "Diabetes Type",
+        "medication": "Medication",
+        "select-medication": "Select Medication",
+        "error-diabetes-type": "Please select diabetes type",
+        "error-medication": "Please select medication",
+        "send": "Send",
+        "diabetes-type-1": "Type 1",
+        "diabetes-type-2": "Type 2",
+        "tablets": "Tablets",
+        "insulin": "Insulin",
+        "no-medication": "No medications",
+        "select-option": "Select medication"
+    },
+    "statistics": {
+        "sugar-statistics":"Sugar Statistics",
+        "start-date":"Start Date",
+        "end-date":"End Date",
+        "start":"Start",
+        "normal":"Normal",
+        "high":"High",
+        "low":"Low",
+        "elevated":"Elevated"
+    },
+    "analyser":{
+        "title":"PDF upload for AI analysys",
+        "upload":"Upload & Analyse",
+        "analysys":"AI Analys"
+    }
+}

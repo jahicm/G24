@@ -13,12 +13,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
-                <label for="startDate" class="form-label">Start Date:</label>
+                <label for="startDate" class="form-label">{{'statistics.start-date' | translate}}:</label>
                 <input id="startDate" [(ngModel)]="startDate" type="date" class="form-control mb-4">
 
-                <label for="endDate" class="form-label">End Date:</label>
+                <label for="endDate" class="form-label">{{'statistics.end-date' | translate}}:</label>
                 <input id="endDate" [(ngModel)]="endDate" type="date" class="form-control mb-4">
-                <button class="btn btn-primary btn-sm" (click)="filterPieChart()">Start</button>
+                <button class="btn btn-primary btn-sm" (click)="filterPieChart()">{{'statistics.start' | translate}}</button>
             </div>
             <div class="col-md-10">
                 <app-piechart [data]="data"></app-piechart>

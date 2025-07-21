@@ -7,11 +7,12 @@ import { User } from '../models/user';
 import { FormsModule } from '@angular/forms';
 import { filter, Subject, take, takeUntil } from 'rxjs';
 import { DiabetesDashboard } from '../models/dashboard/diabetes-dashboard';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-base',
-  imports: [CommonModule, ChartComponent, FormsModule],
+  imports: [CommonModule, ChartComponent, FormsModule,TranslateModule],
   templateUrl: './base.component.html',
   styleUrl: './base.component.css',
 })

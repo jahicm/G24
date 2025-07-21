@@ -1,20 +1,39 @@
 import { Component, Input, OnChanges, SimpleChanges, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-piechart',
   standalone: true,
   templateUrl: './pie-chart.component.html',
+  imports: [TranslateModule],
   styleUrls: ['./pie-chart.component.css']
 })
 export class PieChartComponent implements OnChanges, AfterViewInit {
   @Input() data: number[] = [];
   @ViewChild('pieCanvas', { static: false }) pieCanvas!: ElementRef<HTMLCanvasElement>;
-
+  chartLabel: string = '';
   public chart: any;
-  labels: string[] = ['Normal', 'High', 'Low', 'Elevated'];
+  labels: string[] = [];
   isViewInitialized = false;
 
+  constructor(private translate: TranslateService) {
+    this.translate.get([
+      'statistics.sugar-statistics',
+      'statistics.normal',
+      'statistics.high',
+      'statistics.low',
+      'statistics.elevated'
+    ]).subscribe(translations => {
+      this.chartLabel = translations['statistics.sugar-statistics'];
+      this.labels = [
+        translations['statistics.normal'],
+        translations['statistics.high'],
+        translations['statistics.low'],
+        translations['statistics.elevated']
+      ];
+    });
+  }
   ngAfterViewInit() {
     this.isViewInitialized = true;
     if (this.data.length > 0) {
@@ -53,7 +72,7 @@ export class PieChartComponent implements OnChanges, AfterViewInit {
         plugins: {
           title: {
             display: true,
-            text: 'Sugar Statistics',
+            text: this.chartLabel,
             font: {
               size: 24,
               weight: 'bold',

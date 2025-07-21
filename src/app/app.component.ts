@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { FooterComponent } from "./footer/footer.component";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,9 @@ import { FooterComponent } from "./footer/footer.component";
 })
 export class AppComponent {
   title = 'G24';
+
+  constructor(private translateService: TranslateService)
+  {
+      translateService.setDefaultLang("en");
+  }
 }

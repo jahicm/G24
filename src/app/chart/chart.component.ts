@@ -2,40 +2,41 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 import { ChartType } from 'chart.js';
 import { CommonModule } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-chart',
-  imports: [CommonModule, BaseChartDirective],
+  imports: [CommonModule, BaseChartDirective, TranslateModule],
   templateUrl: './chart.component.html',
   styleUrl: './chart.component.css',
 })
 export class ChartComponent implements OnChanges {
-  chartLabel: string = 'Blood Sugar Value';
+  chartLabel: string = 'Blood sugar value';
   lineChartType: ChartType = 'line';
   @Input() lineChartLabels: string[] = [];
   @Input() data: number[] = [];
   lineChartData: any;
   lineChartOptions: any;
 
-  constructor() {
-
+  constructor(private translate: TranslateService) {
+    this.translate.get('dashboard.line-chart.chart-title').subscribe((label: string) => {
+      this.chartLabel = label;
+      this.updateChartData();
+    });
     this.lineChartOptions = {
-      responsive: true,
+     
       scales: {
         x: {
           title: {
             display: true,
-            text: 'Date/Time',
+            
           },
-          ticks: {
-            autoSkip: true,
-            maxTicksLimit: 10,
-          },
-        },
+          
+      },
         y: {
           title: {
             display: true,
-            text: 'Value (mg/dL)',
+            
           },
         },
       },

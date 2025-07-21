@@ -1,0 +1,104 @@
+{
+    "navigationbar": {
+        "home": "Casa",
+        "registration": "Registrazione",
+        "history": "Cronologia",
+        "lab-report": "Referto di laboratorio",
+        "statistics": "Statistiche"
+    },
+    "dashboard": {
+        "latest_reading": {
+            "latest-reading": "Ultima lettura"
+        },
+        "average": {
+            "weekly-average": "Media settimanale"
+        },
+        "status": {
+            "normal": "Normale",
+            "high": "Alto",
+            "low": "Basso",
+            "elevated": "Elevato"
+        },
+        "add_reading": {
+            "add-new-reading": "Aggiungi nuova lettura di glucosio",
+            "placeholder": "Inserisci nuovo valore",
+            "time": "Orario della misurazione",
+            "fasting": "A digiuno",
+            "post-meal": "Post-pasto",
+            "before-sleep": "Prima di dormire",
+            "save-reading": "Salva lettura"
+        },
+        "user_profile": {
+            "user-profile": "Profilo utente:",
+            "name": "Nome",
+            "surname": "Cognome",
+            "dob": "Data di nascita",
+            "diabetes-type": "Tipo di diabete",
+            "unit": "Unità di misura",
+            "city": "Città",
+            "country": "Paese"
+        },
+        "summary": {
+            "data-summary": "Riepilogo dati",
+            "weekly-avg": "Media settimanale",
+            "readings": "Letture",
+            "best-time": "Miglior momento",
+            "worst-time": "Peggior momento",
+            "tip": "Suggerimento",
+            "stable": "Stabile",
+            "last-week": "Ultimi 7 giorni",
+            "ai-summary": "Riepilogo AI"
+        },
+        "smart_insight": {
+            "smart-insight": "Insight intelligente",
+            "ai-suggestion": "Suggerimento AI"
+        },
+        "hba1c": {
+            "prediction": "Previsione HbA1c",
+            "estimation": "Stimato dai dati recenti di glucosio"
+        },
+        "medications": {
+            "daily-medications": "Farmaci giornalieri"
+        },
+        "line-chart": {
+            "weekly": "Panoramica settimanale",
+            "chart-title": "Valore di glucosio nel sangue"
+        }
+    },
+    "registration": {
+        "title": "Registrazione",
+        "name": "Nome",
+        "surname": "Cognome",
+        "dob": "Data di nascita",
+        "city": "Città",
+        "country": "Paese",
+        "unit": "Unità preferita",
+        "diabetes-type": "Tipo di diabete",
+        "medication": "Farmaco",
+        "select-medication": "Seleziona farmaco",
+        "error-diabetes-type": "Seleziona il tipo di diabete",
+        "error-medication": "Seleziona un farmaco",
+        "send": "Invia",
+        "diabetes-type-1": "Tipo 1",
+        "diabetes-type-2": "Tipo 2",
+        "tablets": "Compresse",
+        "insulin": "Insulina",
+        "no-medication": "Nessun farmaco",
+        "select-option": "Seleziona farmaco"
+    },
+    "statistics": {
+        "sugar-statistics": "Statistiche della glicemia",
+        "start-date": "Data di inizio",
+        "end-date": "Data di fine",
+        "start": "Avvia",
+        "normal": "Normale",
+        "high": "Alto",
+        "low": "Basso",
+        "elevated": "Elevato"
+    },
+    "analyser": {
+        "title": "Caricamento PDF per analisi AI",
+        "upload": "Carica e Analizza",
+        "analysys": "Analisi AI"
+    }
+}

@@ -5,11 +5,11 @@ import { User } from '../models/user';
 import { Entry } from '../models/entry';
 import { Utility } from '../utils/utility';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-statistics',
-  standalone: true, // ✅ Ensure standalone is set
-  imports: [PieChartComponent, FormsModule],
+  imports: [PieChartComponent, FormsModule,TranslateModule],
   templateUrl: './statistics.component.html',
   styleUrl: './statistics.component.css'
 })
@@ -31,7 +31,7 @@ export class StatisticsComponent implements OnInit {
   entries: Entry[] = [];
   data: number[] = [];
   filteredGraphValues: Entry[] = [];
-  isLoading: boolean = true; // ✅ Optional loading indicator
+  isLoading: boolean = true; 
 
   constructor(private sharedService: SharedService) { }
 

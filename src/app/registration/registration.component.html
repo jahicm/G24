@@ -1,11 +1,11 @@
 <div class="container my-5">
-  <h1 class="text-center mb-4">Registration</h1>
+  <h1 class="text-center mb-4">{{'registration.title' | translate}}</h1>
 
   <div class="card shadow p-4 col-12 col-md-6 mx-auto">
     <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
       <!-- Name -->
       <div class="mb-3">
-        <label for="name" class="form-label"><b>Name:</b></label>
+        <label for="name" class="form-label"><b>{{'registration.name' | translate}}:</b></label>
         <input type="text" id="name" class="form-control" formControlName="name">
         <div *ngIf="dataForm.get('name')?.touched && dataForm.get('name')?.invalid" class="text-danger">
           Name is required.
@@ -14,7 +14,7 @@
 
       <!-- Last Name -->
       <div class="mb-3">
-        <label for="lastName" class="form-label"><b>Last Name:</b></label>
+        <label for="lastName" class="form-label"><b>{{'registration.surname' | translate}}:</b></label>
         <input type="text" id="lastName" class="form-control" formControlName="lastName">
         <div *ngIf="dataForm.get('lastName')?.touched && dataForm.get('lastName')?.invalid" class="text-danger">
           Last Name is required.
@@ -23,16 +23,23 @@
 
       <!-- Date of Birth -->
       <div class="mb-3">
-        <label for="dob" class="form-label"><b>Date of Birth:</b></label>
+        <label for="dob" class="form-label"><b>{{'registration.dob' | translate}}:</b></label>
         <input type="date" id="dob" class="form-control" formControlName="dob">
         <div *ngIf="dataForm.get('dob')?.touched && dataForm.get('dob')?.invalid" class="text-danger">
           Date of Birth is required.
         </div>
       </div>
-
+      <!-- City -->
+      <div class="mb-3">
+        <label for="city" class="form-label"><b>{{'registration.city' | translate}}:</b></label>
+        <input type="text" id="city" class="form-control" formControlName="city">
+        <div *ngIf="dataForm.get('city')?.touched && dataForm.get('city')?.invalid" class="text-danger">
+          City required
+        </div>
+      </div>
       <!-- Country -->
       <div class="mb-3">
-        <label for="country" class="form-label"><b>Country:</b></label>
+        <label for="country" class="form-label"><b>{{'registration.country' | translate}}:</b></label>
         <input type="text" id="country" class="form-control" formControlName="country">
         <div *ngIf="dataForm.get('country')?.touched && dataForm.get('country')?.invalid" class="text-danger">
           Country is required.
@@ -41,7 +48,7 @@
 
       <!-- Preferred Unit -->
       <div class="mb-3">
-        <label class="form-label"><b>Preferred Unit:</b></label>
+        <label class="form-label"><b>{{'registration.unit' | translate}}:</b></label>
         <div class="btn-group d-flex" role="group">
           <input type="radio" class="btn-check" id="unit-mg" value="mg/dL" formControlName="unit">
           <label class="btn btn-outline-primary w-50" for="unit-mg">mg/dL</label>
@@ -56,34 +63,36 @@
 
       <!-- Diabetes Type -->
       <div class="mb-3">
-        <label class="form-label"><b>Diabetes Type:</b></label>
+        <label class="form-label"><b>{{'registration.diabetes-type' | translate}}:</b></label>
         <div class="btn-group d-flex" role="group">
           <input type="radio" class="btn-check" id="type1" value="Type 1" formControlName="diabetesType">
-          <label class="btn btn-outline-primary w-50" for="type1">Type 1</label>
+          <label class="btn btn-outline-primary w-50" for="type1">{{'registration.diabetes-type-1' | translate}}</label>
 
           <input type="radio" class="btn-check" id="type2" value="Type 2" formControlName="diabetesType">
-          <label class="btn btn-outline-primary w-50" for="type2">Type 2</label>
+          <label class="btn btn-outline-primary w-50" for="type2">{{'registration.diabetes-type-2' | translate}}</label>
         </div>
         <div *ngIf="dataForm.get('diabetesType')?.touched && dataForm.get('diabetesType')?.invalid" class="text-danger">
-          Please select a diabetes type.
+          {{'error-diabetes-type' | translate}}:
         </div>
       </div>
 
       <!-- Medication Dropdown -->
       <div class="mb-3">
-        <label for="medication" class="form-label"><b>Medication:</b></label>
+        <label for="medication" class="form-label"><b>{{'registration.medication' | translate}}:</b></label>
         <select id="medication" class="form-select" formControlName="medication">
-          <option value="" disabled selected>Select medication</option>
-          <option *ngFor="let med of medications" [value]="med">{{ med }}</option>
+          <option value="" disabled>{{'registration.select-medication' | translate}}</option>
+          <option value="No medications">{{'registration.no-medication' | translate}}</option>
+          <option value="Insulin">{{'registration.insulin' | translate}}</option>
+          <option value="Tablets">{{'registration.tablets' | translate}}</option>
         </select>
         <div *ngIf="dataForm.get('medication')?.touched && dataForm.get('medication')?.invalid" class="text-danger">
-          Please select a medication.
+          {{'registration.error-medication' | translate}}
         </div>
       </div>
-
       <!-- Submit Button -->
       <div class="d-grid">
-        <button type="submit" class="btn btn-primary" [disabled]="dataForm.invalid">Send</button>
+        <button type="submit" class="btn btn-primary" [disabled]="dataForm.invalid">{{'registration.send' |
+          translate}}</button>
       </div>
     </form>
   </div>

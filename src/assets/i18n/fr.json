@@ -1,0 +1,104 @@
+{
+    "navigationbar": {
+        "home": "Accueil",
+        "registration": "Inscription",
+        "history": "Historique",
+        "lab-report": "Rapport de laboratoire",
+        "statistics": "Statistiques"
+    },
+    "dashboard": {
+        "latest_reading": {
+            "latest-reading": "Dernière mesure"
+        },
+        "average": {
+            "weekly-average": "Moyenne hebdomadaire"
+        },
+        "status": {
+            "normal": "Normal",
+            "high": "Élevé",
+            "low": "Bas",
+            "elevated": "Augmenté"
+        },
+        "add_reading": {
+            "add-new-reading": "Ajouter une nouvelle mesure de glycémie",
+            "placeholder": "Entrer une nouvelle valeur",
+            "time": "Heure de la mesure",
+            "fasting": "À jeun",
+            "post-meal": "Après le repas",
+            "before-sleep": "Avant le coucher",
+            "save-reading": "Enregistrer la mesure"
+        },
+        "user_profile": {
+            "user-profile": "Profil utilisateur :",
+            "name": "Prénom",
+            "surname": "Nom",
+            "dob": "Date de naissance",
+            "diabetes-type": "Type de diabète",
+            "unit": "Unité de mesure",
+            "city": "Ville",
+            "country": "Pays"
+        },
+        "summary": {
+            "data-summary": "Résumé des données",
+            "weekly-avg": "Moyenne hebdomadaire",
+            "readings": "Mesures",
+            "best-time": "Meilleur moment",
+            "worst-time": "Pire moment",
+            "tip": "Conseil",
+            "stable": "Stable",
+            "last-week": "7 derniers jours",
+            "ai-summary": "Résumé IA"
+        },
+        "smart_insight": {
+            "smart-insight": "Analyse intelligente",
+            "ai-suggestion": "Suggestion IA"
+        },
+        "hba1c": {
+            "prediction": "Prédiction HbA1c",
+            "estimation": "Estimé à partir des données récentes de glycémie"
+        },
+        "medications": {
+            "daily-medications": "Médicaments quotidiens"
+        },
+        "line-chart": {
+            "weekly": "Aperçu hebdomadaire",
+            "chart-title": "Valeur de glycémie"
+        }
+    },
+    "registration": {
+        "title": "Inscription",
+        "name": "Prénom",
+        "surname": "Nom",
+        "dob": "Date de naissance",
+        "city": "Ville",
+        "country": "Pays",
+        "unit": "Unité préférée",
+        "diabetes-type": "Type de diabète",
+        "medication": "Médicament",
+        "select-medication": "Sélectionnez un médicament",
+        "error-diabetes-type": "Veuillez sélectionner un type de diabète",
+        "error-medication": "Veuillez sélectionner un médicament",
+        "send": "Envoyer",
+        "diabetes-type-1": "Type 1",
+        "diabetes-type-2": "Type 2",
+        "tablets": "Comprimés",
+        "insulin": "Insuline",
+        "no-medication": "Aucun médicament",
+        "select-option": "Sélectionnez un médicament"
+    },
+    "statistics": {
+        "sugar-statistics": "Statistiques de glycémie",
+        "start-date": "Date de début",
+        "end-date": "Date de fin",
+        "start": "Démarrer",
+        "normal": "Normal",
+        "high": "Élevé",
+        "low": "Faible",
+        "elevated": "Modérément élevé"
+    },
+    "analyser": {
+        "title": "Téléchargement de PDF pour analyse par IA",
+        "upload": "Télécharger et analyser",
+        "analysys": "Analyse IA"
+    }
+}

@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { AnalyserService } from '../services/analyser.service';
 import { HttpEventType } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-analyser',
   templateUrl: './analyser.component.html',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   styleUrls: ['./analyser.component.css']
 })
 export class AnalyserComponent {

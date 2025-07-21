@@ -4,25 +4,26 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { RegistrationService } from '../services/registration.service';
 import { User } from '../models/user';
 import { SharedService } from '../services/shared.service';
-import { Subject } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   imports: [
 
-    ReactiveFormsModule, CommonModule
+    ReactiveFormsModule, CommonModule,TranslateModule
   ],
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
   dataForm: FormGroup;
-  medications: string[] = ['No medications', 'Insulin', 'Tablets'];
+  medications: string[] = ['select-option','no-medication', 'insulin', 'tablets'];
   user: User = {
     userId: '1',
     name: '',
     lastName: '',
     dob: new Date(),
+    city:'',
     country: '',
     unit: '',
     diabetesType: '',
@@ -35,6 +36,7 @@ export class RegistrationComponent implements OnInit {
       lastName: ['', Validators.required],
       dob: ['', Validators.required],
       country: ['', Validators.required],
+      city: ['', Validators.required],
       unit: ['', Validators.required],
       diabetesType: ['', Validators.required],
       medication: ['', Validators.required],
