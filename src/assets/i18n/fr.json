@@ -100,5 +100,34 @@
         "title": "Téléchargement de PDF pour analyse par IA",
         "upload": "Télécharger et analyser",
         "analysys": "Analyse IA"
+    },
+    "data": {
+        "title": "Valeurs historiques de la glycémie",
+        "sortByDate": "Trier par date",
+        "default": "Par défaut",
+        "descending": "Descendant",
+        "ascending": "Ascendant",
+        "sortByValue": "Trier par valeur",
+        "highToLow": "De haut en bas",
+        "lowToHigh": "De bas en haut",
+        "filterByStatus": "Filtrer par statut",
+        "high": "Élevé",
+        "low": "Bas",
+        "normal": "Normal",
+        "elevated": "Élevé",
+        "dataEntryTime": "Heure de saisie des données",
+        "measurementTime": "Heure de mesure",
+        "sugarValue": "Valeur de glycémie",
+        "referenceValue": "Valeur de référence",
+        "status": {
+            "normal": "Normal",
+            "high": "Très élevé",
+            "low": "Bas",
+            "elevated": "Élevé"
+        },
+        "previous": "Précédent",
+        "next": "Suivant",
+        "sugarStatus": "Statut de la glycémie",
+        "graph":"Graphique"
     }
 }

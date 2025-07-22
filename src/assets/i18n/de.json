@@ -100,5 +100,34 @@
         "title": "PDF-Upload für KI-Analyse",
         "upload": "Hochladen & Analysieren",
         "analysys": "KI-Analyse"
+    },
+    "data": {
+        "title": "Historische Blutzuckerwerte",
+        "sortByDate": "Nach Datum sortieren",
+        "default": "Standard",
+        "descending": "Absteigend",
+        "ascending": "Aufsteigend",
+        "sortByValue": "Nach Wert sortieren",
+        "highToLow": "Hoch zu Niedrig",
+        "lowToHigh": "Niedrig zu Hoch",
+        "filterByStatus": "Nach Status filtern",
+        "high": "Hoch",
+        "low": "Niedrig",
+        "normal": "Normal",
+        "elevated": "Erhöht",
+        "dataEntryTime": "Dateneingabezeit",
+        "measurementTime": "Messzeit",
+        "sugarValue": "Blutzuckerwert",
+        "referenceValue": "Referenzwert",
+        "status": {
+            "normal": "Normal",
+            "high": "Hoch",
+            "low": "Niedrig",
+            "elevated": "Erhöht"
+        },
+        "previous": "Vorherige",
+        "next": "Nächste",
+        "sugarStatus": "Blutzuckerstatus",
+        "graph":"Diagramm"
     }
 }

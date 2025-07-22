@@ -10,11 +10,12 @@ import { Utility } from '../utils/utility';
 import { DataService } from '../services/dataservice.service';
 import { User } from '../models/user';
 import { SharedService } from '../services/shared.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-data',
   standalone: true,
-  imports: [CommonModule, ChartComponent, FormsModule],
+  imports: [CommonModule, ChartComponent, FormsModule,TranslateModule],
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.css']
 })

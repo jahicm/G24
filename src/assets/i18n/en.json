@@ -100,5 +100,34 @@
         "title":"PDF upload for AI analysys",
         "upload":"Upload & Analyse",
         "analysys":"AI Analys"
+    },
+    "data":{
+        "title":"Blood Sugar Historic Values",
+        "sortByDate":"Sort by Date",
+        "default":"Default",
+        "descending":"Descending",
+        "ascending":"Ascending",
+        "sortByValue":"Sort By Value",
+        "highToLow":"High to  Low",
+        "lowToHigh":"Low to High",
+        "filterByStatus":"Filter by Status",
+        "high":"High",
+        "low":"Low",
+        "normal":"Normal",
+        "elevated":"Elevated",
+        "dataEntryTime":"Data Entry Time",
+        "measurementTime":"Measurement Time",
+        "sugarValue":"Sugar Value",
+        "referenceValue":"Reference Value",
+         "status": {
+            "normal": "Normal",
+            "high": "High",
+            "low": "Low",
+            "elevated": "Elevated"
+        },
+        "previous":"Previous",
+        "next":"Next",
+        "sugarStatus":"Sugar Status",
+        "graph":"Graph"
     }
 }
