@@ -76,9 +76,9 @@ export class DataComponent implements OnInit {
 
   sortByValue(order: 'high' | 'low' | 'default'): void {
     if (order === 'high') {
-      this.filteredValues.sort((a, b) => a.value - b.value);
+      this.filteredValues.sort((a, b) => a.sugarValue - b.sugarValue);
     } else if (order === 'low') {
-      this.filteredValues.sort((a, b) => b.value - a.value);
+      this.filteredValues.sort((a, b) => b.sugarValue - a.sugarValue);
     } else {
       this.filteredValues = this.entries.slice();
     }

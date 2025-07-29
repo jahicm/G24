@@ -1,6 +1,6 @@
 export interface Data {
 
-    blutzuckerwert: number | null;
+      blutzuckerwert: number | null;
       messzeitpunkt: string;
       messmethode: string; 
       insulinTyp: string;
@@ -14,6 +14,6 @@ export interface Data {
       symptome: string;
       symptomeSchweregrad: string;
       stimmung: string;
-      notizen: string
+      notizen: string;
       einheit: string;
 }
