@@ -17,7 +17,7 @@ export class AnalyserService {
   uploadFile(file: File) {
     const formData = new FormData();
     formData.append('file', file, file.name);
-    return this.httpClient.post(`${environment.apiBaseUrl}/upload/getanalysis`, formData, {
+    return this.httpClient.post(`${environment.apiBaseUrl}/getanalisys`, formData, {
       reportProgress: true,
       observe: 'events'
     });

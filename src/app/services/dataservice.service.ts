@@ -14,6 +14,6 @@ export class DataService {
   constructor(private httpClient: HttpClient) { }
 
   getData(userId: string): Observable<Entry[]> {
-    return this.httpClient.get<Entry[]>(`${environment.apiBaseUrl}/data/getdata/${userId}`);
+    return this.httpClient.get<Entry[]>(`${environment.apiBaseUrl}/getdata/${userId}`);
   }
 }

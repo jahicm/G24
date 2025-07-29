@@ -71,6 +71,7 @@
         "surname": "Cognome",
         "dob": "Data di nascita",
         "city": "Città",
+        "postCode":"CAP",
         "country": "Paese",
         "unit": "Unità preferita",
         "diabetes-type": "Tipo di diabete",

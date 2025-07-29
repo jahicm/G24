@@ -70,6 +70,7 @@
         "name": "Name",
         "surname": "Surname",
         "dob": "Date of Birth",
+        "postCode": "Post Code",
         "city": "City",
         "country": "Country",
         "unit": "Preferred Unit",

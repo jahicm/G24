@@ -29,6 +29,13 @@
           Date of Birth is required.
         </div>
       </div>
+        <div class="mb-3">
+        <label for="postCode" class="form-label"><b>{{'registration.postCode' | translate}}:</b></label>
+        <input type="text" id="postCode" class="form-control" formControlName="postCode">
+        <div *ngIf="dataForm.get('postCode')?.touched && dataForm.get('postCode')?.invalid" class="text-danger">
+          Post Code required
+        </div>
+      </div>
       <!-- City -->
       <div class="mb-3">
         <label for="city" class="form-label"><b>{{'registration.city' | translate}}:</b></label>

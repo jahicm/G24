@@ -3,6 +3,7 @@ export class User {
     name!: string;
     lastName!: string;
     dob!: Date;
+    postCode!:string;
     city?:string;
     country!: string;
     unit!: string;

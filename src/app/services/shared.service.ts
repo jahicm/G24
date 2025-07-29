@@ -59,7 +59,7 @@ export class SharedService {
       console.log(`Loading user for ID: ${userId}`);
     }
 
-    this.httpClient.get<User>(`${environment.apiBaseUrl}/data/user/${userId}`)
+    this.httpClient.get<User>(`${environment.apiBaseUrl}/user/${userId}`)
       .pipe(
         catchError(error => {
           console.error(`Error loading user for ID ${userId}:`, error);
@@ -85,7 +85,7 @@ export class SharedService {
       return;
     }
 
-    this.httpClient.get<Entry[]>(`${environment.apiBaseUrl}/data/getdata/${userId}`)
+    this.httpClient.get<Entry[]>(`${environment.apiBaseUrl}/getdata/${userId}`)
       .pipe(
         catchError(error => {
           console.error(`Error loading entries for ID ${userId}:`, error);
@@ -108,7 +108,7 @@ export class SharedService {
       return;
     }
 
-    this.httpClient.get(`${environment.apiBaseUrl}/data/dashboard/${userId}`)
+    this.httpClient.get(`${environment.apiBaseUrl}/dashboard/${userId}`)
       .pipe(
         catchError(error => {
           console.error(`Error loading dashboard for ID ${userId}:`, error);
@@ -145,7 +145,8 @@ export class SharedService {
   }
 
   addEntry(userId: string, entry: Entry): Observable<Entry> {
-    return this.httpClient.post<Entry>(`${environment.apiBaseUrl}/data/savedata`, entry)
+    entry.userId = userId;
+    return this.httpClient.post<Entry>(`${environment.apiBaseUrl}/addEntry`, entry)
       .pipe(
         tap(newEntry => {
           if (this.lastEntriesUserId === userId) {

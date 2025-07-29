@@ -50,7 +50,7 @@
               <input type="datetime-local" class="form-control" id="date-timeOfMeal" name="dateTime" ngModel required />
             </div>
             <div>
-              <select name="timeOfMeal" ngModel required>
+              <select name="timeOfMeal" [ngModel]="selectedTimeOfMeal" required >
                 <option>{{'dashboard.add_reading.fasting' | translate}}</option>
                 <option>{{'dashboard.add_reading.post-meal' | translate}}</option>
                 <option>{{'dashboard.add_reading.before-sleep' | translate}}</option>

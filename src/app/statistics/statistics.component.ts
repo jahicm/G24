@@ -20,6 +20,7 @@ export class StatisticsComponent implements OnInit {
     name: '',
     lastName: '',
     dob: new Date(),
+    postCode:'',
     country: '',
     unit: '',
     diabetesType: '',

@@ -71,6 +71,7 @@
         "surname": "Nom",
         "dob": "Date de naissance",
         "city": "Ville",
+        "postCode":"Code postal",
         "country": "Pays",
         "unit": "Unité préférée",
         "diabetes-type": "Type de diabète",

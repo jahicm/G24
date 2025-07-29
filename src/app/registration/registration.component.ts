@@ -23,6 +23,7 @@ export class RegistrationComponent implements OnInit {
     name: '',
     lastName: '',
     dob: new Date(),
+    postCode:'',
     city:'',
     country: '',
     unit: '',
@@ -36,6 +37,7 @@ export class RegistrationComponent implements OnInit {
       lastName: ['', Validators.required],
       dob: ['', Validators.required],
       country: ['', Validators.required],
+      postCode:['',''],
       city: ['', Validators.required],
       unit: ['', Validators.required],
       diabetesType: ['', Validators.required],
@@ -60,8 +62,7 @@ export class RegistrationComponent implements OnInit {
     }
 
     this.user = this.dataForm.value;
-
-    this.registrationService.registerUser(this.user).subscribe({
+    this.registrationService.registerUser(this.user,this.user.userId).subscribe({
       next: (response) => {
         console.log('User registered:', response);
         alert("Thank you!!");

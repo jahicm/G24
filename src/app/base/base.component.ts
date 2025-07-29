@@ -31,7 +31,7 @@ export class BaseComponent implements OnInit {
   dateTime?: Date;
   dashboard?: DiabetesDashboard;
   private destroy$ = new Subject<void>();
-
+  selectedTimeOfMeal: string = 'Fasting';
   constructor(private sharedService: SharedService, private datePipe: DatePipe) { }
 
 
