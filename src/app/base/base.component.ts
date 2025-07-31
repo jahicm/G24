@@ -31,13 +31,15 @@ export class BaseComponent implements OnInit {
   dateTime?: Date;
   dashboard?: DiabetesDashboard;
   private destroy$ = new Subject<void>();
-  selectedTimeOfMeal: string = 'Fasting';
+  selectedTimeOfMeal=''
+  
+
   constructor(private sharedService: SharedService, private datePipe: DatePipe) { }
 
 
   ngOnInit(): void {
     const userId = "1"; // eventually from AuthService
-
+    this.selectedTimeOfMeal = "Fasting";
     this.sharedService.loadUser(userId, true);
     this.sharedService.loadEntries(userId,true);
     this.sharedService.loadDashboard(userId, true);

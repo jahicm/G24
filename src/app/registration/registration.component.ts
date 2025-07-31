@@ -62,6 +62,11 @@ export class RegistrationComponent implements OnInit {
     }
 
     this.user = this.dataForm.value;
+    let cachedUser =  sessionStorage.getItem('cachedUser');
+    if (cachedUser) {
+      const parsedUser = JSON.parse(cachedUser);
+      this.user.userId = parsedUser.userId;
+    }
     this.registrationService.registerUser(this.user,this.user.userId).subscribe({
       next: (response) => {
         console.log('User registered:', response);

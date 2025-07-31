@@ -14,7 +14,7 @@
             "weekly-average": "Weekly Average"
         },
         "status": {
-            "normal": "normal",
+            "normal": "Normal",
             "high": "High",
             "low": "Low",
             "elevated": "Elevated"
