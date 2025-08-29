@@ -25,14 +25,14 @@ export class BaseComponent implements OnInit {
   chartLabels: string[] = [];
   measurementTimeLabels: string[] = [];
   measurementValueLabels: number[] = [];
-  user!: User | null;
+  user?: User | null;
   unit: string = 'mg/dL';
   timeOfMeal?: Date;
   dateTime?: Date;
   dashboard?: DiabetesDashboard;
   private destroy$ = new Subject<void>();
   selectedTimeOfMeal=''
-  
+  loading = true;
 
   constructor(private sharedService: SharedService, private datePipe: DatePipe) { }
 
@@ -67,8 +67,10 @@ export class BaseComponent implements OnInit {
       .subscribe(dashboard => {
         if (dashboard) {
           this.dashboard = dashboard;
+          this.loading = false;
         }
       });
+
   }
   ngOnDestroy(): void {
     this.destroy$.next();

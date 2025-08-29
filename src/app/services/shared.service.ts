@@ -104,7 +104,6 @@ export class SharedService {
 
   loadDashboard(userId: string, forceReload: boolean = false): void {
     if (!forceReload && this.lastDashboardUserId === userId && this.dashboardSubject.value !== null) {
-      console.log('Using cached dashboard');
       return;
     }
 
@@ -115,16 +114,16 @@ export class SharedService {
           return throwError(() => new Error('Failed to load dashboard'));
         }),
         tap(response => {
-          console.log('Raw dashboard response:', response);
+        
           this.lastDashboardUserId = userId;
-          const dashboard = DiabetesDashboard.fromJson(JSON.stringify(response));
+          const dashboard = DiabetesDashboard.fromJson(response);
           if (!isEqual(this.dashboardSubject.value, dashboard)) {
             this.dashboardSubject.next(dashboard);
-            console.log('Updated dashboard:', dashboard);
           }
         })
       )
       .subscribe();
+
   }
 
   updateUser(user: User): void {

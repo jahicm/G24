@@ -7,7 +7,8 @@ export class GlucoseAnalysis {
         public readonly threshold: number,
         public readonly bestTimeSlot: TimeSlot,
         public readonly worstTimeSlot: TimeSlot,
-        public readonly recommendations: string[]
+        public readonly recommendations: string[],
+        public readonly hba1c_prediction?: any
     ) { }
 
     get needsAttention(): boolean {

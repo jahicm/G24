@@ -18,53 +18,54 @@ export class DiabetesDashboard {
         }
     ) { }
 
-    static fromJson(json: string): DiabetesDashboard {
-        const data = JSON.parse(json);
-
+    static fromJson(json: any): DiabetesDashboard {
+        const data = json;
+        console.log("data:"+JSON.stringify(data.latest_readings.weekly_average.unit));
         return new DiabetesDashboard(
             new Reading(
-                data.data.latest_readings.current.value,
-                data.data.latest_readings.current.unit,
-                data.data.latest_readings.current.status,
-                data.data.latest_readings.current.timestamp,
-                data.data.latest_readings.current.predictedHbA1c
+                data.latest_readings.reading.sugarValue,
+                data.latest_readings.reading.unit,
+                data.latest_readings.reading.status,
+                data.latest_readings.reading.date,
+                data.latest_readings.reading.context
             ),
             new Reading(
-                data.data.latest_readings.weekly_average.value,
-                data.data.latest_readings.weekly_average.unit,
-                data.data.latest_readings.weekly_average.status
+                data.latest_readings.weekly_average.value,
+                data.latest_readings.weekly_average.unit,
+                data.latest_readings.weekly_average.status
             ),
-            data.data.weekly_overview.readings.map(
-                (r: any) => new Reading(r.value, r.unit, '')
+            data.weekly_overview.readings.map(
+                (r: any) => new Reading(r.sugarValue, r.unit, '')
             ),
-            data.data.medications.map(
+            data.medications.map(
                 (m: any) => new Medication(m.name, m.type, m.dosage, m.frequency)
             ),
             new GlucoseAnalysis(
-                data.data.ai_analysis.summary.weekly_avg,
-                data.data.ai_analysis.summary.unit,
-                data.data.ai_analysis.summary.trend,
-                data.data.ai_analysis.high_readings.count,
-                data.data.ai_analysis.high_readings.threshold,
+                data.ai_analysis.summary.weekly_avg,
+                data.ai_analysis.summary.unit,
+                data.ai_analysis.summary.trend,
+                data.ai_analysis.high_readings.count,
+                data.ai_analysis.high_readings.threshold,
                 new TimeSlot(
-                    data.data.ai_analysis.time_analysis.best.range,
-                    data.data.ai_analysis.time_analysis.best.avg_value
+                    data.ai_analysis.time_analysis.best.range,
+                    data.ai_analysis.time_analysis.best.avg_value
                 ),
                 new TimeSlot(
-                    data.data.ai_analysis.time_analysis.worst.range,
-                    data.data.ai_analysis.time_analysis.worst.avg_value
+                    data.ai_analysis.time_analysis.worst.range,
+                    data.ai_analysis.time_analysis.worst.avg_value
                 ),
-                data.data.ai_analysis.recommendations
+                data.ai_analysis.recommendations,
+                data.ai_analysis.hba1c_prediction.value
             ),
             new SmartInsight(
-                data.data.smart_insight.text,
-                data.data.smart_insight.translation,
-                data.data.smart_insight.context,
-                data.data.smart_insight.priority.toLowerCase() as PriorityLevel
+                data.smart_insight.text,
+                data.smart_insight.translation,
+                data.smart_insight.context,
+                data.smart_insight.priority.toLowerCase() as PriorityLevel
             ),
             {
-                generatedAt: new Date(data.metadata.generated_at),
-                apiVersion: data.metadata.api_version
+                generatedAt: new Date(),
+                apiVersion: "1.0"
             }
         );
     }

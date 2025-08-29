@@ -11,6 +11,16 @@
 </head>
 
 <body>
+
+  @if(loading)
+  {
+  <div class="d-flex justify-content-center align-items-center my-4">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  }
+
   <div class="container py-4">
 
     <!-- Erste Zeile: Readings & Form -->
@@ -19,9 +29,9 @@
       <div class="col-md-2">
         <div class="card p-3 dashboard-card h-100">
           <h6 class="text-primary">{{'dashboard.latest_reading.latest-reading' | translate}}</h6>
-          <h2>{{dashboard?.currentReading?.value}}<span
+          <h2>{{dashboard?.currentReading?.sugarValue}} {{dashboard?.currentReading?.unit}}<span
               class="badge bg-warning text-dark">{{dashboard?.currentReading?.status}}</span></h2>
-          <p class="text-muted mb-0">{{dashboard?.currentReading?.timestamp}}</p>
+          <p class="text-muted mb-0">{{dashboard?.currentReading?.date}}</p>
         </div>
       </div>
 
@@ -29,7 +39,7 @@
       <div class="col-md-2">
         <div class="card p-3 dashboard-card h-100">
           <h6 class="text-primary">{{'dashboard.average.weekly-average' | translate}}</h6>
-          <h2>{{dashboard?.weeklyAverage?.value}} <span class="badge bg-success">
+          <h2>{{dashboard?.weeklyAverage?.sugarValue}} {{dashboard?.weeklyAverage?.unit}}<span class="badge bg-success">
               {{ ('dashboard.status.' + (dashboard?.weeklyAverage?.status?.toLowerCase() || '')) | translate | titlecase
               }}
 
@@ -76,17 +86,19 @@
           <div class="card-header bg-light text-primary fw-bold">
             👤 {{'dashboard.user_profile.user-profile' | translate}}
           </div>
+          
           <div class="card-body">
-            <ul class="list-unstyled mb-0" *ngIf="user">
-              <li><strong>{{'dashboard.user_profile.name' | translate}}:</strong>{{user.name}}</li>
-              <li><strong>{{'dashboard.user_profile.surname' | translate}}:</strong>{{user.lastName}}</li>
-              <li><strong>{{'dashboard.user_profile.dob' | translate}}:</strong> {{user.dob}}</li>
-              <li><strong>{{'dashboard.user_profile.diabetes-type' | translate}}:</strong>{{user.diabetesType}}</li>
-              <li><strong>{{'dashboard.user_profile.unit' | translate}}:</strong>{{user.unit}}</li>
-              <li><strong>{{'dashboard.user_profile.city' | translate}}:</strong> {{user.city}}</li>
-              <li><strong>{{'dashboard.user_profile.country' | translate}}:</strong> {{user.country}}</li>
+            <ul class="list-unstyled mb-0">
+              <li><strong>{{'dashboard.user_profile.name' | translate}}:</strong>{{user?.name}}</li>
+              <li><strong>{{'dashboard.user_profile.surname' | translate}}:</strong>{{user?.lastName}}</li>
+              <li><strong>{{'dashboard.user_profile.dob' | translate}}:</strong> {{user?.dob}}</li>
+              <li><strong>{{'dashboard.user_profile.diabetes-type' | translate}}:</strong>{{user?.diabetesType}}</li>
+              <li><strong>{{'dashboard.user_profile.unit' | translate}}:</strong>{{user?.unit}}</li>
+              <li><strong>{{'dashboard.user_profile.city' | translate}}:</strong> {{user?.city}}</li>
+              <li><strong>{{'dashboard.user_profile.country' | translate}}:</strong> {{user?.country}}</li>
             </ul>
           </div>
+       
         </div>
       </div>
     </div>
@@ -147,14 +159,13 @@
           <div class="card-body">
             <h5 class="card-title text-primary">{{'dashboard.hba1c.prediction'  | translate}}</h5>
             <p class="display-6 fw-bold text-success">
-              {{dashboard?.currentReading?.predictedHbA1c}}%
+              {{dashboard?.analysis?.hba1c_prediction}}%
             </p>
             <p class="text-muted mb-0">{{'dashboard.hba1c.estimation' | translate}}</p>
           </div>
         </div>
       </div>
-
-
+      
       <div class="col-md-4">
         <div class="card dashboard-card">
           <div class="card-body">
@@ -170,7 +181,6 @@
 
       </div>
     </div>
-
   </div>
 
   <!-- Bootstrap JS -->

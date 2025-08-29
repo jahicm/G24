@@ -1,10 +1,10 @@
 export class Reading {
     constructor(
-        public readonly value: number,
+        public readonly sugarValue: number,
         public readonly unit: string,
         public readonly status: string,
-        public readonly timestamp?: string,
-        public readonly predictedHbA1c?: string
+        public readonly date?: string,
+        public readonly context?:string    
     ) { }
 
     get isHigh(): boolean {
@@ -17,6 +17,6 @@ export class Reading {
     }
 
     format(): string {
-        return `${this.value} ${this.unit}`;
+        return `${this.sugarValue} ${this.unit}`;
     }
 }
