@@ -7,6 +7,10 @@
    transition: all 0.2s ease-in-out;
    padding-bottom: 2px;
  }
+  .bg-success {
+    background-color: #28a745 !important;
+    color: #fff !important; /* keep text readable */
+  }
 
  .dashboard-card:hover {
    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

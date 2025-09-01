@@ -10,12 +10,15 @@ export class Reading {
     get isHigh(): boolean {
         return this.status.toLowerCase() === 'high';
     }
-
     get isNormal(): boolean {
-        return this.status.toLowerCase() === 'good' ||
-            this.status.toLowerCase() === 'normal';
+        return this.status.toLowerCase() === 'normal'
     }
-
+    get isLow(): boolean {
+        return this.status.toLowerCase() === 'low'
+    }
+    get isElevated(): boolean {
+        return this.status.toLowerCase() === 'elevated'
+    }
     format(): string {
         return `${this.sugarValue} ${this.unit}`;
     }

@@ -20,7 +20,6 @@ export class DiabetesDashboard {
 
     static fromJson(json: any): DiabetesDashboard {
         const data = json;
-        console.log("data:"+JSON.stringify(data.latest_readings.weekly_average.unit));
         return new DiabetesDashboard(
             new Reading(
                 data.latest_readings.reading.sugarValue,

@@ -139,7 +139,6 @@ export class SharedService {
   updateEntries(entries: Entry[]): void {
     if (!isEqual(this.entriesSubject.value, entries)) {
       this.entriesSubject.next(entries);
-      console.log('Entries updated:', entries);
     }
   }
 
@@ -152,7 +151,6 @@ export class SharedService {
             const currentEntries = this.entriesSubject.value;
             const updatedEntries = [...currentEntries, newEntry];
             this.entriesSubject.next(updatedEntries);
-            console.log('Added new entry:', newEntry);
           }
           this.lastDashboardUserId = null;
           this.dashboardSubject.next(null);
