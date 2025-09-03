@@ -40,7 +40,11 @@ export class AnalyserComponent {
           this.uploadProgress = Math.round((event.loaded / (event.total ?? 1)) * 100);
         } else if (event.type === HttpEventType.Response) {
           this.isUploading = false;
-          this.result = (event.body as any).result || 'No result returned';
+          if (event?.body) {
+            this.result = typeof event.body === 'string' ? event.body : JSON.stringify(event.body, null, 2);
+          } else {
+            this.result = 'No response received from the server.';
+          }
         }
       },
       error: (err) => {
@@ -49,5 +53,6 @@ export class AnalyserComponent {
         console.error(err);
       }
     });
+
   }
 }
