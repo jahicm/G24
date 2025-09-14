@@ -15,7 +15,6 @@ export class UserService {
     return this.httpClient.post<User>(`${environment.apiBaseUrl}/user`, user);
   }
   getUser(userId: string): Observable<User> {
-    console.log("USER ID :",userId);
     return this.httpClient.get<User>(`${environment.apiBaseUrl}/user/${userId}`);
   }
 }
