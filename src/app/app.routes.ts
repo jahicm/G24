@@ -5,14 +5,18 @@ import { AnalyserComponent } from './analyser/analyser.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { PieChartComponent } from './chart/pie-chart/pie-chart.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { LoginComponent } from './login/login.component';
+import { authGuard } from './auth/auth-guard';
 
 
 export const routes: Routes = [
-  { path: '', component: BaseComponent },
-  { path: 'registration', component: RegistrationComponent },
-  { path: 'data', component: DataComponent },
-  { path: 'analyser', component: AnalyserComponent },
-  { path: 'statistics', component: StatisticsComponent},
-  { path: '**', component: BaseComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'registration', component: RegistrationComponent},
+  { path: 'data', component: DataComponent, canActivate: [authGuard] },
+  { path: 'analyser', component: AnalyserComponent, canActivate: [authGuard] },
+  { path: 'statistics', component: StatisticsComponent, canActivate: [authGuard] },
+   { path: 'base', component: BaseComponent , canActivate: [authGuard]},
+  { path: '', redirectTo: 'login', pathMatch: 'full' }, 
+  { path: '**', redirectTo: 'login' }         
 
 ];

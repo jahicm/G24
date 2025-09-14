@@ -38,7 +38,7 @@ export class BaseComponent implements OnInit {
 
 
   ngOnInit(): void {
-    const userId = "1"; // eventually from AuthService
+    const userId = "15"; // eventually from AuthService
     this.selectedTimeOfMeal = "Fasting";
     this.sharedService.loadUser(userId, true);
     this.sharedService.loadEntries(userId,true);

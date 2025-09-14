@@ -21,7 +21,7 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class DataComponent implements OnInit {
 
-  userId: string = "1";
+  userId: string = "15";
   entries: Entry[] = [];
   pagedEntries: Entry[] = [];
   currentPage = 1;

@@ -24,6 +24,7 @@ export class SharedService {
   private lastUserId: string | null = null;
   private lastEntriesUserId: string | null = null;
   private lastDashboardUserId: string | null = null;
+  private forceReload = false;
 
   constructor(private httpClient: HttpClient) {
     this.loadUserFromSessionStorage();
@@ -96,6 +97,7 @@ export class SharedService {
           if (!isEqual(this.entriesSubject.value, entries)) {
             this.entriesSubject.next(entries);
             console.log('Updated entries:', entries);
+             this.forceReload = true;
           }
         })
       )
