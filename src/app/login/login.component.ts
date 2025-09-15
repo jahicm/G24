@@ -18,10 +18,14 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    
-      this.authService.login(this.username, this.password).subscribe({
+    this.authService.login(this.username, this.password).subscribe({
       next: () => this.router.navigate(['/base']),
       error: () => this.errorMessage = 'Invalid username or password'
     });
+  }
+  logout(){
+    console.log("logout called");
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }
