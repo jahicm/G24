@@ -1,23 +1,46 @@
-<div class="login-container">
-  <h2>Login</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-  <form (ngSubmit)="login()">
-    <div>
-      <label for="username">Username</label>
-      <input id="username" [(ngModel)]="username" name="username" required />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - G24</title>
+
+</head>
+
+<body>
+  <div class="login-container">
+    <div class="logo">
+      <h1>G24</h1>
     </div>
 
-    <div>
-      <label for="password">Password</label>
-      <input id="password" type="password" [(ngModel)]="password" name="password" required />
-    </div>
-
-    <button type="submit">Login</button>
-  </form>
-
-  @if(errorMessage)
-  {
-      <div>
-        <p style="color:red">{{ errorMessage }}</p>
+    <h2>Login to Your Account</h2>
+   
+    <form class="login-form" (ngSubmit)="login()">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" [(ngModel)]="username" placeholder="Enter your username" required>
       </div>
-  }
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" [(ngModel)]="password" placeholder="Enter your password" required>
+        <a href="#" class="forgot-link">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+    @if(errorMessage)
+    {
+    <div>
+      <p style="color:red">{{ errorMessage }}</p>
+    </div>
+    }
+    <div class="footer">
+      <p>Don't have an account? <a href="#">Sign up</a></p>
+      <p class="copyright">© 2025 G24. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+
+</html>
