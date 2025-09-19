@@ -22,7 +22,7 @@ export class AppComponent {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         const url = event.urlAfterRedirects || event.url;
-        this.showHeaderFooter = !url.startsWith('/login');
+        this.showHeaderFooter = !url.startsWith('/login') && !url.startsWith('/first-registration') && !url.startsWith('/forget');
       });
   }
 }

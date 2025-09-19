@@ -26,9 +26,12 @@ export class RegistrationComponent implements OnInit {
     postCode:'',
     city:'',
     country: '',
-    unit: '',
+    unitId: '',
     diabetesType: '',
-    medications: ''
+    medications: '',
+    email: '',
+    password: '',
+    password_repeat: ''
   };
 
   constructor(private fb: FormBuilder, private registrationService: RegistrationService, private sharedService: SharedService) {
@@ -67,7 +70,7 @@ export class RegistrationComponent implements OnInit {
       const parsedUser = JSON.parse(cachedUser);
       this.user.userId = parsedUser.userId;
     }
-    this.registrationService.registerUser(this.user,this.user.userId).subscribe({
+    this.registrationService.registerUser(this.user).subscribe({
       next: (response) => {
         console.log('User registered:', response);
         alert("Thank you!!");

@@ -1,0 +1,112 @@
+import { ApplicationModule, Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { User } from '../models/user';
+import { RegistrationService } from '../services/registration.service';
+import { SharedService } from '../services/shared.service';
+import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-first-registration',
+  imports: [ReactiveFormsModule, CommonModule, TranslateModule],
+  templateUrl: './first-registration.component.html',
+  styleUrl: './first-registration.component.css'
+})
+export class FirstRegistrationComponent {
+
+  dataForm: FormGroup;
+  medications: string[] = ['select-option', 'no-medication', 'insulin', 'tablets'];
+  passwordStrength: number = 0;
+  isPasswordMatch: boolean = true;
+  passwordStrengthMessage: string = '';
+  user: User = {
+    userId: '1',
+    name: '',
+    lastName: '',
+    dob: new Date(),
+    postCode: '',
+    city: '',
+    country: '',
+    unitId: '',
+    diabetesType: '',
+    medications: '',
+    email: '',
+    password: '',
+    password_repeat: ''
+  };
+
+  constructor(private fb: FormBuilder, private registrationService: RegistrationService, private sharedService: SharedService, private router: Router) {
+    this.dataForm = this.fb.group({
+      email: ['', Validators.email],
+      password: ['', [Validators.required]],
+      password_repeat: ['', [Validators.required]],
+      name: ['', Validators.required],
+      lastName: ['', Validators.required],
+      dob: ['', Validators.required],
+      country: ['', Validators.required],
+      postCode: ['', Validators.required],
+      city: ['', Validators.required],
+      unitId: ['', Validators.required],
+      diabetesType: ['', Validators.required],
+      medication: ['', Validators.required],
+    });
+  }
+
+  isValid() {
+    const pw = this.dataForm.get('password')?.value;
+    const pwRepeat = this.dataForm.get('password_repeat')?.value;
+    console.log("Password:", pw, "Repeat:", pwRepeat);
+    if (pw && pwRepeat && pw !== pwRepeat) {
+      this.isPasswordMatch = false;
+    } else {
+      this.isPasswordMatch = true;
+    }
+  }
+  onSubmit(): void {
+    if (this.dataForm.invalid) {
+      return;
+
+    }
+
+    this.user = this.dataForm.value;
+    let cachedUser = sessionStorage.getItem('cachedUser');
+    if (cachedUser) {
+      const parsedUser = JSON.parse(cachedUser);
+      this.user.userId = parsedUser.userId;
+    }
+    this.registrationService.firstRegistration(this.user).subscribe({
+
+      next: (response) => {
+        alert("Thank you!!");
+        this.router.navigate(['/login']);
+
+      },
+      error: (err) => {
+        console.error('Registration failed:', err);
+        alert("Registration failed. Please try again.");
+      }
+    });
+  }
+  checkStrength(): void {
+    console.log("Checking password strength...");
+    const password = this.dataForm.get('password')?.value || '';
+    let strengthPoints = 0;
+
+    if (password.length >= 8) strengthPoints++;
+    if (/[A-Z]/.test(password)) strengthPoints++;
+    if (/[a-z]/.test(password)) strengthPoints++;
+    if (/[0-9]/.test(password)) strengthPoints++;
+    if (/[^A-Za-z0-9]/.test(password)) strengthPoints++; // Sonderzeichen
+
+    this.passwordStrength = (strengthPoints / 5) * 100;
+
+    if (strengthPoints <= 2) {
+      this.passwordStrengthMessage = 'Schwach';
+    } else if (strengthPoints === 3 || strengthPoints === 4) {
+      this.passwordStrengthMessage = 'Mittel';
+    } else {
+      this.passwordStrengthMessage = 'Stark';
+    }
+  }
+}

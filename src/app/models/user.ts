@@ -3,10 +3,13 @@ export class User {
     name!: string;
     lastName!: string;
     dob!: Date;
-    postCode!:string;
-    city?:string;
+    postCode!: string;
+    city?: string;
     country!: string;
-    unit!: string;
+    unitId!: string;
     diabetesType!: string;
     medications?: string;
+    email!: string;
+    password!: string;
+    password_repeat!: string;
 }

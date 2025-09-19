@@ -22,9 +22,12 @@ export class StatisticsComponent implements OnInit {
     dob: new Date(),
     postCode:'',
     country: '',
-    unit: '',
+    unitId: '',
     diabetesType: '',
-    medications: ''
+    medications: '',
+    email: '',
+    password: '',
+    password_repeat: ''
   };
 
   startDate: string = '';

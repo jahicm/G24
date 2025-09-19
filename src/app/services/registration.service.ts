@@ -10,10 +10,10 @@ export class RegistrationService {
 
   constructor(private httpClient: HttpClient) { }
 
-  registerUser(user: User,userId:string) {
-    console.log("Registration Service", user);
-   
+  registerUser(user: User) {
     return this.httpClient.post<User>(`${environment.apiBaseUrl}/register`, user);
   }
-
+  firstRegistration(user: User) {
+    return this.httpClient.post<User>(`${environment.apiBaseUrl}/first-register`, user);
+  }
 }
