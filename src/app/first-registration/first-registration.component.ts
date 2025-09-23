@@ -21,16 +21,16 @@ export class FirstRegistrationComponent {
   isPasswordMatch: boolean = true;
   passwordStrengthMessage: string = '';
   user: User = {
-    userId: '1',
+    userId: '',
     name: '',
     lastName: '',
     dob: new Date(),
     postCode: '',
     city: '',
     country: '',
-    unitId: '',
+    unit: '',
     diabetesType: '',
-    medications: '',
+    medication: '',
     email: '',
     password: '',
     password_repeat: ''
@@ -47,9 +47,9 @@ export class FirstRegistrationComponent {
       country: ['', Validators.required],
       postCode: ['', Validators.required],
       city: ['', Validators.required],
-      unitId: ['', Validators.required],
+      unit: ['', Validators.required],
       diabetesType: ['', Validators.required],
-      medication: ['', Validators.required],
+      medication: ['No medications']
     });
   }
 

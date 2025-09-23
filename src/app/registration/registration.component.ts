@@ -19,16 +19,15 @@ export class RegistrationComponent implements OnInit {
   dataForm: FormGroup;
   medications: string[] = ['select-option','no-medication', 'insulin', 'tablets'];
   user: User = {
-    userId: '1',
+    userId: '',
     name: '',
     lastName: '',
     dob: new Date(),
     postCode:'',
     city:'',
     country: '',
-    unitId: '',
+    unit: '',
     diabetesType: '',
-    medications: '',
     email: '',
     password: '',
     password_repeat: ''
@@ -36,15 +35,16 @@ export class RegistrationComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private registrationService: RegistrationService, private sharedService: SharedService) {
     this.dataForm = this.fb.group({
+      email: ['', Validators.email],
       name: ['', Validators.required],
       lastName: ['', Validators.required],
       dob: ['', Validators.required],
       country: ['', Validators.required],
-      postCode:['',''],
+      postCode: ['', Validators.required],
       city: ['', Validators.required],
       unit: ['', Validators.required],
       diabetesType: ['', Validators.required],
-      medication: ['', Validators.required],
+      medication: ['', Validators.required]
     });
   }
   ngOnInit(): void {
@@ -70,6 +70,7 @@ export class RegistrationComponent implements OnInit {
       const parsedUser = JSON.parse(cachedUser);
       this.user.userId = parsedUser.userId;
     }
+    console.log('Form submitted:', this.user);
     this.registrationService.registerUser(this.user).subscribe({
       next: (response) => {
         console.log('User registered:', response);

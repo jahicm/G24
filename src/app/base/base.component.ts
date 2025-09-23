@@ -1,5 +1,5 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, effect } from '@angular/core';
 import { ChartComponent } from '../chart/chart.component';
 import { Entry } from '../models/entry';
 import { SharedService } from '../services/shared.service';
@@ -8,11 +8,11 @@ import { FormsModule } from '@angular/forms';
 import { filter, Subject, take, takeUntil } from 'rxjs';
 import { DiabetesDashboard } from '../models/dashboard/diabetes-dashboard';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { Utility } from '../utils/utility';
 
 @Component({
   selector: 'app-base',
-  imports: [CommonModule, ChartComponent, FormsModule,TranslateModule],
+  imports: [CommonModule, ChartComponent, FormsModule, TranslateModule],
   templateUrl: './base.component.html',
   styleUrl: './base.component.css',
 })
@@ -31,18 +31,28 @@ export class BaseComponent implements OnInit {
   dateTime?: Date;
   dashboard?: DiabetesDashboard;
   private destroy$ = new Subject<void>();
-  selectedTimeOfMeal=''
-  loading = true;
+  selectedTimeOfMeal = ''
+  loading: boolean=true;
 
-  constructor(private sharedService: SharedService, private datePipe: DatePipe) { }
+  constructor(private sharedService: SharedService, private datePipe: DatePipe) {
+    this.loading=true;
+  }
 
 
   ngOnInit(): void {
-    const userId = "15"; // eventually from AuthService
+
     this.selectedTimeOfMeal = "Fasting";
+    const userId = Utility.decodeUserIdFromToken(localStorage.getItem('token') || '');
+    if (userId) {
+      console.log('Decoded userId from token:', userId);
+    } else {
+      console.log('No valid token found or unable to decode userId.');
+    }
+    
     this.sharedService.loadUser(userId, true);
-    this.sharedService.loadEntries(userId,true);
+    this.sharedService.loadEntries(userId, true);
     this.sharedService.loadDashboard(userId, true);
+
 
     this.sharedService.user$
       .pipe(filter(user => !!user), take(1))  // Waits for real value
@@ -102,7 +112,7 @@ export class BaseComponent implements OnInit {
     const dataEntryTime = new Date();
     const referenceValue = 100; // example fixed value
     const timeSlot = formData.measurementTime
-    let status: 'normal' | 'high' | 'low' | 'normal'='normal';
+    let status: 'normal' | 'high' | 'low' | 'normal' = 'normal';
     if (sugarValue > 140) status = 'high';
     else if (sugarValue < 70) status = 'low';
     else if (sugarValue > 120) status = 'normal';

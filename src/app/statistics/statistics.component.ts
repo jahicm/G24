@@ -16,15 +16,15 @@ import { TranslateModule } from '@ngx-translate/core';
 export class StatisticsComponent implements OnInit {
 
   user: User = {
-    userId: '1',
+    userId: '',
     name: '',
     lastName: '',
     dob: new Date(),
     postCode:'',
     country: '',
-    unitId: '',
+    unit: '',
     diabetesType: '',
-    medications: '',
+    medication: '',
     email: '',
     password: '',
     password_repeat: ''
@@ -40,6 +40,7 @@ export class StatisticsComponent implements OnInit {
   constructor(private sharedService: SharedService) { }
 
   ngOnInit(): void {
+
     this.sharedService.user$.subscribe({
       next: user => {
         if (user) this.user = user;
@@ -63,7 +64,7 @@ export class StatisticsComponent implements OnInit {
         alert("Temporary error, please try later");
       }
     });
-
+    console.log("UserId in Statistics:", this.user.userId);
     this.sharedService.loadUser(this.user.userId, false);
     this.sharedService.loadEntries(this.user.userId, true);
   }

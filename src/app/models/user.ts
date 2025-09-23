@@ -6,9 +6,9 @@ export class User {
     postCode!: string;
     city?: string;
     country!: string;
-    unitId!: string;
+    unit!: string;
     diabetesType!: string;
-    medications?: string;
+    medication?: string;
     email!: string;
     password!: string;
     password_repeat!: string;

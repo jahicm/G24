@@ -129,10 +129,10 @@
       <div class="mb-3">
         <label class="form-label"><b>{{'registration.unit' | translate}}:</b></label>
         <div class="btn-group d-flex" role="group">
-          <input type="radio" class="btn-check" id="unit-mg" value="1" formControlName="unitId">
+          <input type="radio" class="btn-check" id="unit-mg" value="1" formControlName="unit">
           <label class="btn btn-outline-primary w-50" for="unit-mg">mg/dL</label>
 
-          <input type="radio" class="btn-check" id="unit-mmol" value="2" formControlName="unitId">
+          <input type="radio" class="btn-check" id="unit-mmol" value="2" formControlName="unit">
           <label class="btn btn-outline-primary w-50" for="unit-mmol">mmol/L</label>
         </div>
         @if(dataForm.get('unit')?.touched && dataForm.get('unit')?.invalid)
@@ -165,7 +165,6 @@
       <div class="mb-3">
         <label for="medication" class="form-label"><b>{{'registration.medication' | translate}}:</b></label>
         <select id="medication" class="form-select" formControlName="medication">
-          <option value=" " disabled>{{'registration.select-medication' | translate}}</option>
           <option value="No medications">{{'registration.no-medication' | translate}}</option>
           <option value="Insulin">{{'registration.insulin' | translate}}</option>
           <option value="Tablets">{{'registration.tablets' | translate}}</option>

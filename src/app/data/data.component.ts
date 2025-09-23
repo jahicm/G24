@@ -15,13 +15,12 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-data',
   standalone: true,
-  imports: [CommonModule, ChartComponent, FormsModule,TranslateModule],
+  imports: [CommonModule, ChartComponent, FormsModule, TranslateModule],
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.css']
 })
 export class DataComponent implements OnInit {
 
-  userId: string = "15";
   entries: Entry[] = [];
   pagedEntries: Entry[] = [];
   currentPage = 1;
@@ -42,6 +41,12 @@ export class DataComponent implements OnInit {
 
   ngOnInit(): void {
 
+    const userId = Utility.decodeUserIdFromToken(localStorage.getItem('token') || '');
+    if (userId) {
+      console.log('Decoded userId from token:', userId);
+    } else {
+      console.log('No valid token found or unable to decode userId.');
+    }
     this.sharedService.user$.subscribe(user => {
       if (user) {
         this.user = user;
@@ -52,8 +57,8 @@ export class DataComponent implements OnInit {
       this.entries = entries;
       this.setupPagination();
     });
-    this.sharedService.loadUser(this.userId);
-    this.sharedService.loadEntries(this.userId);
+    this.sharedService.loadUser(userId);
+    this.sharedService.loadEntries(userId);
   }
 
   setupPagination(): void {

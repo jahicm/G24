@@ -25,11 +25,16 @@ export class SharedService {
   private lastEntriesUserId: string | null = null;
   private lastDashboardUserId: string | null = null;
   private forceReload = false;
+  private loading:boolean=false
 
   constructor(private httpClient: HttpClient) {
     this.loadUserFromSessionStorage();
+    this.loading=true;
   }
 
+  getLoading(): boolean {
+    return this.loading;
+  }
   private loadUserFromSessionStorage(): void {
     const cachedUser = sessionStorage.getItem('cachedUser');
     const cachedUserId = sessionStorage.getItem('lastUserId');
@@ -97,7 +102,7 @@ export class SharedService {
           if (!isEqual(this.entriesSubject.value, entries)) {
             this.entriesSubject.next(entries);
             console.log('Updated entries:', entries);
-             this.forceReload = true;
+            this.forceReload = true;
           }
         })
       )
@@ -109,23 +114,23 @@ export class SharedService {
       return;
     }
 
-    this.httpClient.get(`${environment.apiBaseUrl}/dashboard/${userId}`)
-      .pipe(
-        catchError(error => {
-          console.error(`Error loading dashboard for ID ${userId}:`, error);
-          return throwError(() => new Error('Failed to load dashboard'));
-        }),
-        tap(response => {
-        
-          this.lastDashboardUserId = userId;
-          const dashboard = DiabetesDashboard.fromJson(response);
-          if (!isEqual(this.dashboardSubject.value, dashboard)) {
-            this.dashboardSubject.next(dashboard);
-          }
-        })
-      )
-      .subscribe();
+ 
+      this.httpClient.get(`${environment.apiBaseUrl}/dashboard/${userId}`)
+        .pipe(
+          catchError(error => {
+            console.error(`Error loading dashboard for ID ${userId}:`, error);
+            return throwError(() => new Error('Failed to load dashboard'));
+          }),
+          tap(response => {
 
+            this.lastDashboardUserId = userId;
+            const dashboard = DiabetesDashboard.fromJson(response);
+            if (!isEqual(this.dashboardSubject.value, dashboard)) {
+              this.dashboardSubject.next(dashboard);
+            }
+          })
+        )
+        .subscribe();
   }
 
   updateUser(user: User): void {
@@ -176,4 +181,5 @@ export class SharedService {
     sessionStorage.removeItem('lastUserId');
     console.log('SharedService cleared');
   }
+
 }

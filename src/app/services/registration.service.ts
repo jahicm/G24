@@ -14,6 +14,6 @@ export class RegistrationService {
     return this.httpClient.post<User>(`${environment.apiBaseUrl}/register`, user);
   }
   firstRegistration(user: User) {
-    return this.httpClient.post<User>(`${environment.apiBaseUrl}/first-register`, user);
+    return this.httpClient.post<User>(`${environment.apiBaseUrl}/first-registration`, user);
   }
 }

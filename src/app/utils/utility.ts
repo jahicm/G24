@@ -1,4 +1,6 @@
 import { Entry } from "../models/entry";
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 export class Utility {
 
@@ -16,5 +18,12 @@ export class Utility {
             const entryDate = new Date(entry.measurementTime);
             return entryDate >= from && entryDate <= to;
         });
+    }
+
+    static decodeUserIdFromToken(token: string): string {
+        const helper = new JwtHelperService();
+        const decodedToken = helper.decodeToken(localStorage.getItem('token') || '');
+        const userId = decodedToken ? decodedToken.userId : null;
+        return userId;
     }
 }

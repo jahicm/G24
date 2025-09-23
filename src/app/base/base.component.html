@@ -110,7 +110,7 @@
               <li><strong>{{'dashboard.user_profile.surname' | translate}}:</strong>{{user?.lastName}}</li>
               <li><strong>{{'dashboard.user_profile.dob' | translate}}:</strong> {{user?.dob}}</li>
               <li><strong>{{'dashboard.user_profile.diabetes-type' | translate}}:</strong>{{user?.diabetesType}}</li>
-              <li><strong>{{'dashboard.user_profile.unit' | translate}}:</strong>{{user?.unitId}}</li>
+              <li><strong>{{'dashboard.user_profile.unit' | translate}}:</strong>{{user?.unit}}</li>
               <li><strong>{{'dashboard.user_profile.city' | translate}}:</strong> {{user?.city}}</li>
               <li><strong>{{'dashboard.user_profile.country' | translate}}:</strong> {{user?.country}}</li>
             </ul>
@@ -166,9 +166,9 @@
       <div class="col-md-4">
         <div class="card p-3 dashboard-card h-100">
           <h6 class="text-primary">{{'dashboard.medications.daily-medications' | translate}}</h6>
-          <div class="form-check" *ngFor="let medication of dashboard?.medications; let i = index">
-            <input class="form-check-input" type="checkbox" [checked]="true" [id]="'med' + i" [disabled]="true" />
-            <label class="form-check-label" [for]="'med' + i" for="med1">{{medication?.name}}</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" checked disabled/>
+            <label class="form-check-label">{{user?.medication}}</label>
           </div>
         </div>
       </div>
