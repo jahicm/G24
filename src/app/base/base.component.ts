@@ -131,6 +131,7 @@ export class BaseComponent implements OnInit {
     this.sharedService.addEntry(this.user!.userId, newEntry).subscribe(savedEntry => {
       this.sharedService.loadEntries(this.user!.userId);
     });
+     alert("Thank you!!");
   }
 
 }

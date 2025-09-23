@@ -5,26 +5,28 @@ import { RegistrationService } from '../services/registration.service';
 import { User } from '../models/user';
 import { SharedService } from '../services/shared.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   imports: [
 
-    ReactiveFormsModule, CommonModule,TranslateModule
+    ReactiveFormsModule, CommonModule, TranslateModule
   ],
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+
   dataForm: FormGroup;
-  medications: string[] = ['select-option','no-medication', 'insulin', 'tablets'];
+  medications: string[] = ['select-option', 'no-medication', 'insulin', 'tablets'];
   user: User = {
     userId: '',
     name: '',
     lastName: '',
     dob: new Date(),
-    postCode:'',
-    city:'',
+    postCode: '',
+    city: '',
     country: '',
     unit: '',
     diabetesType: '',
@@ -33,7 +35,7 @@ export class RegistrationComponent implements OnInit {
     password_repeat: ''
   };
 
-  constructor(private fb: FormBuilder, private registrationService: RegistrationService, private sharedService: SharedService) {
+  constructor(private fb: FormBuilder, private registrationService: RegistrationService, private sharedService: SharedService, private router: Router) {
     this.dataForm = this.fb.group({
       email: ['', Validators.email],
       name: ['', Validators.required],
@@ -49,7 +51,7 @@ export class RegistrationComponent implements OnInit {
   }
   ngOnInit(): void {
 
-    
+
     this.sharedService.user$.subscribe(user => {
       if (user) {
         this.user = user;
@@ -65,7 +67,7 @@ export class RegistrationComponent implements OnInit {
     }
 
     this.user = this.dataForm.value;
-    let cachedUser =  sessionStorage.getItem('cachedUser');
+    let cachedUser = sessionStorage.getItem('cachedUser');
     if (cachedUser) {
       const parsedUser = JSON.parse(cachedUser);
       this.user.userId = parsedUser.userId;
@@ -81,6 +83,9 @@ export class RegistrationComponent implements OnInit {
         alert("Registration failed. Please try again.");
       }
     });
+  }
+  cancel() {
+    this.router.navigate(['/base']);
   }
 }
 

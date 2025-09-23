@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class FirstRegistrationComponent {
 
+
   dataForm: FormGroup;
   medications: string[] = ['select-option', 'no-medication', 'insulin', 'tablets'];
   passwordStrength: number = 0;
@@ -108,5 +109,8 @@ export class FirstRegistrationComponent {
     } else {
       this.passwordStrengthMessage = 'Stark';
     }
+  }
+  cancel() {
+    this.router.navigate(['/login']);
   }
 }

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forget',
@@ -13,12 +14,12 @@ export class ForgetComponent {
 
   dataForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.dataForm = this.fb.group({
       email: ['', Validators.email]
     });
   }
-   onSubmit(): void {
+  onSubmit(): void {
     if (this.dataForm.invalid) {
       return;
     }
@@ -29,4 +30,8 @@ export class ForgetComponent {
     // hier kannst du Service aufrufen
     // this.authService.resetPassword(email).subscribe(...)
   }
+  cancel() {
+    this.router.navigate(['/login']);
+  }
+
 }

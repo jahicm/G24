@@ -99,10 +99,15 @@
         }
       </div>
       <!-- Submit Button -->
-      <div class="d-grid">
-        <button type="submit" class="btn btn-primary" [disabled]="dataForm.invalid">{{'registration.send' |
-          translate}}</button>
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary" [disabled]="dataForm.invalid">
+          {{ 'registration.send' | translate }}
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="cancel()">
+          {{ 'registration.cancel' | translate }}
+        </button>
       </div>
+
     </form>
   </div>
 </div>
