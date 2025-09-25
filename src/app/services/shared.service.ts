@@ -68,6 +68,7 @@ export class SharedService {
     this.httpClient.get<User>(`${environment.apiBaseUrl}/user/${userId}`)
       .pipe(
         catchError(error => {
+          this.loading=false
           console.error(`Error loading user for ID ${userId}:`, error);
           return throwError(() => new Error('Failed to load user'));
         }),

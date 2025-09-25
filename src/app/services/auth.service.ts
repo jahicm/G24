@@ -8,8 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = '{apiBaseUrl}/auth'; // Spring Boot backend
-
+  
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<any> {

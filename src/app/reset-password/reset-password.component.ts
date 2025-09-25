@@ -1,26 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { User } from '../models/user';
 import { RegistrationService } from '../services/registration.service';
 import { SharedService } from '../services/shared.service';
-import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
-import { Router } from '@angular/router';
+
+
 
 @Component({
-  selector: 'app-first-registration',
+  selector: 'app-reset-password',
   imports: [ReactiveFormsModule, CommonModule, TranslateModule],
-  templateUrl: './first-registration.component.html',
-  styleUrl: './first-registration.component.css'
+  templateUrl: './reset-password.component.html',
+  styleUrl: './reset-password.component.css'
 })
-export class FirstRegistrationComponent {
+export class ResetPasswordComponent implements OnInit {
 
 
   dataForm: FormGroup;
-  medications: string[] = ['select-option', 'no-medication', 'insulin', 'tablets'];
   passwordStrength: number = 0;
   isPasswordMatch: boolean = true;
   passwordStrengthMessage: string = '';
+  token!: string;
+
   user: User = {
     userId: '',
     name: '',
@@ -37,55 +40,46 @@ export class FirstRegistrationComponent {
     password_repeat: ''
   };
 
-  constructor(private fb: FormBuilder, private registrationService: RegistrationService, private sharedService: SharedService, private router: Router) {
+  constructor(private fb: FormBuilder, private registrationService: RegistrationService, private sharedService: SharedService, private router: Router, private route: ActivatedRoute,) {
     this.dataForm = this.fb.group({
-      email: ['', Validators.email],
       password: ['', [Validators.required]],
-      password_repeat: ['', [Validators.required]],
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
-      dob: ['', Validators.required],
-      country: ['', Validators.required],
-      postCode: ['', Validators.required],
-      city: ['', Validators.required],
-      unit: ['', Validators.required],
-      diabetesType: ['', Validators.required],
-      medication: ['No medications']
+      password_repeat: ['', [Validators.required]]
+    });
+
+    console.log('ResetPasswordComponent constructor');
+  }
+  ngOnInit(): void {
+    console.log('ngOnInit running');
+    this.route.queryParams.subscribe(params => {
+      this.token = params['token'];
+      console.log("Token ngOnInit:", this.token);
     });
   }
-
   isValid() {
     const pw = this.dataForm.get('password')?.value;
     const pwRepeat = this.dataForm.get('password_repeat')?.value;
-    console.log("Password:", pw, "Repeat:", pwRepeat);
+
     if (pw && pwRepeat && pw !== pwRepeat) {
       this.isPasswordMatch = false;
     } else {
       this.isPasswordMatch = true;
     }
   }
-  onSubmit(): void {
-    if (this.dataForm.invalid) {
-      return;
+  onSubmit() {
 
-    }
-
-    this.user = this.dataForm.value;
-    let cachedUser = sessionStorage.getItem('cachedUser');
-    if (cachedUser) {
-      const parsedUser = JSON.parse(cachedUser);
-      this.user.userId = parsedUser.userId;
-    }
-    this.registrationService.firstRegistration(this.user).subscribe({
+   
+    const body = {token: this.token, password: this.dataForm.value.password };
+    console.log("Resetting password with body:", body.token+"  "+body.password);
+    this.registrationService.resetPassword(body).subscribe({
 
       next: (response) => {
-        alert("Thank you!!");
+        alert("Password reset successful. Please log in with your new password.");
         this.router.navigate(['/login']);
 
       },
       error: (err) => {
-        console.error('Registration failed:', err);
-        alert("Registration failed. Please try again.");
+        console.error('Password reset, try again:', err);
+        alert("Password reset, try again");
       }
     });
   }

@@ -1,5 +1,5 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { Component, OnInit, effect } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChartComponent } from '../chart/chart.component';
 import { Entry } from '../models/entry';
 import { SharedService } from '../services/shared.service';
@@ -32,13 +32,11 @@ export class BaseComponent implements OnInit {
   dashboard?: DiabetesDashboard;
   private destroy$ = new Subject<void>();
   selectedTimeOfMeal = ''
-  loading: boolean=true;
+  loading: boolean = true;
 
   constructor(private sharedService: SharedService, private datePipe: DatePipe) {
-    this.loading=true;
+    this.loading = true;
   }
-
-
   ngOnInit(): void {
 
     this.selectedTimeOfMeal = "Fasting";
@@ -48,7 +46,7 @@ export class BaseComponent implements OnInit {
     } else {
       console.log('No valid token found or unable to decode userId.');
     }
-    
+
     this.sharedService.loadUser(userId, true);
     this.sharedService.loadEntries(userId, true);
     this.sharedService.loadDashboard(userId, true);
@@ -131,7 +129,7 @@ export class BaseComponent implements OnInit {
     this.sharedService.addEntry(this.user!.userId, newEntry).subscribe(savedEntry => {
       this.sharedService.loadEntries(this.user!.userId);
     });
-     alert("Thank you!!");
+    alert("Thank you!!");
   }
 
 }

@@ -8,6 +8,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { LoginComponent } from './login/login.component';
 import { authGuard } from './auth/auth-guard';
 import { FirstRegistrationComponent } from './first-registration/first-registration.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ForgetComponent } from './forget/forget.component';
 
 
@@ -15,6 +16,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent},
   { path: 'first-registration', component: FirstRegistrationComponent},
+  { path: 'reset-password', component: ResetPasswordComponent},
   { path: 'forget', component: ForgetComponent},
   { path: 'data', component: DataComponent, canActivate: [authGuard] },
   { path: 'analyser', component: AnalyserComponent, canActivate: [authGuard] },

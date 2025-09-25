@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import { EmailService } from '../services/email.service';
 
 @Component({
   selector: 'app-forget',
@@ -14,7 +15,7 @@ export class ForgetComponent {
 
   dataForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private emailService: EmailService) {
     this.dataForm = this.fb.group({
       email: ['', Validators.email]
     });
@@ -25,10 +26,18 @@ export class ForgetComponent {
     }
 
     const email = this.dataForm.value.email;
-    console.log('Password reset request for:', email);
+    this.emailService.sendPasswordResetEmail(email).subscribe({
+      next: (response) => {
+        console.log('✅ Password reset email sent:', response);
+        alert('Password sent to ' + email);
+      },
+      error: (err) => {
+        console.error('❌ Failed to send password reset email:', err);
+        alert(' Failed to send password reset email');
+      }
+    });
 
-    // hier kannst du Service aufrufen
-    // this.authService.resetPassword(email).subscribe(...)
+    this.router.navigate(['/login']);
   }
   cancel() {
     this.router.navigate(['/login']);
