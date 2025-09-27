@@ -40,7 +40,7 @@ export class BaseComponent implements OnInit {
   ngOnInit(): void {
 
     this.selectedTimeOfMeal = "Fasting";
-    const userId = Utility.decodeUserIdFromToken(localStorage.getItem('token') || '');
+    const userId = Utility.decodeUserIdFromToken(sessionStorage.getItem('token') || '');
     if (userId) {
       console.log('Decoded userId from token:', userId);
     } else {
@@ -66,8 +66,9 @@ export class BaseComponent implements OnInit {
         const fromDate = new Date();
         fromDate.setDate(fromDate.getDate() - 7);
         const toDate = new Date();
-
-        this.generateGraph(fromDate, toDate);
+        if (this.filteredValues != null && this.filteredValues.length > 0) {
+          this.generateGraph(fromDate, toDate);
+        }
       });
 
     this.sharedService.dashboardSubject$

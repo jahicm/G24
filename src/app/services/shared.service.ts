@@ -7,6 +7,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { isEqual } from 'lodash';
 import { DiabetesDashboard } from '../models/dashboard/diabetes-dashboard';
+import { Reading } from '../models/dashboard/reading';
+import { GlucoseAnalysis, TimeSlot } from '../models/dashboard/glucose-analysis';
+import { SmartInsight, PriorityLevel } from '../models/dashboard/smart-insight';
 
 @Injectable({
   providedIn: 'root'
@@ -25,11 +28,11 @@ export class SharedService {
   private lastEntriesUserId: string | null = null;
   private lastDashboardUserId: string | null = null;
   private forceReload = false;
-  private loading:boolean=false
+  private loading: boolean = false
 
   constructor(private httpClient: HttpClient) {
     this.loadUserFromSessionStorage();
-    this.loading=true;
+    this.loading = true;
   }
 
   getLoading(): boolean {
@@ -68,7 +71,7 @@ export class SharedService {
     this.httpClient.get<User>(`${environment.apiBaseUrl}/user/${userId}`)
       .pipe(
         catchError(error => {
-          this.loading=false
+          this.loading = false
           console.error(`Error loading user for ID ${userId}:`, error);
           return throwError(() => new Error('Failed to load user'));
         }),
@@ -100,7 +103,7 @@ export class SharedService {
         }),
         tap(entries => {
           this.lastEntriesUserId = userId;
-          if (!isEqual(this.entriesSubject.value, entries)) {
+          if (entries != null && !isEqual(this.entriesSubject.value, entries)) {
             this.entriesSubject.next(entries);
             console.log('Updated entries:', entries);
             this.forceReload = true;
@@ -115,23 +118,34 @@ export class SharedService {
       return;
     }
 
- 
-      this.httpClient.get(`${environment.apiBaseUrl}/dashboard/${userId}`)
-        .pipe(
-          catchError(error => {
-            console.error(`Error loading dashboard for ID ${userId}:`, error);
-            return throwError(() => new Error('Failed to load dashboard'));
-          }),
-          tap(response => {
 
-            this.lastDashboardUserId = userId;
-            const dashboard = DiabetesDashboard.fromJson(response);
-            if (!isEqual(this.dashboardSubject.value, dashboard)) {
-              this.dashboardSubject.next(dashboard);
-            }
-          })
-        )
-        .subscribe();
+    this.httpClient.get(`${environment.apiBaseUrl}/dashboard/${userId}`)
+      .pipe(
+        catchError(error => {
+          console.error(`Error loading dashboard for ID ${userId}:`, error);
+          return throwError(() => new Error('Failed to load dashboard'));
+        }),
+        tap(response => {
+
+          this.lastDashboardUserId = userId;
+          const dashboard = response
+            ? DiabetesDashboard.fromJson(response)
+            : new DiabetesDashboard(
+              new Reading(0, '', ''),
+              new Reading(0, '', ''),
+              [],
+              [],
+              new GlucoseAnalysis(0, '', '', 0, 0, new TimeSlot('', 0,), new TimeSlot('', 0), [], 0),
+              new SmartInsight('', '', '', '#00C851' as PriorityLevel),
+              { generatedAt: new Date(), apiVersion: '1.0' }
+            );
+
+          if (!isEqual(this.dashboardSubject.value, dashboard)) {
+            this.dashboardSubject.next(dashboard);
+          }
+        })
+      )
+      .subscribe();
   }
 
   updateUser(user: User): void {

@@ -41,7 +41,7 @@ export class DataComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const userId = Utility.decodeUserIdFromToken(localStorage.getItem('token') || '');
+    const userId = Utility.decodeUserIdFromToken(sessionStorage.getItem('token') || '');
     if (userId) {
       console.log('Decoded userId from token:', userId);
     } else {

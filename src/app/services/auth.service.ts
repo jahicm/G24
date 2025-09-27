@@ -16,17 +16,17 @@ export class AuthService {
       .pipe(
         tap(response => {
           console.log('Login response:', response);
-          localStorage.setItem('token', response.token);
+          sessionStorage.setItem('token', response.token);
         })
       );
   }
 
   logout() {
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
   }
 
   getToken(): string | null {
-    return localStorage.getItem('token');
+    return sessionStorage.getItem('token');
   }
 
   isLoggedIn(): boolean {

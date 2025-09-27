@@ -12,6 +12,7 @@ export class NavigationBarComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
   logout() {
+    sessionStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
 }
