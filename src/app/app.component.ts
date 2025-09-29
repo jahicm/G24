@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { FooterComponent } from "./footer/footer.component";
@@ -14,9 +14,10 @@ import { filter } from 'rxjs';
 export class AppComponent {
   title = 'G24';
   showHeaderFooter = true;
+  currentLang = signal<string>('en');
 
   constructor(private translateService: TranslateService, private router: Router) {
-    translateService.setDefaultLang("en");
+    translateService.setDefaultLang(this.currentLang());
 
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
@@ -24,5 +25,9 @@ export class AppComponent {
         const url = event.urlAfterRedirects || event.url;
         this.showHeaderFooter = !url.startsWith('/login') && !url.startsWith('/first-registration') && !url.startsWith('/forget') && !url.startsWith('/reset-password');
       });
+  }
+  switchLanguage(lang: string) {
+    this.currentLang.set(lang);  // update the signal
+    this.translateService.use(lang);
   }
 }

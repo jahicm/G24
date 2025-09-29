@@ -35,6 +35,7 @@
             "dob": "Data di nascita",
             "diabetes-type": "Tipo di diabete",
             "unit": "Unità di misura",
+            "post-code": "CAP",
             "city": "Città",
             "country": "Paese"
         },
@@ -66,12 +67,12 @@
         }
     },
     "registration": {
-        "title": "Registrazione",
+        "title": "Aggiorna il tuo profilo",
         "name": "Nome",
         "surname": "Cognome",
         "dob": "Data di nascita",
         "city": "Città",
-        "postCode":"CAP",
+        "postCode": "CAP",
         "country": "Paese",
         "unit": "Unità preferita",
         "diabetes-type": "Tipo di diabete",
@@ -129,6 +130,50 @@
         "previous": "Precedente",
         "next": "Successivo",
         "sugarStatus": "Stato della glicemia",
-        "graph":"Grafico"
+        "graph": "Grafico"
+    },
+    "reset-email": {
+        "email": "Email",
+        "send": "Invia email di reset",
+        "cancel": "Annulla",
+        "password-sent": "Password inviata a: "
+    },
+    "first-registration": {
+        "email": "Email",
+        "password": "Password",
+        "title": "Registra il tuo profilo",
+        "name": "Nome",
+        "surname": "Cognome",
+        "dob": "Data di nascita",
+        "postCode": "CAP",
+        "city": "Città",
+        "country": "Paese",
+        "unit": "Unità preferita",
+        "diabetes-type": "Tipo di diabete",
+        "medication": "Farmaco",
+        "select-medication": "Seleziona un farmaco",
+        "error-diabetes-type": "Seleziona il tipo di diabete",
+        "error-medication": "Seleziona un farmaco",
+        "send": "Invia",
+        "diabetes-type-1": "Tipo 1",
+        "diabetes-type-2": "Tipo 2",
+        "tablets": "Compresse",
+        "insulin": "Insulina",
+        "no-medication": "Nessun farmaco",
+        "select-option": "Seleziona un farmaco",
+        "cancel": "Indietro"
+    },
+    "login": {
+        "title": "Accedi al tuo account",
+        "user": "Nome utente",
+        "password": "Password",
+        "already-registered": "Login",
+        "forgot-password": "Password dimenticata?",
+        "not-registered": "Non hai un account?",
+        "sign-up": "Registrati"
+    },
+    "error": {
+        "thankyou": "Grazie!",
+        "something-went-wrong": "Si è verificato un errore. Per favore riprova."
     }
 }

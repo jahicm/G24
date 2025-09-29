@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { RegistrationService } from '../services/registration.service';
 import { User } from '../models/user';
 import { SharedService } from '../services/shared.service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -34,6 +34,7 @@ export class RegistrationComponent implements OnInit {
     password: '',
     password_repeat: ''
   };
+  translate: any;
 
   constructor(private fb: FormBuilder, private registrationService: RegistrationService, private sharedService: SharedService, private router: Router) {
     this.dataForm = this.fb.group({
@@ -50,7 +51,6 @@ export class RegistrationComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-
 
     this.sharedService.user$.subscribe(user => {
       if (user) {
@@ -72,15 +72,15 @@ export class RegistrationComponent implements OnInit {
       const parsedUser = JSON.parse(cachedUser);
       this.user.userId = parsedUser.userId;
     }
-    console.log('Form submitted:', this.user);
+
     this.registrationService.registerUser(this.user).subscribe({
       next: (response) => {
-        console.log('User registered:', response);
-        alert("Thank you!!");
+
+        alert(this.translate.instant('error.thankyou'));
       },
       error: (err) => {
         console.error('Registration failed:', err);
-        alert("Registration failed. Please try again.");
+        alert(this.translate.instant('error.something-went-wrong'));
       }
     });
   }

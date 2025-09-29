@@ -47,7 +47,6 @@ export class StatisticsComponent implements OnInit {
       },
       error: err => {
         console.error('Failed to load user', err);
-        alert("Temporary error, please try later");
       }
     });
 
@@ -61,10 +60,8 @@ export class StatisticsComponent implements OnInit {
       error: err => {
         this.isLoading = false;
         console.error('Failed to load entries', err);
-        alert("Temporary error, please try later");
       }
     });
-    console.log("UserId in Statistics:", this.user.userId);
     this.sharedService.loadUser(this.user.userId, false);
     this.sharedService.loadEntries(this.user.userId, true);
   }
@@ -101,7 +98,6 @@ export class StatisticsComponent implements OnInit {
 
   filterPieChart(): void {
     if (!this.startDate || !this.endDate) {
-      alert('Please select both From Date and To Date');
       return;
     }
     this.filteredGraphValues = Utility.convertStringToDateAndFilter(this.entries, this.startDate, this.endDate);

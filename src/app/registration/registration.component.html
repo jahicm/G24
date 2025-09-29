@@ -7,50 +7,68 @@
       <div class="mb-3">
         <label for="name" class="form-label"><b>{{'registration.name' | translate}}:</b></label>
         <input type="text" id="name" class="form-control" formControlName="name">
-        <div *ngIf="dataForm.get('name')?.touched && dataForm.get('name')?.invalid" class="text-danger">
-          Name is required.
+        @if(dataForm.get('name')?.touched && dataForm.get('name')?.invalid)
+        {
+        <div class="text-danger">
+          {{'registration.name' | translate}}
         </div>
+        }
       </div>
 
       <!-- Last Name -->
       <div class="mb-3">
         <label for="lastName" class="form-label"><b>{{'registration.surname' | translate}}:</b></label>
         <input type="text" id="lastName" class="form-control" formControlName="lastName">
-        <div *ngIf="dataForm.get('lastName')?.touched && dataForm.get('lastName')?.invalid" class="text-danger">
-          Last Name is required.
+        @if(dataForm.get('lastName')?.touched && dataForm.get('lastName')?.invalid)
+        {
+        <div class="text-danger">
+          {{'registration.surname' | translate}}
         </div>
+        }
       </div>
 
       <!-- Date of Birth -->
       <div class="mb-3">
         <label for="dob" class="form-label"><b>{{'registration.dob' | translate}}:</b></label>
         <input type="date" id="dob" class="form-control" formControlName="dob">
-        <div *ngIf="dataForm.get('dob')?.touched && dataForm.get('dob')?.invalid" class="text-danger">
-          Date of Birth is required.
+        @if(dataForm.get('dob')?.touched && dataForm.get('dob')?.invalid)
+        {
+        <div class="text-danger">
+          {{'registration.dob' | translate}}
         </div>
+        }
       </div>
       <div class="mb-3">
         <label for="postCode" class="form-label"><b>{{'registration.postCode' | translate}}:</b></label>
         <input type="text" id="postCode" class="form-control" formControlName="postCode">
-        <div *ngIf="dataForm.get('postCode')?.touched && dataForm.get('postCode')?.invalid" class="text-danger">
-          Post Code required
+        @if(dataForm.get('postCode')?.touched && dataForm.get('postCode')?.invalid)
+        {
+        <div class="text-danger">
+          {{'registration.postCode' | translate}}
         </div>
+        }
       </div>
       <!-- City -->
       <div class="mb-3">
         <label for="city" class="form-label"><b>{{'registration.city' | translate}}:</b></label>
         <input type="text" id="city" class="form-control" formControlName="city">
-        <div *ngIf="dataForm.get('city')?.touched && dataForm.get('city')?.invalid" class="text-danger">
-          City required
+        @if(dataForm.get('city')?.touched && dataForm.get('city')?.invalid)
+        {
+        <div class="text-danger">
+          {{'registration.city' | translate}}
         </div>
+        }
       </div>
       <!-- Country -->
       <div class="mb-3">
         <label for="country" class="form-label"><b>{{'registration.country' | translate}}:</b></label>
         <input type="text" id="country" class="form-control" formControlName="country">
-        <div *ngIf="dataForm.get('country')?.touched && dataForm.get('country')?.invalid" class="text-danger">
-          Country is required.
+        @if(dataForm.get('country')?.touched && dataForm.get('country')?.invalid)
+        {
+        <div class="text-danger">
+          {{'registration.country' | translate}}
         </div>
+        }
       </div>
 
       <!-- Preferred Unit -->
@@ -63,9 +81,12 @@
           <input type="radio" class="btn-check" id="unit-mmol" value="mmol/L" formControlName="unit">
           <label class="btn btn-outline-primary w-50" for="unit-mmol">mmol/L</label>
         </div>
-        <div *ngIf="dataForm.get('unit')?.touched && dataForm.get('unit')?.invalid" class="text-danger">
-          Please select a unit.
+        @if(dataForm.get('unit')?.touched && dataForm.get('unit')?.invalid)
+        {
+        <div class="text-danger">
+          {{'registration.unit' | translate}}
         </div>
+        }
       </div>
 
       <!-- Diabetes Type -->
@@ -78,9 +99,12 @@
           <input type="radio" class="btn-check" id="type2" value="Type 2" formControlName="diabetesType">
           <label class="btn btn-outline-primary w-50" for="type2">{{'registration.diabetes-type-2' | translate}}</label>
         </div>
-        <div *ngIf="dataForm.get('diabetesType')?.touched && dataForm.get('diabetesType')?.invalid" class="text-danger">
-          {{'error-diabetes-type' | translate}}:
+        @if(dataForm.get('diabetesType')?.touched && dataForm.get('diabetesType')?.invalid)
+        {
+        <div class="text-danger">
+          {{'registration.diabetes-type' | translate}}
         </div>
+        }
       </div>
 
       <!-- Medication Dropdown -->

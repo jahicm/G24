@@ -35,6 +35,7 @@
             "dob": "Date de naissance",
             "diabetes-type": "Type de diabète",
             "unit": "Unité de mesure",
+            "post-code": "Code postal",
             "city": "Ville",
             "country": "Pays"
         },
@@ -66,12 +67,12 @@
         }
     },
     "registration": {
-        "title": "Inscription",
+        "title": "Mettez à jour votre profil",
         "name": "Prénom",
         "surname": "Nom",
         "dob": "Date de naissance",
         "city": "Ville",
-        "postCode":"Code postal",
+        "postCode": "Code postal",
         "country": "Pays",
         "unit": "Unité préférée",
         "diabetes-type": "Type de diabète",
@@ -85,7 +86,8 @@
         "tablets": "Comprimés",
         "insulin": "Insuline",
         "no-medication": "Aucun médicament",
-        "select-option": "Sélectionnez un médicament"
+        "select-option": "Sélectionnez un médicament",
+        "cancel": "Retour"
     },
     "statistics": {
         "sugar-statistics": "Statistiques de glycémie",
@@ -129,6 +131,50 @@
         "previous": "Précédent",
         "next": "Suivant",
         "sugarStatus": "Statut de la glycémie",
-        "graph":"Graphique"
+        "graph": "Graphique"
+    },
+    "reset-email": {
+        "email": "Email",
+        "send": "Envoyer l'email de réinitialisation",
+        "cancel": "Annuler",
+        "password-sent": "Mot de passe envoyé à :"
+    },
+    "first-registration": {
+        "email": "Email",
+        "password": "Mot de passe",
+        "title": "Enregistrer votre profil",
+        "name": "Prénom",
+        "surname": "Nom",
+        "dob": "Date de naissance",
+        "postCode": "Code postal",
+        "city": "Ville",
+        "country": "Pays",
+        "unit": "Unité préférée",
+        "diabetes-type": "Type de diabète",
+        "medication": "Médicament",
+        "select-medication": "Sélectionner un médicament",
+        "error-diabetes-type": "Veuillez sélectionner le type de diabète",
+        "error-medication": "Veuillez sélectionner un médicament",
+        "send": "Envoyer",
+        "diabetes-type-1": "Type 1",
+        "diabetes-type-2": "Type 2",
+        "tablets": "Comprimés",
+        "insulin": "Insuline",
+        "no-medication": "Aucun médicament",
+        "select-option": "Sélectionner un médicament",
+        "cancel": "Retour"
+    },
+    "login": {
+        "title": "Connectez-vous à votre compte",
+        "user": "Nom d'utilisateur",
+        "password": "Mot de passe",
+        "already-registered": "Connexion",
+        "forgot-password": "Mot de passe oublié ?",
+        "not-registered": "Vous n'avez pas de compte ?",
+        "sign-up": "S'inscrire"
+    },
+    "error": {
+        "thankyou": "Merci !",
+        "something-went-wrong": "Une erreur est survenue. Veuillez réessayer."
     }
 }

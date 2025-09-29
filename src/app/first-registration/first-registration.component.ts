@@ -4,7 +4,7 @@ import { User } from '../models/user';
 import { RegistrationService } from '../services/registration.service';
 import { SharedService } from '../services/shared.service';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -37,7 +37,9 @@ export class FirstRegistrationComponent {
     password_repeat: ''
   };
 
-  constructor(private fb: FormBuilder, private registrationService: RegistrationService, private sharedService: SharedService, private router: Router) {
+
+  constructor(private fb: FormBuilder, private registrationService: RegistrationService, private sharedService: SharedService, private router: Router,private translate: TranslateService) {
+    
     this.dataForm = this.fb.group({
       email: ['', Validators.email],
       password: ['', [Validators.required]],
@@ -57,7 +59,7 @@ export class FirstRegistrationComponent {
   isValid() {
     const pw = this.dataForm.get('password')?.value;
     const pwRepeat = this.dataForm.get('password_repeat')?.value;
-    console.log("Password:", pw, "Repeat:", pwRepeat);
+  
     if (pw && pwRepeat && pw !== pwRepeat) {
       this.isPasswordMatch = false;
     } else {
@@ -79,18 +81,17 @@ export class FirstRegistrationComponent {
     this.registrationService.firstRegistration(this.user).subscribe({
 
       next: (response) => {
-        alert("Thank you!!");
+        alert(this.translate.instant('error.thankyou'))
         this.router.navigate(['/login']);
 
       },
       error: (err) => {
         console.error('Registration failed:', err);
-        alert("Registration failed. Please try again.");
+        alert(this.translate.instant('error.something-went-wrong'));
       }
     });
   }
   checkStrength(): void {
-    console.log("Checking password strength...");
     const password = this.dataForm.get('password')?.value || '';
     let strengthPoints = 0;
 

@@ -25,7 +25,12 @@
 
 
       <div class="d-flex">
-        <input class="form-control me-2 input-box" type="search" placeholder="Search" aria-label="Search" />
+        <select (change)="switchLanguage($event)" class="language-select" [value]="currentLang()">
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="it">Italiano</option>
+        </select>
         <button class="btn btn-outline-success search-btn" type="button" (click)="logout()">Logout</button>
       </div>
 

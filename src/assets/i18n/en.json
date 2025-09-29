@@ -35,6 +35,7 @@
             "dob": "DoB",
             "diabetes-type": "Diabetes-Type",
             "unit": "Measuring Unit",
+            "post-code": "Post Code",
             "city": "City",
             "country": "Country"
         },
@@ -66,7 +67,7 @@
         }
     },
     "registration": {
-        "title": "Registration",
+        "title": "Update Your Profile",
         "name": "Name",
         "surname": "Surname",
         "dob": "Date of Birth",
@@ -85,50 +86,95 @@
         "tablets": "Tablets",
         "insulin": "Insulin",
         "no-medication": "No medications",
-        "select-option": "Select medication"
+        "select-option": "Select medication",
+        "cancel": "Back"
     },
     "statistics": {
-        "sugar-statistics":"Sugar Statistics",
-        "start-date":"Start Date",
-        "end-date":"End Date",
-        "start":"Start",
-        "normal":"Normal",
-        "high":"High",
-        "low":"Low",
-        "elevated":"Elevated"
+        "sugar-statistics": "Sugar Statistics in %",
+        "start-date": "Start Date",
+        "end-date": "End Date",
+        "start": "Start",
+        "normal": "Normal",
+        "high": "High",
+        "low": "Low",
+        "elevated": "Elevated"
     },
-    "analyser":{
-        "title":"PDF upload for AI analysys",
-        "upload":"Upload & Analyse",
-        "analysys":"AI Analysis"
+    "analyser": {
+        "title": "PDF upload for AI analysys",
+        "upload": "Upload & Analyse",
+        "analysys": "AI Analysis"
     },
-    "data":{
-        "title":"Blood Sugar Historic Values",
-        "sortByDate":"Sort by Date",
-        "default":"Default",
-        "descending":"Descending",
-        "ascending":"Ascending",
-        "sortByValue":"Sort By Value",
-        "highToLow":"High to  Low",
-        "lowToHigh":"Low to High",
-        "filterByStatus":"Filter by Status",
-        "high":"High",
-        "low":"Low",
-        "normal":"Normal",
-        "elevated":"Elevated",
-        "dataEntryTime":"Data Entry Time",
-        "measurementTime":"Measurement Time",
-        "sugarValue":"Sugar Value",
-        "referenceValue":"Reference Value",
-         "status": {
+    "data": {
+        "title": "Blood Sugar Historic Values",
+        "sortByDate": "Sort by Date",
+        "default": "Default",
+        "descending": "Descending",
+        "ascending": "Ascending",
+        "sortByValue": "Sort By Value",
+        "highToLow": "High to  Low",
+        "lowToHigh": "Low to High",
+        "filterByStatus": "Filter by Status",
+        "high": "High",
+        "low": "Low",
+        "normal": "Normal",
+        "elevated": "Elevated",
+        "dataEntryTime": "Data Entry Time",
+        "measurementTime": "Measurement Time",
+        "sugarValue": "Sugar Value",
+        "referenceValue": "Reference Value",
+        "status": {
             "normal": "Normal",
             "high": "High",
             "low": "Low",
             "elevated": "Elevated"
         },
-        "previous":"Previous",
-        "next":"Next",
-        "sugarStatus":"Sugar Status",
-        "graph":"Graph"
+        "previous": "Previous",
+        "next": "Next",
+        "sugarStatus": "Sugar Status",
+        "graph": "Graph"
+    },
+    "reset-email": {
+        "email": "Email",
+        "send": "Send Reset Email",
+        "cancel": "Cancel",
+        "password-sent": "Password sent to :"
+    },
+    "first-registration": {
+        "email": "Email",
+        "password": "Password",
+        "title": "Register Your Profile",
+        "name": "Name",
+        "surname": "Surname",
+        "dob": "Date of Birth",
+        "postCode": "Post Code",
+        "city": "City",
+        "country": "Country",
+        "unit": "Preferred Unit",
+        "diabetes-type": "Diabetes Type",
+        "medication": "Medication",
+        "select-medication": "Select Medication",
+        "error-diabetes-type": "Please select diabetes type",
+        "error-medication": "Please select medication",
+        "send": "Send",
+        "diabetes-type-1": "Type 1",
+        "diabetes-type-2": "Type 2",
+        "tablets": "Tablets",
+        "insulin": "Insulin",
+        "no-medication": "No medications",
+        "select-option": "Select medication",
+        "cancel": "Back"
+    },
+    "login": {
+        "title": "Login to Your Account",
+        "user":"Username",
+        "password":"Password",
+        "already-registered": "Login",
+        "forgot-password": "Forgot Password?",
+        "not-registered": "Don't have an account?",
+        "sign-up": "Sign up"
+    },
+    "error": {
+        "thankyou": "Thank you!",
+        "something-went-wrong": "Something went wrong. Please try again."
     }
 }

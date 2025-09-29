@@ -7,7 +7,7 @@ import { User } from '../models/user';
 import { FormsModule } from '@angular/forms';
 import { filter, Subject, take, takeUntil } from 'rxjs';
 import { DiabetesDashboard } from '../models/dashboard/diabetes-dashboard';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Utility } from '../utils/utility';
 
 @Component({
@@ -34,7 +34,8 @@ export class BaseComponent implements OnInit {
   selectedTimeOfMeal = ''
   loading: boolean = true;
 
-  constructor(private sharedService: SharedService, private datePipe: DatePipe) {
+
+  constructor(private sharedService: SharedService, private datePipe: DatePipe,private translate: TranslateService) {
     this.loading = true;
   }
   ngOnInit(): void {
@@ -130,7 +131,7 @@ export class BaseComponent implements OnInit {
     this.sharedService.addEntry(this.user!.userId, newEntry).subscribe(savedEntry => {
       this.sharedService.loadEntries(this.user!.userId);
     });
-    alert("Thank you!!");
+    alert(this.translate.instant('error.thankyou'));
   }
 
 }

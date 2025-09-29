@@ -14,18 +14,29 @@
       <h1>G24</h1>
     </div>
 
-    <h2>Login to Your Account</h2>
-   
+    <h2>{{'login.title' | translate}}</h2>
+    <div>
+      <div class="d-flex">
+        <div class="language-switch">
+          <select class="form-select form-select-sm" (change)="switchLanguage($event)">
+            <option value="en">English</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="it">Italiano</option>
+          </select>
+        </div>
+      </div>
+    </div>
     <form class="login-form" (ngSubmit)="login()">
       <div class="input-group">
-        <label for="username">Username</label>
+        <label for="username">{{'login.user' | translate}}</label>
         <input type="text" name="username" [(ngModel)]="username" placeholder="Enter your username" required>
       </div>
 
       <div class="input-group">
-        <label for="password">Password</label>
+        <label for="password">{{'login.password' | translate}}</label>
         <input type="password" name="password" [(ngModel)]="password" placeholder="Enter your password" required>
-        <a href="/g24/forget" class="forgot-link">Forgot password?</a>
+        <a href="/g24/forget" class="forgot-link">{{'login.forgot-password' | translate}}</a>
       </div>
 
       <button type="submit" class="login-btn">Login</button>
@@ -37,7 +48,7 @@
     </div>
     }
     <div class="footer">
-      <p>Don't have an account? <a href="/g24/first-registration">Sign up</a></p>
+      <p>{{'login.not-registered' | translate}}<a href="/g24/first-registration">{{'login.sign-up' | translate}}</a></p>
       <p class="copyright">© 2025 G24. All rights reserved.</p>
     </div>
   </div>

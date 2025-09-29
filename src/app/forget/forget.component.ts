@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { EmailService } from '../services/email.service';
 
@@ -15,7 +15,7 @@ export class ForgetComponent {
 
   dataForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private emailService: EmailService) {
+  constructor(private fb: FormBuilder, private router: Router, private emailService: EmailService,private translate:TranslateService) {
     this.dataForm = this.fb.group({
       email: ['', Validators.email]
     });
@@ -28,8 +28,7 @@ export class ForgetComponent {
     const email = this.dataForm.value.email;
     this.emailService.sendPasswordResetEmail(email).subscribe({
       next: (response) => {
-        console.log('✅ Password reset email sent:', response);
-        alert('Password sent to ' + email);
+        alert(this.translate.instant('reset-email.password-sent')+ email);
       },
       error: (err) => {
         console.error('❌ Failed to send password reset email:', err);

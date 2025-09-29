@@ -98,8 +98,8 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let entry of pagedEntries">
-                                    <td>{{ entry.dataEntryTime | date: 'dd MMMM yyyy'}}</td>
-                                    <td>{{ entry.measurementTime | date: 'dd MMMM yyyy' }}</td>
+                                    <td>{{ entry.dataEntryTime | date: 'HH:mm dd MMMM yyyy'}}</td>
+                                    <td>{{ entry.measurementTime | date: 'HH:mm dd MMMM yyyy' }}</td>
                                     <td>{{ entry.sugarValue }} {{ entry.unit }}</td>
                                     <td>{{ entry.referenceValue }}</td>
                                     <td>
