@@ -34,9 +34,9 @@ export class RegistrationComponent implements OnInit {
     password: '',
     password_repeat: ''
   };
-  translate: any;
 
-  constructor(private fb: FormBuilder, private registrationService: RegistrationService, private sharedService: SharedService, private router: Router) {
+
+  constructor(private fb: FormBuilder, private registrationService: RegistrationService, private sharedService: SharedService, private router: Router,private translate: TranslateService) {
     this.dataForm = this.fb.group({
       email: ['', Validators.email],
       name: ['', Validators.required],

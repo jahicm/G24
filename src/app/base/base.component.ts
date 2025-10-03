@@ -35,7 +35,7 @@ export class BaseComponent implements OnInit {
   loading: boolean = true;
 
 
-  constructor(private sharedService: SharedService, private datePipe: DatePipe,private translate: TranslateService) {
+  constructor(private sharedService: SharedService, private datePipe: DatePipe, private translate: TranslateService) {
     this.loading = true;
   }
   ngOnInit(): void {
@@ -93,6 +93,8 @@ export class BaseComponent implements OnInit {
     toDate.setHours(23, 59, 59, 999);
 
     this.filteredGraphValues = this.filteredValues.filter(entry => {
+
+      Utility.normalizeUnit(entry, this.user!);
       const entryDate = new Date(entry.measurementTime);
       return entryDate >= fromDate && entryDate <= toDate;
     });
@@ -110,12 +112,11 @@ export class BaseComponent implements OnInit {
     const sugarValue = Number(formData.sugarValue);
     const value = formData.timeOfMeal;
     const dataEntryTime = new Date();
-    const referenceValue = 100; // example fixed value
+    const referenceValue = 0; // example fixed value
     const timeSlot = formData.measurementTime
-    let status: 'normal' | 'high' | 'low' | 'normal' = 'normal';
-    if (sugarValue > 140) status = 'high';
-    else if (sugarValue < 70) status = 'low';
-    else if (sugarValue > 120) status = 'normal';
+    let status = '';
+
+
 
     const newEntry: Entry = {
       userId,

@@ -70,8 +70,11 @@
         <div class="card p-3 dashboard-card h-100">
           <h6 class="text-primary">{{'dashboard.add_reading.add-new-reading' | translate}}</h6>
           <form #readingForm="ngForm" (ngSubmit)="onSubmit(readingForm)">
-            <input type="text" class="form-control mb-2"
-              placeholder="{{'dashboard.add_reading.placeholder' | translate}}" name="sugarValue" ngModel required />
+            <div>
+              <input type="text" class="form-control mb-2"
+                placeholder="{{'dashboard.add_reading.placeholder' | translate}}" name="sugarValue" ngModel required
+                pattern="^\d+(\.\d+)?$" />
+            </div>
             <div class="mb-3">
               <label for="date-timeOfMeal" class="form-label">{{'dashboard.add_reading.time' | translate}}</label>
               <input type="datetime-local" class="form-control" id="date-timeOfMeal" name="dateTime" ngModel required />
@@ -79,8 +82,11 @@
             <div>
               <select name="timeOfMeal" [(ngModel)]="selectedTimeOfMeal" required>
                 <option value="Fasting">{{'dashboard.add_reading.fasting' | translate}}</option>
-                <option value="Post-Meal">{{'dashboard.add_reading.post-meal' | translate}}</option>
-                <option value="Before-sleep">{{'dashboard.add_reading.before-sleep' | translate}}</option>
+                <option value="Post-Meal-2-hours-after">{{'dashboard.add_reading.post-meal-2hr-after' | translate}}
+                </option>
+                <option value="Post-Meal-1-hour-after">{{'dashboard.add_reading.post-meal-1hr-after' | translate}}
+                </option>
+                <option value="Random">{{'dashboard.add_reading.random' | translate}}</option>
               </select>
             </div>
             <div class="form-check form-check-inline">

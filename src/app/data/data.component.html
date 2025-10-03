@@ -82,7 +82,8 @@
                         <input type="date" class="form-control form-control-sm" [(ngModel)]="toDate" name="toDate"
                             placeholder="To Date">
                         <button class="btn btn-primary btn-sm" (click)="generatePDF()">PDF</button>
-                        <button class="btn btn-primary btn-sm" (click)="generateGraph()">{{'data.graph' | translate}}</button>
+                        <button class="btn btn-primary btn-sm" (click)="generateGraph()">{{'data.graph' |
+                            translate}}</button>
                     </div>
 
                     <div class="table-responsive">
@@ -91,6 +92,7 @@
                                 <tr>
                                     <th>{{'data.dataEntryTime' | translate}}</th>
                                     <th>{{'data.measurementTime' | translate}}</th>
+                                    <th>{{'data.value' | translate}}</th>
                                     <th>{{'data.sugarValue' | translate}}</th>
                                     <th>{{'data.referenceValue' | translate}}</th>
                                     <th>{{'data.sugarStatus' | translate}}</th>
@@ -98,20 +100,19 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let entry of pagedEntries">
-                                    <td>{{ entry.dataEntryTime | date: 'HH:mm dd MMMM yyyy'}}</td>
-                                    <td>{{ entry.measurementTime | date: 'HH:mm dd MMMM yyyy' }}</td>
+                                    <td>{{ entry.dataEntryTime | date: 'HH:mm dd/MM/yyyy'}}</td>
+                                    <td>{{ entry.measurementTime | date: 'HH:mm dd/MM/yyyy' }}</td>
+                                    <td>{{ entry.value }}</td>
                                     <td>{{ entry.sugarValue }} {{ entry.unit }}</td>
                                     <td>{{ entry.referenceValue }}</td>
                                     <td>
                                         <span class="badge" [ngClass]="{
-                    'bg-success': entry.status === 'normal',
-                    'bg-danger': entry.status === 'high',
-                    'bg-warning text-dark': entry.status === 'low',
-                    'bg-secondary': entry.status === 'elevated'
-                  }">
-
+                                        'bg-success': entry.status === 'normal',
+                                        'bg-danger': entry.status === 'high',
+                                        'bg-warning text-dark': entry.status === 'low',
+                                        'bg-secondary': entry.status === 'elevated'
+                                        }">
                                             {{ ('data.status.' + entry.status | translate) | titlecase}}
-
                                         </span>
                                     </td>
                                 </tr>

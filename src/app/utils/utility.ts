@@ -1,5 +1,6 @@
 import { Entry } from "../models/entry";
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { User } from "../models/user";
 
 
 export class Utility {
@@ -25,5 +26,15 @@ export class Utility {
         const decodedToken = helper.decodeToken(sessionStorage.getItem('token') || '');
         const userId = decodedToken ? decodedToken.userId : null;
         return userId;
+    }
+    static normalizeUnit(entry: Entry, user: User): void {
+
+        if (entry.unit === "mg/dL" && user && user.unit === "mmol/L") {
+            entry.sugarValue = Math.round(entry.sugarValue / 18 * 100) / 100;
+            entry.unit = "mmol/L";
+        } else if (entry.unit === "mmol/L" && user && user.unit === "mg/dL") {
+            entry.sugarValue = Math.round(entry.sugarValue * 18 * 100) / 100;
+            entry.unit = "mg/dL";
+        }
     }
 }

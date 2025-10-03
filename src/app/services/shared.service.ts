@@ -105,7 +105,6 @@ export class SharedService {
           this.lastEntriesUserId = userId;
           if (entries != null && !isEqual(this.entriesSubject.value, entries)) {
             this.entriesSubject.next(entries);
-            console.log('Updated entries:', entries);
             this.forceReload = true;
           }
         })

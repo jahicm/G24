@@ -21,11 +21,12 @@
         },
         "add_reading": {
             "add-new-reading": "Add New Sugar Reading",
-            "placeholder": "Enter new value",
+            "placeholder": "Decimal value with . only (e.g. 8.5)",
             "time": "Measured Time",
             "fasting": "Fasting",
-            "post-meal": "Post-Meal",
-            "before-sleep": "Before-Sleep",
+            "post-meal-2hr-after": "Post-Meal-2-hours-after",
+            "post-meal-1hr-after": "Post-Meal-1-hour-after",
+            "random": "Random",
             "save-reading": "Save Reading"
         },
         "user_profile": {
@@ -120,6 +121,7 @@
         "elevated": "Elevated",
         "dataEntryTime": "Data Entry Time",
         "measurementTime": "Measurement Time",
+        "value": "Postprandial/Fasting Glucose",
         "sugarValue": "Sugar Value",
         "referenceValue": "Reference Value",
         "status": {

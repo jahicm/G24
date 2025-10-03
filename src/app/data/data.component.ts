@@ -36,6 +36,8 @@ export class DataComponent implements OnInit {
   chartLabels: string[] = [];
   measurementTimeLabels: string[] = [];
   measurementValueLabels: number[] = [];
+  locale: string | undefined;
+  data: any;
 
   constructor(private datePipe: DatePipe, private dataService: DataService, private sharedService: SharedService) { }
 
@@ -133,10 +135,11 @@ export class DataComponent implements OnInit {
       alert('Please select both From Date and To Date');
       return;
     }
+    this.entries.forEach(entry => Utility.normalizeUnit(entry, this.user));
     this.filteredGraphValues = Utility.convertStringToDateAndFilter(this.entries, this.fromDate, this.toDate);
     this.measurementTimeLabels = this.filteredGraphValues.map(entry =>
-      this.datePipe.transform(entry.measurementTime, 'dd/MM/yyyy') || ''
-    );
+
+      this.datePipe.transform(entry.measurementTime, 'dd/MM/yyyy') || '');
 
     this.measurementValueLabels = this.filteredGraphValues.map(entry => entry.sugarValue);
   }

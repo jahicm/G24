@@ -6,5 +6,5 @@ export interface Entry {
   sugarValue: number;
   unit: string;
   referenceValue: number;
-  status: 'normal' | 'high' | 'low' | 'elevated';
+  status: string;
 }
