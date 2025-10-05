@@ -62,7 +62,10 @@
       "estimation": "Geschätzt aus den aktuellen Glukosedaten"
     },
     "medications": {
-      "daily-medications": "Tägliche Medikamente"
+      "daily-medications": "Tägliche Medikamente",
+      "No medications": "Keine Medikamente",
+      "Insulin": "Insulin",
+      "Tablets": "Tabletten"
     },
     "line-chart": {
       "weekly": "Wöchentliche Übersicht",

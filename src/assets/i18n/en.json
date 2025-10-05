@@ -62,7 +62,10 @@
             "estimation": "Estimated from recent glucose data"
         },
         "medications": {
-            "daily-medications": "Daily Medication"
+            "daily-medications":"Daily Medications",
+            "No medications": "No medications",
+            "Insulin":"Insulin",
+            "Tablets":"Tablets"
         },
         "line-chart": {
             "weekly": "Weekly Overview",

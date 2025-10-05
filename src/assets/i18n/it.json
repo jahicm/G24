@@ -62,7 +62,10 @@
       "estimation": "Stimato dai dati recenti della glicemia"
     },
     "medications": {
-      "daily-medications": "Farmaci quotidiani"
+      "daily-medications": "Farmaci giornalieri",
+      "No medications": "Nessun farmaco",
+      "Insulin": "Insulina",
+      "Tablets": "Compresse"
     },
     "line-chart": {
       "weekly": "Panoramica settimanale",
