@@ -53,7 +53,6 @@ export class DiabetesDashboard {
                     new Medication(m.name ?? '', m.type ?? '', m.dosage ?? '', m.frequency ?? '')
             )
             : [];
-
         const ai = data.ai_analysis ?? {};
         const summary = ai.summary ?? {};
         const highReadings = ai.high_readings ?? {};

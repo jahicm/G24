@@ -1,14 +1,14 @@
 {
     "navigationbar": {
-        "home": "Casa",
+        "home": "Home",
         "registration": "Registrazione",
-        "history": "Cronologia",
+        "history": "Storico",
         "lab-report": "Referto di laboratorio",
         "statistics": "Statistiche"
     },
     "dashboard": {
         "latest_reading": {
-            "latest-reading": "Ultima lettura"
+            "latest-reading": "Ultima misurazione"
         },
         "average": {
             "weekly-average": "Media settimanale"
@@ -20,13 +20,14 @@
             "elevated": "Elevato"
         },
         "add_reading": {
-            "add-new-reading": "Aggiungi nuova lettura di glucosio",
-            "placeholder": "Inserisci nuovo valore",
+            "add-new-reading": "Aggiungi nuova misurazione della glicemia",
+            "placeholder": "Valore decimale con . solamente (es. 8.5)",
             "time": "Orario della misurazione",
-            "fasting": "A digiuno",
-            "post-meal": "Post-pasto",
-            "before-sleep": "Prima di dormire",
-            "save-reading": "Salva lettura"
+            "Fasting": "A digiuno",
+            "post_meal_2hrs_after": "2 ore dopo pasto",
+            "post_meal_1hr_after": "1 ora dopo pasto",
+            "Random": "Casuale",
+            "save-reading": "Salva misurazione"
         },
         "user_profile": {
             "user-profile": "Profilo utente:",
@@ -42,28 +43,28 @@
         "summary": {
             "data-summary": "Riepilogo dati",
             "weekly-avg": "Media settimanale",
-            "readings": "Letture",
-            "best-time": "Miglior momento",
-            "worst-time": "Peggior momento",
+            "readings": "Misurazioni",
+            "best-time": "Momento migliore",
+            "worst-time": "Momento peggiore",
             "tip": "Suggerimento",
             "stable": "Stabile",
             "last-week": "Ultimi 7 giorni",
             "ai-summary": "Riepilogo AI"
         },
         "smart_insight": {
-            "smart-insight": "Insight intelligente",
+            "smart-insight": "Approfondimento intelligente",
             "ai-suggestion": "Suggerimento AI"
         },
         "hba1c": {
-            "prediction": "Previsione HbA1c",
-            "estimation": "Stimato dai dati recenti di glucosio"
+            "prediction": "Predizione HbA1c",
+            "estimation": "Stimato dai dati glicemici recenti"
         },
         "medications": {
-            "daily-medications": "Farmaci giornalieri"
+            "daily-medications": "Terapia giornaliera"
         },
         "line-chart": {
             "weekly": "Panoramica settimanale",
-            "chart-title": "Valore di glucosio nel sangue"
+            "chart-title": "Valore glicemia"
         }
     },
     "registration": {
@@ -71,28 +72,29 @@
         "name": "Nome",
         "surname": "Cognome",
         "dob": "Data di nascita",
-        "city": "Città",
         "postCode": "CAP",
+        "city": "Città",
         "country": "Paese",
         "unit": "Unità preferita",
         "diabetes-type": "Tipo di diabete",
-        "medication": "Farmaco",
-        "select-medication": "Seleziona farmaco",
+        "medication": "Terapia",
+        "select-medication": "Seleziona terapia",
         "error-diabetes-type": "Seleziona il tipo di diabete",
-        "error-medication": "Seleziona un farmaco",
+        "error-medication": "Seleziona la terapia",
         "send": "Invia",
         "diabetes-type-1": "Tipo 1",
         "diabetes-type-2": "Tipo 2",
         "tablets": "Compresse",
         "insulin": "Insulina",
-        "no-medication": "Nessun farmaco",
-        "select-option": "Seleziona farmaco"
+        "no-medication": "Nessuna terapia",
+        "select-option": "Seleziona terapia",
+        "cancel": "Indietro"
     },
     "statistics": {
-        "sugar-statistics": "Statistiche della glicemia",
-        "start-date": "Data di inizio",
-        "end-date": "Data di fine",
-        "start": "Avvia",
+        "sugar-statistics": "Statistiche glicemia in %",
+        "start-date": "Data inizio",
+        "end-date": "Data fine",
+        "start": "Inizio",
         "normal": "Normale",
         "high": "Alto",
         "low": "Basso",
@@ -100,26 +102,27 @@
     },
     "analyser": {
         "title": "Caricamento PDF per analisi AI",
-        "upload": "Carica e Analizza",
+        "upload": "Carica & Analizza",
         "analysys": "Analisi AI"
     },
     "data": {
-        "title": "Valori storici della glicemia",
+        "title": "Valori storici glicemia",
         "sortByDate": "Ordina per data",
         "default": "Predefinito",
-        "descending": "Discendente",
-        "ascending": "Ascendente",
+        "descending": "Decrescente",
+        "ascending": "Crescente",
         "sortByValue": "Ordina per valore",
-        "highToLow": "Da alto a basso",
-        "lowToHigh": "Da basso ad alto",
+        "highToLow": "Alto a basso",
+        "lowToHigh": "Basso ad alto",
         "filterByStatus": "Filtra per stato",
         "high": "Alto",
         "low": "Basso",
         "normal": "Normale",
         "elevated": "Elevato",
-        "dataEntryTime": "Ora di inserimento dati",
-        "measurementTime": "Ora di misurazione",
-        "sugarValue": "Valore glicemico",
+        "dataEntryTime": "Orario inserimento dati",
+        "measurementTime": "Orario misurazione",
+        "value": "Glucosio postprandiale/a digiuno",
+        "sugarValue": "Valore glicemia",
         "referenceValue": "Valore di riferimento",
         "status": {
             "normal": "Normale",
@@ -129,19 +132,19 @@
         },
         "previous": "Precedente",
         "next": "Successivo",
-        "sugarStatus": "Stato della glicemia",
+        "sugarStatus": "Stato glicemia",
         "graph": "Grafico"
     },
     "reset-email": {
         "email": "Email",
         "send": "Invia email di reset",
         "cancel": "Annulla",
-        "password-sent": "Password inviata a: "
+        "password-sent": "Password inviata a :"
     },
     "first-registration": {
         "email": "Email",
         "password": "Password",
-        "title": "Registra il tuo profilo",
+        "title": "Registrazione profilo",
         "name": "Nome",
         "surname": "Cognome",
         "dob": "Data di nascita",
@@ -150,30 +153,40 @@
         "country": "Paese",
         "unit": "Unità preferita",
         "diabetes-type": "Tipo di diabete",
-        "medication": "Farmaco",
-        "select-medication": "Seleziona un farmaco",
+        "medication": "Terapia",
+        "select-medication": "Seleziona terapia",
         "error-diabetes-type": "Seleziona il tipo di diabete",
-        "error-medication": "Seleziona un farmaco",
+        "error-medication": "Seleziona la terapia",
         "send": "Invia",
         "diabetes-type-1": "Tipo 1",
         "diabetes-type-2": "Tipo 2",
         "tablets": "Compresse",
         "insulin": "Insulina",
-        "no-medication": "Nessun farmaco",
-        "select-option": "Seleziona un farmaco",
+        "no-medication": "Nessuna terapia",
+        "select-option": "Seleziona terapia",
         "cancel": "Indietro"
     },
     "login": {
         "title": "Accedi al tuo account",
         "user": "Nome utente",
         "password": "Password",
-        "already-registered": "Login",
+        "already-registered": "Accedi",
         "forgot-password": "Password dimenticata?",
         "not-registered": "Non hai un account?",
         "sign-up": "Registrati"
     },
     "error": {
         "thankyou": "Grazie!",
-        "something-went-wrong": "Si è verificato un errore. Per favore riprova."
+        "something-went-wrong": "Si è verificato un errore. Riprova.",
+        "pdf-error": "Seleziona sia la data di inizio che quella di fine"
+    },
+    "pdf": {
+        "title": "Valori glicemia",
+        "full-name": "Nome",
+        "dob": "Cognome",
+        "diabetes-type": "Tipo di diabete",
+        "city": "Città",
+        "date": "Data",
+        "value": "Valore"
     }
 }

@@ -2,7 +2,7 @@ export interface Entry {
   userId:string;
   dataEntryTime: Date;
   measurementTime: any;
-  value: number;
+  value: string;
   sugarValue: number;
   unit: string;
   referenceValue: number;

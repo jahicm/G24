@@ -1,180 +1,192 @@
 {
-  "navigationbar": {
-    "home": "Startseite",
-    "registration": "Registrierung",
-    "history": "Verlauf",
-    "lab-report": "Laborbericht",
-    "statistics": "Statistiken"
-  },
-  "dashboard": {
-    "latest_reading": {
-      "latest-reading": "Neueste Messung"
+    "navigationbar": {
+        "home": "Startseite",
+        "registration": "Registrierung",
+        "history": "Verlauf",
+        "lab-report": "Laborbericht",
+        "statistics": "Statistiken"
     },
-    "average": {
-      "weekly-average": "Wöchentlicher Durchschnitt"
+    "dashboard": {
+        "latest_reading": {
+            "latest-reading": "Neueste Messung"
+        },
+        "average": {
+            "weekly-average": "Wochendurchschnitt"
+        },
+        "status": {
+            "normal": "Normal",
+            "high": "Hoch",
+            "low": "Niedrig",
+            "elevated": "Erhöht"
+        },
+        "add_reading": {
+            "add-new-reading": "Neue Blutzucker-Messung hinzufügen",
+            "placeholder": "Dezimalwert nur mit . (z.B. 8.5)",
+            "time": "Messzeit",
+            "Fasting": "Nüchtern",
+            "post_meal_2hrs_after": "2 Stunden nach Mahlzeit",
+            "post_meal_1hr_after": "1 Stunde nach Mahlzeit",
+            "Random": "Zufällig",
+            "save-reading": "Messung speichern"
+        },
+        "user_profile": {
+            "user-profile": "Benutzerprofil:",
+            "name": "Vorname",
+            "surname": "Nachname",
+            "dob": "Geburtsdatum",
+            "diabetes-type": "Diabetes-Typ",
+            "unit": "Maßeinheit",
+            "post-code": "Postleitzahl",
+            "city": "Stadt",
+            "country": "Land"
+        },
+        "summary": {
+            "data-summary": "Datenübersicht",
+            "weekly-avg": "Wochen-Durchschnitt",
+            "readings": "Messungen",
+            "best-time": "Beste Zeit",
+            "worst-time": "Schlechteste Zeit",
+            "tip": "Tipp",
+            "stable": "Stabil",
+            "last-week": "Letzte 7 Tage",
+            "ai-summary": "KI-Zusammenfassung"
+        },
+        "smart_insight": {
+            "smart-insight": "Intelligente Einblicke",
+            "ai-suggestion": "KI-Vorschlag"
+        },
+        "hba1c": {
+            "prediction": "HbA1c-Vorhersage",
+            "estimation": "Geschätzt anhand aktueller Glukosedaten"
+        },
+        "medications": {
+            "daily-medications": "Tägliche Medikamente"
+        },
+        "line-chart": {
+            "weekly": "Wöchentliche Übersicht",
+            "chart-title": "Blutzuckerwert"
+        }
     },
-    "status": {
-      "normal": "Normal",
-      "high": "Hoch",
-      "low": "Niedrig",
-      "elevated": "Erhöht"
+    "registration": {
+        "title": "Profil aktualisieren",
+        "name": "Vorname",
+        "surname": "Nachname",
+        "dob": "Geburtsdatum",
+        "postCode": "Postleitzahl",
+        "city": "Stadt",
+        "country": "Land",
+        "unit": "Bevorzugte Einheit",
+        "diabetes-type": "Diabetes-Typ",
+        "medication": "Medikamente",
+        "select-medication": "Medikament auswählen",
+        "error-diabetes-type": "Bitte wählen Sie den Diabetes-Typ",
+        "error-medication": "Bitte wählen Sie ein Medikament",
+        "send": "Senden",
+        "diabetes-type-1": "Typ 1",
+        "diabetes-type-2": "Typ 2",
+        "tablets": "Tabletten",
+        "insulin": "Insulin",
+        "no-medication": "Keine Medikamente",
+        "select-option": "Medikament auswählen",
+        "cancel": "Zurück"
     },
-    "add_reading": {
-      "add-new-reading": "Neue Zucker-Messung hinzufügen",
-      "placeholder": "Neuen Wert eingeben",
-      "time": "Messzeit",
-      "fasting": "Nüchtern",
-      "post-meal": "Nach dem Essen",
-      "before-sleep": "Vor dem Schlafen",
-      "save-reading": "Messung speichern"
+    "statistics": {
+        "sugar-statistics": "Blutzuckerstatistik in %",
+        "start-date": "Startdatum",
+        "end-date": "Enddatum",
+        "start": "Start",
+        "normal": "Normal",
+        "high": "Hoch",
+        "low": "Niedrig",
+        "elevated": "Erhöht"
     },
-    "user_profile": {
-      "user-profile": "Benutzerprofil:",
-      "name": "Vorname",
-      "surname": "Nachname",
-      "dob": "Geburtsdatum",
-      "diabetes-type": "Diabetes-Typ",
-      "unit": "Einheit",
-      "post-code": "Postleitzahl",
-      "city": "Stadt",
-      "country": "Land"
+    "analyser": {
+        "title": "PDF-Upload für KI-Analyse",
+        "upload": "Hochladen & Analysieren",
+        "analysys": "KI-Analyse"
     },
-    "summary": {
-      "data-summary": "Datenübersicht",
-      "weekly-avg": "Wöchentlicher Durchschnitt",
-      "readings": "Messwerte",
-      "best-time": "Beste Zeit",
-      "worst-time": "Schlechteste Zeit",
-      "tip": "Tipp",
-      "stable": "Stabil",
-      "last-week": "Letzte 7 Tage",
-      "ai-summary": "KI-Zusammenfassung"
+    "data": {
+        "title": "Historische Blutzuckerwerte",
+        "sortByDate": "Nach Datum sortieren",
+        "default": "Standard",
+        "descending": "Absteigend",
+        "ascending": "Aufsteigend",
+        "sortByValue": "Nach Wert sortieren",
+        "highToLow": "Hoch zu Niedrig",
+        "lowToHigh": "Niedrig zu Hoch",
+        "filterByStatus": "Nach Status filtern",
+        "high": "Hoch",
+        "low": "Niedrig",
+        "normal": "Normal",
+        "elevated": "Erhöht",
+        "dataEntryTime": "Erfassungszeit",
+        "measurementTime": "Messzeit",
+        "value": "Postprandial/Nüchtern Glukose",
+        "sugarValue": "Blutzuckerwert",
+        "referenceValue": "Referenzwert",
+        "status": {
+            "normal": "Normal",
+            "high": "Hoch",
+            "low": "Niedrig",
+            "elevated": "Erhöht"
+        },
+        "previous": "Vorherige",
+        "next": "Nächste",
+        "sugarStatus": "Blutzuckerstatus",
+        "graph": "Diagramm"
     },
-    "smart_insight": {
-      "smart-insight": "Intelligente Erkenntnis",
-      "ai-suggestion": "KI-Vorschlag"
+    "reset-email": {
+        "email": "E-Mail",
+        "send": "Reset-E-Mail senden",
+        "cancel": "Abbrechen",
+        "password-sent": "Passwort gesendet an:"
     },
-    "hba1c": {
-      "prediction": "HbA1c-Vorhersage",
-      "estimation": "Geschätzt anhand aktueller Glukosedaten"
+    "first-registration": {
+        "email": "E-Mail",
+        "password": "Passwort",
+        "title": "Profil registrieren",
+        "name": "Vorname",
+        "surname": "Nachname",
+        "dob": "Geburtsdatum",
+        "postCode": "Postleitzahl",
+        "city": "Stadt",
+        "country": "Land",
+        "unit": "Bevorzugte Einheit",
+        "diabetes-type": "Diabetes-Typ",
+        "medication": "Medikamente",
+        "select-medication": "Medikament auswählen",
+        "error-diabetes-type": "Bitte wählen Sie den Diabetes-Typ",
+        "error-medication": "Bitte wählen Sie ein Medikament",
+        "send": "Senden",
+        "diabetes-type-1": "Typ 1",
+        "diabetes-type-2": "Typ 2",
+        "tablets": "Tabletten",
+        "insulin": "Insulin",
+        "no-medication": "Keine Medikamente",
+        "select-option": "Medikament auswählen",
+        "cancel": "Zurück"
     },
-    "medications": {
-      "daily-medications": "Tägliche Medikation"
+    "login": {
+        "title": "Anmeldung",
+        "user": "Benutzername",
+        "password": "Passwort",
+        "already-registered": "Anmelden",
+        "forgot-password": "Passwort vergessen?",
+        "not-registered": "Noch kein Konto?",
+        "sign-up": "Registrieren"
     },
-    "line-chart": {
-      "weekly": "Wöchentliche Übersicht",
-      "chart-title": "Blutzuckerwert"
+    "error": {
+        "thankyou": "Danke!",
+        "something-went-wrong": "Etwas ist schiefgelaufen. Bitte erneut versuchen.",
+        "pdf-error": "Bitte wählen Sie sowohl Start- als auch Enddatum"
+    },
+    "pdf": {
+        "title": "Blutzuckerwerte",
+        "full-name": "Name",
+        "dob": "Nachname",
+        "diabetes-type": "Diabetes-Typ",
+        "city": "Stadt",
+        "date": "Datum",
+        "value": "Wert"
     }
-  },
-  "registration": {
-    "title": "Aktualisieren Sie Ihr Profil",
-    "name": "Vorname",
-    "surname": "Nachname",
-    "dob": "Geburtsdatum",
-    "postCode": "Postleitzahl",
-    "city": "Stadt",
-    "country": "Land",
-    "unit": "Bevorzugte Einheit",
-    "diabetes-type": "Diabetes-Typ",
-    "medication": "Medikation",
-    "select-medication": "Medikation auswählen",
-    "error-diabetes-type": "Bitte Diabetes-Typ auswählen",
-    "error-medication": "Bitte Medikation auswählen",
-    "send": "Senden",
-    "diabetes-type-1": "Typ 1",
-    "diabetes-type-2": "Typ 2",
-    "tablets": "Tabletten",
-    "insulin": "Insulin",
-    "no-medication": "Keine Medikation",
-    "select-option": "Medikation auswählen",
-    "cancel": "Zurück"
-  },
-  "statistics": {
-    "sugar-statistics": "Zuckerstatistik in %",
-    "start-date": "Startdatum",
-    "end-date": "Enddatum",
-    "start": "Start",
-    "normal": "Normal",
-    "high": "Hoch",
-    "low": "Niedrig",
-    "elevated": "Erhöht"
-  },
-  "analyser": {
-    "title": "PDF-Upload für KI-Analyse",
-    "upload": "Hochladen & Analysieren",
-    "analysys": "KI-Analyse"
-  },
-  "data": {
-    "title": "Historische Blutzuckerwerte",
-    "sortByDate": "Nach Datum sortieren",
-    "default": "Standard",
-    "descending": "Absteigend",
-    "ascending": "Aufsteigend",
-    "sortByValue": "Nach Wert sortieren",
-    "highToLow": "Hoch zu Niedrig",
-    "lowToHigh": "Niedrig zu Hoch",
-    "filterByStatus": "Nach Status filtern",
-    "high": "Hoch",
-    "low": "Niedrig",
-    "normal": "Normal",
-    "elevated": "Erhöht",
-    "dataEntryTime": "Daten-Erfassungszeit",
-    "measurementTime": "Messzeit",
-    "sugarValue": "Zuckerwert",
-    "referenceValue": "Referenzwert",
-    "status": {
-      "normal": "Normal",
-      "high": "Hoch",
-      "low": "Niedrig",
-      "elevated": "Erhöht"
-    },
-    "previous": "Zurück",
-    "next": "Weiter",
-    "sugarStatus": "Zuckerstatus",
-    "graph": "Diagramm"
-  },
-  "reset-email": {
-    "email": "E-Mail",
-    "send": "Zurücksetz-E-Mail senden",
-    "cancel": "Abbrechen",
-    "password-sent": "Passwort gesendet an: "
-  },
-  "first-registration": {
-    "email": "E-Mail",
-    "password": "Passwort",
-    "title": "Profil registrieren",
-    "name": "Vorname",
-    "surname": "Nachname",
-    "dob": "Geburtsdatum",
-    "postCode": "Postleitzahl",
-    "city": "Stadt",
-    "country": "Land",
-    "unit": "Bevorzugte Einheit",
-    "diabetes-type": "Diabetes-Typ",
-    "medication": "Medikament",
-    "select-medication": "Medikament auswählen",
-    "error-diabetes-type": "Bitte Diabetes-Typ auswählen",
-    "error-medication": "Bitte Medikament auswählen",
-    "send": "Senden",
-    "diabetes-type-1": "Typ 1",
-    "diabetes-type-2": "Typ 2",
-    "tablets": "Tabletten",
-    "insulin": "Insulin",
-    "no-medication": "Keine Medikamente",
-    "select-option": "Medikament auswählen",
-    "cancel": "Zurück"
-  },
-  "login": {
-    "title": "Melden Sie sich bei Ihrem Konto an",
-    "user": "Benutzername",
-    "password": "Passwort",
-    "already-registered": "Login",
-    "forgot-password": "Passwort vergessen?",
-    "not-registered": "Noch kein Konto?",
-    "sign-up": "Registrieren"
-  },
-  "error": {
-    "thankyou": "Danke!",
-    "something-went-wrong": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
-  }
 }

@@ -23,10 +23,10 @@
             "add-new-reading": "Add New Sugar Reading",
             "placeholder": "Decimal value with . only (e.g. 8.5)",
             "time": "Measured Time",
-            "fasting": "Fasting",
-            "post-meal-2hr-after": "Post-Meal-2-hours-after",
-            "post-meal-1hr-after": "Post-Meal-1-hour-after",
-            "random": "Random",
+           "Fasting": "Fasting",
+            "post_meal_2hrs_after": "Post Meal 2 hours after",
+            "post_meal_1hr_after": "Post Meal 1 hour after",
+            "Random": "Random",
             "save-reading": "Save Reading"
         },
         "user_profile": {
@@ -168,8 +168,8 @@
     },
     "login": {
         "title": "Login to Your Account",
-        "user":"Username",
-        "password":"Password",
+        "user": "Username",
+        "password": "Password",
         "already-registered": "Login",
         "forgot-password": "Forgot Password?",
         "not-registered": "Don't have an account?",
@@ -177,6 +177,16 @@
     },
     "error": {
         "thankyou": "Thank you!",
-        "something-went-wrong": "Something went wrong. Please try again."
+        "something-went-wrong": "Something went wrong. Please try again.",
+        "pdf-error": "Please select both From Date and To Date"
+    },
+    "pdf": {
+        "title": "Blood Sugar Values",
+        "full-name": "Name",
+        "dob": "Surname",
+        "diabetes-type": "Diabetes Type",
+        "city": "City",
+        "date": "Date",
+        "value": "Value"
     }
 }

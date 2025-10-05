@@ -10,7 +10,7 @@ import { Utility } from '../utils/utility';
 import { DataService } from '../services/dataservice.service';
 import { User } from '../models/user';
 import { SharedService } from '../services/shared.service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-data',
@@ -39,7 +39,8 @@ export class DataComponent implements OnInit {
   locale: string | undefined;
   data: any;
 
-  constructor(private datePipe: DatePipe, private dataService: DataService, private sharedService: SharedService) { }
+
+  constructor(private datePipe: DatePipe, private dataService: DataService, private sharedService: SharedService,private translate: TranslateService) { }
 
   ngOnInit(): void {
 
@@ -145,7 +146,7 @@ export class DataComponent implements OnInit {
   }
   generatePDF(): void {
     if (!this.fromDate || !this.toDate) {
-      alert('Please select both From Date and To Date');
+      alert(this.translate.instant('error.pdf-error'));
       return;
     }
 
@@ -154,15 +155,15 @@ export class DataComponent implements OnInit {
     const doc = new jsPDF();
     // ➤ Add title
     doc.setFontSize(16);
-    doc.text('Blood Sugar Report', 14, 15);
+    doc.text(this.translate.instant('pdf.title'), 14, 15);
 
     // ➤ Add user details
     doc.setFontSize(11);
     const details = [
-      `Name: ${this.user.name} ${this.user.lastName}`,
-      `DoB: ${this.user.dob}`,
-      `Diabetes Type: ${this.user.diabetesType}`,
-      `City: ${this.user.city}`
+      this.translate.instant('pdf.full-name')+":"+`${this.user.name} ${this.user.lastName}`,
+      this.translate.instant('pdf.dob')+":"+`${this.user.dob}`,
+      this.translate.instant('pdf.diabetes-type')+":"+`${this.user.diabetesType}`,
+      this.translate.instant('pdf.city')+":"+`${this.user.city}`
     ];
 
     details.forEach((line, index) => {
@@ -173,13 +174,13 @@ export class DataComponent implements OnInit {
     const tableStartY = 25 + details.length * 6 + 5;
 
     const tableData = this.filteredValues.map(entry => [
-      formatDate(entry.measurementTime, 'dd MMMM yyyy', 'en-US'),
-      entry.value + ' ' + entry.unit
-    ]);
-
+      
+      formatDate(entry.measurementTime, 'HH:mm dd/MM/yyyy','en-US'),
+     
+      this.translate.instant('dashboard.add_reading.' +entry.value) +' '+entry.sugarValue+' '+ entry.unit]);
     autoTable(doc, {
       startY: tableStartY,
-      head: [['Date', 'Value']],
+      head: [[this.translate.instant('pdf.date'), this.translate.instant('pdf.value')]],
       body: tableData
     });
 

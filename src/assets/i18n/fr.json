@@ -17,15 +17,16 @@
             "normal": "Normal",
             "high": "Élevé",
             "low": "Bas",
-            "elevated": "Augmenté"
+            "elevated": "Élevé"
         },
         "add_reading": {
-            "add-new-reading": "Ajouter une nouvelle mesure de glycémie",
-            "placeholder": "Entrer une nouvelle valeur",
-            "time": "Heure de la mesure",
-            "fasting": "À jeun",
-            "post-meal": "Après le repas",
-            "before-sleep": "Avant le coucher",
+            "add-new-reading": "Ajouter une nouvelle mesure de sucre",
+            "placeholder": "Valeur décimale avec . uniquement (ex: 8.5)",
+            "time": "Heure de mesure",
+            "Fasting": "À jeun",
+            "post_meal_2hrs_after": "2 heures après le repas",
+            "post_meal_1hr_after": "1 heure après le repas",
+            "Random": "Aléatoire",
             "save-reading": "Enregistrer la mesure"
         },
         "user_profile": {
@@ -51,91 +52,92 @@
             "ai-summary": "Résumé IA"
         },
         "smart_insight": {
-            "smart-insight": "Analyse intelligente",
+            "smart-insight": "Aperçu intelligent",
             "ai-suggestion": "Suggestion IA"
         },
         "hba1c": {
             "prediction": "Prédiction HbA1c",
-            "estimation": "Estimé à partir des données récentes de glycémie"
+            "estimation": "Estimé à partir des données de glucose récentes"
         },
         "medications": {
-            "daily-medications": "Médicaments quotidiens"
+            "daily-medications": "Médication quotidienne"
         },
         "line-chart": {
-            "weekly": "Aperçu hebdomadaire",
-            "chart-title": "Valeur de glycémie"
+            "weekly": "Vue hebdomadaire",
+            "chart-title": "Valeur du sucre dans le sang"
         }
     },
     "registration": {
-        "title": "Mettez à jour votre profil",
+        "title": "Mettre à jour votre profil",
         "name": "Prénom",
         "surname": "Nom",
         "dob": "Date de naissance",
-        "city": "Ville",
         "postCode": "Code postal",
+        "city": "Ville",
         "country": "Pays",
         "unit": "Unité préférée",
         "diabetes-type": "Type de diabète",
-        "medication": "Médicament",
-        "select-medication": "Sélectionnez un médicament",
-        "error-diabetes-type": "Veuillez sélectionner un type de diabète",
-        "error-medication": "Veuillez sélectionner un médicament",
+        "medication": "Médication",
+        "select-medication": "Sélectionner la médication",
+        "error-diabetes-type": "Veuillez sélectionner le type de diabète",
+        "error-medication": "Veuillez sélectionner la médication",
         "send": "Envoyer",
         "diabetes-type-1": "Type 1",
         "diabetes-type-2": "Type 2",
         "tablets": "Comprimés",
         "insulin": "Insuline",
-        "no-medication": "Aucun médicament",
-        "select-option": "Sélectionnez un médicament",
+        "no-medication": "Pas de médication",
+        "select-option": "Sélectionner la médication",
         "cancel": "Retour"
     },
     "statistics": {
-        "sugar-statistics": "Statistiques de glycémie",
+        "sugar-statistics": "Statistiques du sucre en %",
         "start-date": "Date de début",
         "end-date": "Date de fin",
-        "start": "Démarrer",
+        "start": "Début",
         "normal": "Normal",
         "high": "Élevé",
-        "low": "Faible",
-        "elevated": "Modérément élevé"
+        "low": "Bas",
+        "elevated": "Élevé"
     },
     "analyser": {
-        "title": "Téléchargement de PDF pour analyse par IA",
-        "upload": "Télécharger et analyser",
+        "title": "Téléversement PDF pour analyse IA",
+        "upload": "Téléverser & Analyser",
         "analysys": "Analyse IA"
     },
     "data": {
-        "title": "Valeurs historiques de la glycémie",
+        "title": "Historique des valeurs de sucre",
         "sortByDate": "Trier par date",
         "default": "Par défaut",
-        "descending": "Descendant",
-        "ascending": "Ascendant",
+        "descending": "Décroissant",
+        "ascending": "Croissant",
         "sortByValue": "Trier par valeur",
-        "highToLow": "De haut en bas",
-        "lowToHigh": "De bas en haut",
+        "highToLow": "Élevé à bas",
+        "lowToHigh": "Bas à élevé",
         "filterByStatus": "Filtrer par statut",
         "high": "Élevé",
         "low": "Bas",
         "normal": "Normal",
         "elevated": "Élevé",
-        "dataEntryTime": "Heure de saisie des données",
+        "dataEntryTime": "Heure d'entrée des données",
         "measurementTime": "Heure de mesure",
-        "sugarValue": "Valeur de glycémie",
+        "value": "Glucose postprandial/à jeun",
+        "sugarValue": "Valeur du sucre",
         "referenceValue": "Valeur de référence",
         "status": {
             "normal": "Normal",
-            "high": "Très élevé",
+            "high": "Élevé",
             "low": "Bas",
             "elevated": "Élevé"
         },
         "previous": "Précédent",
         "next": "Suivant",
-        "sugarStatus": "Statut de la glycémie",
+        "sugarStatus": "Statut du sucre",
         "graph": "Graphique"
     },
     "reset-email": {
         "email": "Email",
-        "send": "Envoyer l'email de réinitialisation",
+        "send": "Envoyer le mail de réinitialisation",
         "cancel": "Annuler",
         "password-sent": "Mot de passe envoyé à :"
     },
@@ -151,30 +153,40 @@
         "country": "Pays",
         "unit": "Unité préférée",
         "diabetes-type": "Type de diabète",
-        "medication": "Médicament",
-        "select-medication": "Sélectionner un médicament",
+        "medication": "Médication",
+        "select-medication": "Sélectionner la médication",
         "error-diabetes-type": "Veuillez sélectionner le type de diabète",
-        "error-medication": "Veuillez sélectionner un médicament",
+        "error-medication": "Veuillez sélectionner la médication",
         "send": "Envoyer",
         "diabetes-type-1": "Type 1",
         "diabetes-type-2": "Type 2",
         "tablets": "Comprimés",
         "insulin": "Insuline",
-        "no-medication": "Aucun médicament",
-        "select-option": "Sélectionner un médicament",
+        "no-medication": "Pas de médication",
+        "select-option": "Sélectionner la médication",
         "cancel": "Retour"
     },
     "login": {
-        "title": "Connectez-vous à votre compte",
+        "title": "Connexion à votre compte",
         "user": "Nom d'utilisateur",
         "password": "Mot de passe",
-        "already-registered": "Connexion",
+        "already-registered": "Se connecter",
         "forgot-password": "Mot de passe oublié ?",
-        "not-registered": "Vous n'avez pas de compte ?",
+        "not-registered": "Pas encore de compte ?",
         "sign-up": "S'inscrire"
     },
     "error": {
         "thankyou": "Merci !",
-        "something-went-wrong": "Une erreur est survenue. Veuillez réessayer."
+        "something-went-wrong": "Une erreur est survenue. Veuillez réessayer.",
+        "pdf-error": "Veuillez sélectionner à la fois la date de début et la date de fin"
+    },
+    "pdf": {
+        "title": "Valeurs de sucre dans le sang",
+        "full-name": "Nom",
+        "dob": "Nom de famille",
+        "diabetes-type": "Type de diabète",
+        "city": "Ville",
+        "date": "Date",
+        "value": "Valeur"
     }
 }
