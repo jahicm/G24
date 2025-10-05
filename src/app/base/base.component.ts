@@ -18,6 +18,7 @@ import { Utility } from '../utils/utility';
 })
 export class BaseComponent implements OnInit {
 
+
   filteredValues: Entry[] = [];
   filteredGraphValues: Entry[] = [];
   fromDate: string = '';
@@ -40,7 +41,7 @@ export class BaseComponent implements OnInit {
   }
   ngOnInit(): void {
 
-    this.selectedTimeOfMeal = "Fasting";
+    this.selectedTimeOfMeal = "fasting";
     const userId = Utility.decodeUserIdFromToken(sessionStorage.getItem('token') || '');
     if (userId) {
       console.log('Decoded userId from token:', userId);
@@ -134,5 +135,11 @@ export class BaseComponent implements OnInit {
     });
     alert(this.translate.instant('error.thankyou'));
   }
-
+  deleteProfile() {
+    if (confirm(this.translate.instant('dashboard.user_profile.delete_confirm'))) {
+      console.log("Oui");
+    } else {
+      console.log("Non");
+    }
+  }
 }

@@ -1,192 +1,194 @@
 {
-    "navigationbar": {
-        "home": "Startseite",
-        "registration": "Registrierung",
-        "history": "Verlauf",
-        "lab-report": "Laborbericht",
-        "statistics": "Statistiken"
+  "navigationbar": {
+    "home": "Startseite",
+    "registration": "Registrierung",
+    "history": "Verlauf",
+    "lab-report": "Laborbericht",
+    "statistics": "Statistiken"
+  },
+  "dashboard": {
+    "latest_reading": {
+      "latest-reading": "Letzte Messung"
     },
-    "dashboard": {
-        "latest_reading": {
-            "latest-reading": "Neueste Messung"
-        },
-        "average": {
-            "weekly-average": "Wochendurchschnitt"
-        },
-        "status": {
-            "normal": "Normal",
-            "high": "Hoch",
-            "low": "Niedrig",
-            "elevated": "Erhöht"
-        },
-        "add_reading": {
-            "add-new-reading": "Neue Blutzucker-Messung hinzufügen",
-            "placeholder": "Dezimalwert nur mit . (z.B. 8.5)",
-            "time": "Messzeit",
-            "Fasting": "Nüchtern",
-            "post_meal_2hrs_after": "2 Stunden nach Mahlzeit",
-            "post_meal_1hr_after": "1 Stunde nach Mahlzeit",
-            "Random": "Zufällig",
-            "save-reading": "Messung speichern"
-        },
-        "user_profile": {
-            "user-profile": "Benutzerprofil:",
-            "name": "Vorname",
-            "surname": "Nachname",
-            "dob": "Geburtsdatum",
-            "diabetes-type": "Diabetes-Typ",
-            "unit": "Maßeinheit",
-            "post-code": "Postleitzahl",
-            "city": "Stadt",
-            "country": "Land"
-        },
-        "summary": {
-            "data-summary": "Datenübersicht",
-            "weekly-avg": "Wochen-Durchschnitt",
-            "readings": "Messungen",
-            "best-time": "Beste Zeit",
-            "worst-time": "Schlechteste Zeit",
-            "tip": "Tipp",
-            "stable": "Stabil",
-            "last-week": "Letzte 7 Tage",
-            "ai-summary": "KI-Zusammenfassung"
-        },
-        "smart_insight": {
-            "smart-insight": "Intelligente Einblicke",
-            "ai-suggestion": "KI-Vorschlag"
-        },
-        "hba1c": {
-            "prediction": "HbA1c-Vorhersage",
-            "estimation": "Geschätzt anhand aktueller Glukosedaten"
-        },
-        "medications": {
-            "daily-medications": "Tägliche Medikamente"
-        },
-        "line-chart": {
-            "weekly": "Wöchentliche Übersicht",
-            "chart-title": "Blutzuckerwert"
-        }
+    "average": {
+      "weekly-average": "Wöchentlicher Durchschnitt"
     },
-    "registration": {
-        "title": "Profil aktualisieren",
-        "name": "Vorname",
-        "surname": "Nachname",
-        "dob": "Geburtsdatum",
-        "postCode": "Postleitzahl",
-        "city": "Stadt",
-        "country": "Land",
-        "unit": "Bevorzugte Einheit",
-        "diabetes-type": "Diabetes-Typ",
-        "medication": "Medikamente",
-        "select-medication": "Medikament auswählen",
-        "error-diabetes-type": "Bitte wählen Sie den Diabetes-Typ",
-        "error-medication": "Bitte wählen Sie ein Medikament",
-        "send": "Senden",
-        "diabetes-type-1": "Typ 1",
-        "diabetes-type-2": "Typ 2",
-        "tablets": "Tabletten",
-        "insulin": "Insulin",
-        "no-medication": "Keine Medikamente",
-        "select-option": "Medikament auswählen",
-        "cancel": "Zurück"
+    "status": {
+      "normal": "Normal",
+      "high": "Hoch",
+      "low": "Niedrig",
+      "elevated": "Erhöht"
     },
-    "statistics": {
-        "sugar-statistics": "Blutzuckerstatistik in %",
-        "start-date": "Startdatum",
-        "end-date": "Enddatum",
-        "start": "Start",
-        "normal": "Normal",
-        "high": "Hoch",
-        "low": "Niedrig",
-        "elevated": "Erhöht"
+    "add_reading": {
+      "add-new-reading": "Neue Blutzuckermessung hinzufügen",
+      "placeholder": "Dezimalwert nur mit . (z.B. 8.5)",
+      "time": "Messzeit",
+      "fasting": "Nüchtern",
+      "post_meal_2hrs_after": "2 Stunden nach dem Essen",
+      "post_meal_1hr_after": "1 Stunde nach dem Essen",
+      "random": "Zufällig",
+      "save-reading": "Messung speichern"
     },
-    "analyser": {
-        "title": "PDF-Upload für KI-Analyse",
-        "upload": "Hochladen & Analysieren",
-        "analysys": "KI-Analyse"
+    "user_profile": {
+      "user-profile": "Benutzerprofil:",
+      "name": "Vorname",
+      "surname": "Nachname",
+      "dob": "Geburtsdatum",
+      "diabetes-type": "Diabetes-Typ",
+      "unit": "Messeinheit",
+      "post-code": "Postleitzahl",
+      "city": "Stadt",
+      "country": "Land",
+      "delete-profile": "Profil löschen",
+      "delete_confirm": "Profil wirklich löschen?"
     },
-    "data": {
-        "title": "Historische Blutzuckerwerte",
-        "sortByDate": "Nach Datum sortieren",
-        "default": "Standard",
-        "descending": "Absteigend",
-        "ascending": "Aufsteigend",
-        "sortByValue": "Nach Wert sortieren",
-        "highToLow": "Hoch zu Niedrig",
-        "lowToHigh": "Niedrig zu Hoch",
-        "filterByStatus": "Nach Status filtern",
-        "high": "Hoch",
-        "low": "Niedrig",
-        "normal": "Normal",
-        "elevated": "Erhöht",
-        "dataEntryTime": "Erfassungszeit",
-        "measurementTime": "Messzeit",
-        "value": "Postprandial/Nüchtern Glukose",
-        "sugarValue": "Blutzuckerwert",
-        "referenceValue": "Referenzwert",
-        "status": {
-            "normal": "Normal",
-            "high": "Hoch",
-            "low": "Niedrig",
-            "elevated": "Erhöht"
-        },
-        "previous": "Vorherige",
-        "next": "Nächste",
-        "sugarStatus": "Blutzuckerstatus",
-        "graph": "Diagramm"
+    "summary": {
+      "data-summary": "Datenübersicht",
+      "weekly-avg": "Wöchentlicher Durchschnitt",
+      "readings": "Messungen",
+      "best-time": "Beste Zeit",
+      "worst-time": "Schlechteste Zeit",
+      "tip": "Tipp",
+      "stable": "Stabil",
+      "last-week": "Letzte 7 Tage",
+      "ai-summary": "KI-Zusammenfassung"
     },
-    "reset-email": {
-        "email": "E-Mail",
-        "send": "Reset-E-Mail senden",
-        "cancel": "Abbrechen",
-        "password-sent": "Passwort gesendet an:"
+    "smart_insight": {
+      "smart-insight": "Intelligente Einsicht",
+      "ai-suggestion": "KI-Vorschlag"
     },
-    "first-registration": {
-        "email": "E-Mail",
-        "password": "Passwort",
-        "title": "Profil registrieren",
-        "name": "Vorname",
-        "surname": "Nachname",
-        "dob": "Geburtsdatum",
-        "postCode": "Postleitzahl",
-        "city": "Stadt",
-        "country": "Land",
-        "unit": "Bevorzugte Einheit",
-        "diabetes-type": "Diabetes-Typ",
-        "medication": "Medikamente",
-        "select-medication": "Medikament auswählen",
-        "error-diabetes-type": "Bitte wählen Sie den Diabetes-Typ",
-        "error-medication": "Bitte wählen Sie ein Medikament",
-        "send": "Senden",
-        "diabetes-type-1": "Typ 1",
-        "diabetes-type-2": "Typ 2",
-        "tablets": "Tabletten",
-        "insulin": "Insulin",
-        "no-medication": "Keine Medikamente",
-        "select-option": "Medikament auswählen",
-        "cancel": "Zurück"
+    "hba1c": {
+      "prediction": "HbA1c-Vorhersage",
+      "estimation": "Geschätzt aus den aktuellen Glukosedaten"
     },
-    "login": {
-        "title": "Anmeldung",
-        "user": "Benutzername",
-        "password": "Passwort",
-        "already-registered": "Anmelden",
-        "forgot-password": "Passwort vergessen?",
-        "not-registered": "Noch kein Konto?",
-        "sign-up": "Registrieren"
+    "medications": {
+      "daily-medications": "Tägliche Medikamente"
     },
-    "error": {
-        "thankyou": "Danke!",
-        "something-went-wrong": "Etwas ist schiefgelaufen. Bitte erneut versuchen.",
-        "pdf-error": "Bitte wählen Sie sowohl Start- als auch Enddatum"
-    },
-    "pdf": {
-        "title": "Blutzuckerwerte",
-        "full-name": "Name",
-        "dob": "Nachname",
-        "diabetes-type": "Diabetes-Typ",
-        "city": "Stadt",
-        "date": "Datum",
-        "value": "Wert"
+    "line-chart": {
+      "weekly": "Wöchentliche Übersicht",
+      "chart-title": "Blutzuckerwert"
     }
+  },
+  "registration": {
+    "title": "Profil aktualisieren",
+    "name": "Vorname",
+    "surname": "Nachname",
+    "dob": "Geburtsdatum",
+    "postCode": "Postleitzahl",
+    "city": "Stadt",
+    "country": "Land",
+    "unit": "Bevorzugte Einheit",
+    "diabetes-type": "Diabetes-Typ",
+    "medication": "Medikamente",
+    "select-medication": "Medikamente auswählen",
+    "error-diabetes-type": "Bitte wählen Sie den Diabetes-Typ",
+    "error-medication": "Bitte wählen Sie Medikamente",
+    "send": "Senden",
+    "diabetes-type-1": "Typ 1",
+    "diabetes-type-2": "Typ 2",
+    "tablets": "Tabletten",
+    "insulin": "Insulin",
+    "no-medication": "Keine Medikamente",
+    "select-option": "Medikamente auswählen",
+    "cancel": "Zurück"
+  },
+  "statistics": {
+    "sugar-statistics": "Blutzucker-Statistiken in %",
+    "start-date": "Startdatum",
+    "end-date": "Enddatum",
+    "start": "Start",
+    "normal": "Normal",
+    "high": "Hoch",
+    "low": "Niedrig",
+    "elevated": "Erhöht"
+  },
+  "analyser": {
+    "title": "PDF-Upload für KI-Analyse",
+    "upload": "Hochladen & Analysieren",
+    "analysys": "KI-Analyse"
+  },
+  "data": {
+    "title": "Historische Blutzuckerwerte",
+    "sortByDate": "Nach Datum sortieren",
+    "default": "Standard",
+    "descending": "Absteigend",
+    "ascending": "Aufsteigend",
+    "sortByValue": "Nach Wert sortieren",
+    "highToLow": "Von hoch nach niedrig",
+    "lowToHigh": "Von niedrig nach hoch",
+    "filterByStatus": "Nach Status filtern",
+    "high": "Hoch",
+    "low": "Niedrig",
+    "normal": "Normal",
+    "elevated": "Erhöht",
+    "dataEntryTime": "Eingabezeit",
+    "measurementTime": "Messzeit",
+    "value": "Postprandial/Nüchtern-Glukose",
+    "sugarValue": "Blutzuckerwert",
+    "referenceValue": "Referenzwert",
+    "status": {
+      "normal": "Normal",
+      "high": "Hoch",
+      "low": "Niedrig",
+      "elevated": "Erhöht"
+    },
+    "previous": "Zurück",
+    "next": "Weiter",
+    "sugarStatus": "Blutzuckerstatus",
+    "graph": "Diagramm"
+  },
+  "reset-email": {
+    "email": "E-Mail",
+    "send": "E-Mail zum Zurücksetzen senden",
+    "cancel": "Abbrechen",
+    "password-sent": "Passwort gesendet an:"
+  },
+  "first-registration": {
+    "email": "E-Mail",
+    "password": "Passwort",
+    "title": "Profil registrieren",
+    "name": "Vorname",
+    "surname": "Nachname",
+    "dob": "Geburtsdatum",
+    "postCode": "Postleitzahl",
+    "city": "Stadt",
+    "country": "Land",
+    "unit": "Bevorzugte Einheit",
+    "diabetes-type": "Diabetes-Typ",
+    "medication": "Medikamente",
+    "select-medication": "Medikamente auswählen",
+    "error-diabetes-type": "Bitte wählen Sie den Diabetes-Typ",
+    "error-medication": "Bitte wählen Sie Medikamente",
+    "send": "Senden",
+    "diabetes-type-1": "Typ 1",
+    "diabetes-type-2": "Typ 2",
+    "tablets": "Tabletten",
+    "insulin": "Insulin",
+    "no-medication": "Keine Medikamente",
+    "select-option": "Medikamente auswählen",
+    "cancel": "Zurück"
+  },
+  "login": {
+    "title": "In Ihr Konto einloggen",
+    "user": "Benutzername",
+    "password": "Passwort",
+    "already-registered": "Anmelden",
+    "forgot-password": "Passwort vergessen?",
+    "not-registered": "Noch kein Konto?",
+    "sign-up": "Registrieren"
+  },
+  "error": {
+    "thankyou": "Vielen Dank!",
+    "something-went-wrong": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "pdf-error": "Bitte wählen Sie sowohl Start- als auch Enddatum"
+  },
+  "pdf": {
+    "title": "Blutzuckerwerte",
+    "full-name": "Vorname",
+    "dob": "Nachname",
+    "diabetes-type": "Diabetes-Typ",
+    "city": "Stadt",
+    "date": "Datum",
+    "value": "Wert"
+  }
 }

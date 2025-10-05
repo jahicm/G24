@@ -23,10 +23,10 @@
             "add-new-reading": "Add New Sugar Reading",
             "placeholder": "Decimal value with . only (e.g. 8.5)",
             "time": "Measured Time",
-           "Fasting": "Fasting",
+             "fasting": "Fasting",
             "post_meal_2hrs_after": "Post Meal 2 hours after",
             "post_meal_1hr_after": "Post Meal 1 hour after",
-            "Random": "Random",
+            "random": "Random",
             "save-reading": "Save Reading"
         },
         "user_profile": {
@@ -38,7 +38,9 @@
             "unit": "Measuring Unit",
             "post-code": "Post Code",
             "city": "City",
-            "country": "Country"
+            "country": "Country",
+            "delete-profile":"Delete Profile",
+            "delete_confirm":"Are you sure to delete your profile?"
         },
         "summary": {
             "data-summary": "Data Summary",

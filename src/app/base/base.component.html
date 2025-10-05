@@ -81,12 +81,12 @@
             </div>
             <div>
               <select name="timeOfMeal" [(ngModel)]="selectedTimeOfMeal" required>
-                <option value="Fasting">{{'dashboard.add_reading.fasting' | translate}}</option>
-                <option value="post_meal_2hr_after">{{'dashboard.add_reading.post_meal_2hr_after' | translate}}
+                <option value="fasting">{{'dashboard.add_reading.fasting' | translate}}</option>
+                <option value="post_meal_2hr_after">{{'dashboard.add_reading.post_meal_2hrs_after' | translate}}
                 </option>
                 <option value="post_meal_1hr_after">{{'dashboard.add_reading.post_meal_1hr_after' | translate}}
                 </option>
-                <option value="Random">{{'dashboard.add_reading.random' | translate}}</option>
+                <option value="random">{{'dashboard.add_reading.random' | translate}}</option>
               </select>
             </div>
             <div class="form-check form-check-inline">
@@ -122,7 +122,11 @@
               <li><strong>{{'dashboard.user_profile.country' | translate}}:</strong> {{user?.country}}</li>
             </ul>
           </div>
-
+        </div>
+        <div>
+          <button class="btn btn-primary btn-sm mt-2" (click)="deleteProfile()">
+            {{'dashboard.user_profile.delete-profile' | translate}}
+          </button>
         </div>
       </div>
     </div>
