@@ -82,6 +82,7 @@ export class FirstRegistrationComponent {
 
       next: (response) => {
         alert(this.translate.instant('error.thankyou'))
+        sessionStorage.removeItem("token");
         this.router.navigate(['/login']);
 
       },
@@ -104,11 +105,11 @@ export class FirstRegistrationComponent {
     this.passwordStrength = (strengthPoints / 5) * 100;
 
     if (strengthPoints <= 2) {
-      this.passwordStrengthMessage = 'Schwach';
+      this.passwordStrengthMessage = this.translate.instant('first-registration.weak');
     } else if (strengthPoints === 3 || strengthPoints === 4) {
-      this.passwordStrengthMessage = 'Mittel';
+      this.passwordStrengthMessage = this.translate.instant('first-registration.medium');;
     } else {
-      this.passwordStrengthMessage = 'Stark';
+      this.passwordStrengthMessage = this.translate.instant('first-registration.strong');;
     }
   }
   cancel() {

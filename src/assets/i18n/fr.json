@@ -1,197 +1,201 @@
 {
-  "navigationbar": {
-    "home": "Accueil",
-    "registration": "Inscription",
-    "history": "Historique",
-    "lab-report": "Rapport de laboratoire",
-    "statistics": "Statistiques"
-  },
-  "dashboard": {
-    "latest_reading": {
-      "latest-reading": "Dernière mesure"
+    "navigationbar": {
+        "home": "Accueil",
+        "registration": "Inscription",
+        "history": "Historique",
+        "lab-report": "Rapport de laboratoire",
+        "statistics": "Statistiques"
     },
-    "average": {
-      "weekly-average": "Moyenne hebdomadaire"
+    "dashboard": {
+        "latest_reading": {
+            "latest-reading": "Dernière mesure"
+        },
+        "average": {
+            "weekly-average": "Moyenne hebdomadaire"
+        },
+        "status": {
+            "normal": "Normal",
+            "high": "Élevé",
+            "low": "Bas",
+            "elevated": "Augmenté"
+        },
+        "add_reading": {
+            "add-new-reading": "Ajouter une nouvelle mesure de glycémie",
+            "placeholder": "Valeur décimale uniquement avec . (ex: 8.5)",
+            "time": "Heure de mesure",
+            "fasting": "À jeun",
+            "post_meal_2hrs_after": "2 heures après le repas",
+            "post_meal_1hr_after": "1 heure après le repas",
+            "random": "Aléatoire",
+            "save-reading": "Enregistrer la mesure"
+        },
+        "user_profile": {
+            "user-profile": "Profil utilisateur :",
+            "name": "Prénom",
+            "surname": "Nom",
+            "dob": "Date de naissance",
+            "diabetes-type": "Type de diabète",
+            "unit": "Unité de mesure",
+            "post-code": "Code postal",
+            "city": "Ville",
+            "country": "Pays",
+            "delete-profile": "Supprimer le profil",
+            "delete_confirm": "Êtes-vous sûr de vouloir supprimer votre profil ?"
+        },
+        "summary": {
+            "data-summary": "Résumé des données",
+            "weekly-avg": "Moyenne hebdomadaire",
+            "readings": "Mesures",
+            "best-time": "Meilleur moment",
+            "worst-time": "Pire moment",
+            "tip": "Astuce",
+            "stable": "Stable",
+            "last-week": "7 derniers jours",
+            "ai-summary": "Résumé IA"
+        },
+        "smart_insight": {
+            "smart-insight": "Insight intelligent",
+            "ai-suggestion": "Suggestion IA"
+        },
+        "hba1c": {
+            "prediction": "Prédiction HbA1c",
+            "estimation": "Estimée à partir des données récentes de glucose"
+        },
+        "medications": {
+            "daily-medications":"Médicaments quotidiens",
+            "No medications": "Aucun médicament",
+            "Insulin":"Insuline",
+            "Tablets":"Comprimés"
+        },
+        "line-chart": {
+            "weekly": "Vue hebdomadaire",
+            "chart-title": "Valeur de la glycémie"
+        }
     },
-    "status": {
-      "normal": "Normal",
-      "high": "Élevé",
-      "low": "Bas",
-      "elevated": "Augmenté"
+    "registration": {
+        "title": "Mettre à jour votre profil",
+        "name": "Prénom",
+        "surname": "Nom",
+        "dob": "Date de naissance",
+        "postCode": "Code postal",
+        "city": "Ville",
+        "country": "Pays",
+        "unit": "Unité préférée",
+        "diabetes-type": "Type de diabète",
+        "medication": "Médicament",
+        "select-medication": "Sélectionner le médicament",
+        "error-diabetes-type": "Veuillez sélectionner le type de diabète",
+        "error-medication": "Veuillez sélectionner un médicament",
+        "send": "Envoyer",
+        "diabetes-type-1": "Type 1",
+        "diabetes-type-2": "Type 2",
+        "tablets": "Comprimés",
+        "insulin": "Insuline",
+        "no-medication": "Aucun médicament",
+        "select-option": "Sélectionner le médicament",
+        "cancel": "Retour"
     },
-    "add_reading": {
-      "add-new-reading": "Ajouter une nouvelle mesure de glycémie",
-      "placeholder": "Valeur décimale avec . uniquement (ex. 8.5)",
-      "time": "Heure de mesure",
-      "fasting": "À jeun",
-      "post_meal_2hrs_after": "2 heures après le repas",
-      "post_meal_1hr_after": "1 heure après le repas",
-      "random": "Aléatoire",
-      "save-reading": "Enregistrer la mesure"
+    "statistics": {
+        "sugar-statistics": "Statistiques de glycémie en %",
+        "start-date": "Date de début",
+        "end-date": "Date de fin",
+        "start": "Début",
+        "normal": "Normal",
+        "high": "Élevé",
+        "low": "Bas",
+        "elevated": "Augmenté"
     },
-    "user_profile": {
-      "user-profile": "Profil utilisateur :",
-      "name": "Prénom",
-      "surname": "Nom",
-      "dob": "Date de naissance",
-      "diabetes-type": "Type de diabète",
-      "unit": "Unité de mesure",
-      "post-code": "Code postal",
-      "city": "Ville",
-      "country": "Pays",
-      "delete-profile": "Supprimer le profil",
-      "delete_confirm": "Voulez-vous vraiment supprimer votre profil?"
+    "analyser": {
+        "title": "Téléversement PDF pour analyse IA",
+        "upload": "Téléverser & Analyser",
+        "analysys": "Analyse IA"
     },
-    "summary": {
-      "data-summary": "Résumé des données",
-      "weekly-avg": "Moyenne hebdomadaire",
-      "readings": "Mesures",
-      "best-time": "Meilleur moment",
-      "worst-time": "Pire moment",
-      "tip": "Conseil",
-      "stable": "Stable",
-      "last-week": "7 derniers jours",
-      "ai-summary": "Résumé IA"
+    "data": {
+        "title": "Historique des valeurs de glycémie",
+        "sortByDate": "Trier par date",
+        "default": "Par défaut",
+        "descending": "Décroissant",
+        "ascending": "Croissant",
+        "sortByValue": "Trier par valeur",
+        "highToLow": "Élevé à Bas",
+        "lowToHigh": "Bas à Élevé",
+        "filterByStatus": "Filtrer par statut",
+        "high": "Élevé",
+        "low": "Bas",
+        "normal": "Normal",
+        "elevated": "Augmenté",
+        "dataEntryTime": "Heure d'entrée",
+        "measurementTime": "Heure de mesure",
+        "value": "Glucose postprandial/à jeun",
+        "sugarValue": "Valeur de glycémie",
+        "referenceValue": "Valeur de référence",
+        "status": {
+            "normal": "Normal",
+            "high": "Élevé",
+            "low": "Bas",
+            "elevated": "Augmenté"
+        },
+        "previous": "Précédent",
+        "next": "Suivant",
+        "sugarStatus": "Statut glycémie",
+        "graph": "Graphique"
     },
-    "smart_insight": {
-      "smart-insight": "Analyse intelligente",
-      "ai-suggestion": "Suggestion IA"
+    "reset-email": {
+        "email": "E-mail",
+        "send": "Envoyer e-mail de réinitialisation",
+        "cancel": "Annuler",
+        "password-sent": "Mot de passe envoyé à :"
     },
-    "hba1c": {
-      "prediction": "Prédiction HbA1c",
-      "estimation": "Estimé à partir des données récentes de glycémie"
+    "first-registration": {
+        "email": "E-mail",
+        "password": "Mot de passe",
+        "title": "Inscrire votre profil",
+        "name": "Prénom",
+        "surname": "Nom",
+        "dob": "Date de naissance",
+        "postCode": "Code postal",
+        "city": "Ville",
+        "country": "Pays",
+        "unit": "Unité préférée",
+        "diabetes-type": "Type de diabète",
+        "medication": "Médicament",
+        "select-medication": "Sélectionner le médicament",
+        "error-diabetes-type": "Veuillez sélectionner le type de diabète",
+        "error-medication": "Veuillez sélectionner un médicament",
+        "send": "Envoyer",
+        "diabetes-type-1": "Type 1",
+        "diabetes-type-2": "Type 2",
+        "tablets": "Comprimés",
+        "insulin": "Insuline",
+        "no-medication": "Aucun médicament",
+        "select-option": "Sélectionner le médicament",
+        "cancel": "Retour",
+        "weak":"Faible",
+        "medium":"Moyen",
+        "strong":"Fort",
+        "passwordRequired": "Mot de passe requis"
     },
-    "medications": {
-      "daily-medications": "Médicaments quotidiens",
-      "No medications": "Aucun médicament",
-      "Insulin": "Insuline",
-      "Tablets": "Comprimés"
+    "login": {
+        "title": "Connexion",
+        "user": "Nom d'utilisateur",
+        "password": "Mot de passe",
+        "already-registered": "Connexion",
+        "forgot-password": "Mot de passe oublié ?",
+        "not-registered": "Pas encore de compte ?",
+        "sign-up": "S'inscrire"
     },
-    "line-chart": {
-      "weekly": "Aperçu hebdomadaire",
-      "chart-title": "Valeur glycémique"
+    "error": {
+        "thankyou": "Merci !",
+        "something-went-wrong": "Une erreur est survenue. Veuillez réessayer.",
+        "pdf-error": "Veuillez sélectionner les dates de début et de fin"
+    },
+    "pdf": {
+        "title": "Valeurs de glycémie",
+        "full-name": "Nom",
+        "dob": "Prénom",
+        "diabetes-type": "Type de diabète",
+        "city": "Ville",
+        "date": "Date",
+        "value": "Valeur"
     }
-  },
-  "registration": {
-    "title": "Mettre à jour votre profil",
-    "name": "Prénom",
-    "surname": "Nom",
-    "dob": "Date de naissance",
-    "postCode": "Code postal",
-    "city": "Ville",
-    "country": "Pays",
-    "unit": "Unité préférée",
-    "diabetes-type": "Type de diabète",
-    "medication": "Médicaments",
-    "select-medication": "Sélectionner un médicament",
-    "error-diabetes-type": "Veuillez sélectionner un type de diabète",
-    "error-medication": "Veuillez sélectionner un médicament",
-    "send": "Envoyer",
-    "diabetes-type-1": "Type 1",
-    "diabetes-type-2": "Type 2",
-    "tablets": "Comprimés",
-    "insulin": "Insuline",
-    "no-medication": "Aucun médicament",
-    "select-option": "Sélectionner un médicament",
-    "cancel": "Retour"
-  },
-  "statistics": {
-    "sugar-statistics": "Statistiques de glycémie en %",
-    "start-date": "Date de début",
-    "end-date": "Date de fin",
-    "start": "Démarrer",
-    "normal": "Normal",
-    "high": "Élevé",
-    "low": "Bas",
-    "elevated": "Augmenté"
-  },
-  "analyser": {
-    "title": "Téléchargement PDF pour analyse IA",
-    "upload": "Télécharger & Analyser",
-    "analysys": "Analyse IA"
-  },
-  "data": {
-    "title": "Valeurs glycémiques historiques",
-    "sortByDate": "Trier par date",
-    "default": "Par défaut",
-    "descending": "Décroissant",
-    "ascending": "Croissant",
-    "sortByValue": "Trier par valeur",
-    "highToLow": "Du plus haut au plus bas",
-    "lowToHigh": "Du plus bas au plus haut",
-    "filterByStatus": "Filtrer par statut",
-    "high": "Élevé",
-    "low": "Bas",
-    "normal": "Normal",
-    "elevated": "Augmenté",
-    "dataEntryTime": "Heure de saisie",
-    "measurementTime": "Heure de mesure",
-    "value": "Glycémie postprandiale/à jeun",
-    "sugarValue": "Valeur glycémique",
-    "referenceValue": "Valeur de référence",
-    "status": {
-      "normal": "Normal",
-      "high": "Élevé",
-      "low": "Bas",
-      "elevated": "Augmenté"
-    },
-    "previous": "Précédent",
-    "next": "Suivant",
-    "sugarStatus": "Statut glycémique",
-    "graph": "Graphique"
-  },
-  "reset-email": {
-    "email": "E-mail",
-    "send": "Envoyer l'e-mail de réinitialisation",
-    "cancel": "Annuler",
-    "password-sent": "Mot de passe envoyé à :"
-  },
-  "first-registration": {
-    "email": "E-mail",
-    "password": "Mot de passe",
-    "title": "Créer votre profil",
-    "name": "Prénom",
-    "surname": "Nom",
-    "dob": "Date de naissance",
-    "postCode": "Code postal",
-    "city": "Ville",
-    "country": "Pays",
-    "unit": "Unité préférée",
-    "diabetes-type": "Type de diabète",
-    "medication": "Médicaments",
-    "select-medication": "Sélectionner un médicament",
-    "error-diabetes-type": "Veuillez sélectionner un type de diabète",
-    "error-medication": "Veuillez sélectionner un médicament",
-    "send": "Envoyer",
-    "diabetes-type-1": "Type 1",
-    "diabetes-type-2": "Type 2",
-    "tablets": "Comprimés",
-    "insulin": "Insuline",
-    "no-medication": "Aucun médicament",
-    "select-option": "Sélectionner un médicament",
-    "cancel": "Retour"
-  },
-  "login": {
-    "title": "Connexion à votre compte",
-    "user": "Nom d'utilisateur",
-    "password": "Mot de passe",
-    "already-registered": "Se connecter",
-    "forgot-password": "Mot de passe oublié ?",
-    "not-registered": "Pas encore de compte ?",
-    "sign-up": "S'inscrire"
-  },
-  "error": {
-    "thankyou": "Merci !",
-    "something-went-wrong": "Une erreur s'est produite. Veuillez réessayer.",
-    "pdf-error": "Veuillez sélectionner une date de début et de fin"
-  },
-  "pdf": {
-    "title": "Valeurs glycémiques",
-    "full-name": "Prénom",
-    "dob": "Nom",
-    "diabetes-type": "Type de diabète",
-    "city": "Ville",
-    "date": "Date",
-    "value": "Valeur"
-  }
 }

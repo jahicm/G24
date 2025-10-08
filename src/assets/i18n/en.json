@@ -169,7 +169,11 @@
         "insulin": "Insulin",
         "no-medication": "No medications",
         "select-option": "Select medication",
-        "cancel": "Back"
+        "cancel": "Back",
+        "weak":"Weak",
+        "medium":"Medium",
+        "strong":"Strong",
+        "passwordRequired": "Password required"
     },
     "login": {
         "title": "Login to Your Account",
@@ -183,7 +187,8 @@
     "error": {
         "thankyou": "Thank you!",
         "something-went-wrong": "Something went wrong. Please try again.",
-        "pdf-error": "Please select both From Date and To Date"
+        "pdf-error": "Please select both From Date and To Date",
+        "delete-profile-ok":"Profile deleted successfully"
     },
     "pdf": {
         "title": "Blood Sugar Values",

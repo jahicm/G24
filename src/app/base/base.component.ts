@@ -9,6 +9,8 @@ import { filter, Subject, take, takeUntil } from 'rxjs';
 import { DiabetesDashboard } from '../models/dashboard/diabetes-dashboard';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Utility } from '../utils/utility';
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-base',
@@ -36,7 +38,7 @@ export class BaseComponent implements OnInit {
   loading: boolean = true;
 
 
-  constructor(private sharedService: SharedService, private datePipe: DatePipe, private translate: TranslateService) {
+  constructor(private sharedService: SharedService, private datePipe: DatePipe, private translate: TranslateService, private userService: UserService, private router: Router) {
     this.loading = true;
   }
   ngOnInit(): void {
@@ -134,12 +136,28 @@ export class BaseComponent implements OnInit {
       this.sharedService.loadEntries(this.user!.userId);
     });
     alert(this.translate.instant('error.thankyou'));
+    form.resetForm();
   }
   deleteProfile() {
-    if (confirm(this.translate.instant('dashboard.user_profile.delete_confirm'))) {
-      console.log("Oui");
-    } else {
-      console.log("Non");
+    if (!this.user) {
+     console.log("User not found");
+      return;
     }
+    this.userService.deleteProfile(this.user.userId).subscribe({
+      next: (result) => {
+        if (result) {
+          alert(this.translate.instant('dashboard.delete_profile.delete_ok'));
+          sessionStorage.removeItem('cachedUser');
+          sessionStorage.removeItem('lastUserId');
+          this.router.navigate(['/login']);
+        } else {
+          alert(this.translate.instant('dashboard.delete_profile.delete_nok'));
+        }
+      },
+      error: (err) => {
+        console.error('Delete failed', err);
+        alert(this.translate.instant('dashboard.delete_profile.delete_nok'));
+      }
+    });
   }
 }
