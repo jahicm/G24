@@ -29,7 +29,6 @@ export class BaseComponent implements OnInit {
   measurementTimeLabels: string[] = [];
   measurementValueLabels: number[] = [];
   user?: User | null;
-  unit: string = 'mg/dL';
   timeOfMeal?: Date;
   dateTime?: Date;
   dashboard?: DiabetesDashboard;

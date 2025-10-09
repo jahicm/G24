@@ -23,7 +23,7 @@
             "add-new-reading": "Add New Sugar Reading",
             "placeholder": "Decimal value with . only (e.g. 8.5)",
             "time": "Measured Time",
-             "fasting": "Fasting",
+            "fasting": "Fasting",
             "post_meal_2hrs_after": "Post Meal 2 hours after",
             "post_meal_1hr_after": "Post Meal 1 hour after",
             "random": "Random",
@@ -39,8 +39,8 @@
             "post-code": "Post Code",
             "city": "City",
             "country": "Country",
-            "delete-profile":"Delete Profile",
-            "delete_confirm":"Are you sure to delete your profile?"
+            "delete-profile": "Delete Profile",
+            "delete_confirm": "Are you sure to delete your profile?"
         },
         "summary": {
             "data-summary": "Data Summary",
@@ -62,14 +62,18 @@
             "estimation": "Estimated from recent glucose data"
         },
         "medications": {
-            "daily-medications":"Daily Medications",
+            "daily-medications": "Daily Medications",
             "No medications": "No medications",
-            "Insulin":"Insulin",
-            "Tablets":"Tablets"
+            "Insulin": "Insulin",
+            "Tablets": "Tablets"
         },
         "line-chart": {
             "weekly": "Weekly Overview",
             "chart-title": "Blood Sugar Value"
+        },
+        "delete_profile": {
+            "delete_ok": "Profile deleted successfully",
+            "delete_nok": "An unexpected error occurred"
         }
     },
     "registration": {
@@ -170,9 +174,9 @@
         "no-medication": "No medications",
         "select-option": "Select medication",
         "cancel": "Back",
-        "weak":"Weak",
-        "medium":"Medium",
-        "strong":"Strong",
+        "weak": "Weak",
+        "medium": "Medium",
+        "strong": "Strong",
         "passwordRequired": "Password required"
     },
     "login": {
@@ -187,8 +191,7 @@
     "error": {
         "thankyou": "Thank you!",
         "something-went-wrong": "Something went wrong. Please try again.",
-        "pdf-error": "Please select both From Date and To Date",
-        "delete-profile-ok":"Profile deleted successfully"
+        "pdf-error": "Please select both From Date and To Date"
     },
     "pdf": {
         "title": "Blood Sugar Values",

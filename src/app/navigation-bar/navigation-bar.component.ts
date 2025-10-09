@@ -42,6 +42,7 @@ export class NavigationBarComponent implements OnInit {
 
   logout() {
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('lang');
     this.router.navigate(['/login']);
   }
 }

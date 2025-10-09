@@ -75,10 +75,10 @@
       <div class="mb-3">
         <label class="form-label"><b>{{'registration.unit' | translate}}:</b></label>
         <div class="btn-group d-flex" role="group">
-          <input type="radio" class="btn-check" id="unit-mg" value="mg/dL" formControlName="unit">
+          <input type="radio" class="btn-check" id="unit-mg" value="1" formControlName="unit">
           <label class="btn btn-outline-primary w-50" for="unit-mg">mg/dL</label>
 
-          <input type="radio" class="btn-check" id="unit-mmol" value="mmol/L" formControlName="unit">
+          <input type="radio" class="btn-check" id="unit-mmol" value="2" formControlName="unit">
           <label class="btn btn-outline-primary w-50" for="unit-mmol">mmol/L</label>
         </div>
         @if(dataForm.get('unit')?.touched && dataForm.get('unit')?.invalid)

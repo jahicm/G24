@@ -29,10 +29,10 @@ export class Utility {
     }
     static normalizeUnit(entry: Entry, user: User): void {
 
-        if (entry.unit === "mg/dL" && user && user.unit === "mmol/L") {
+        if (entry.unit === "mg/dL" && user && user.unit === "2") {
             entry.sugarValue = Math.round(entry.sugarValue / 18 * 100) / 100;
             entry.unit = "mmol/L";
-        } else if (entry.unit === "mmol/L" && user && user.unit === "mg/dL") {
+        } else if (entry.unit === "mmol/L" && user && user.unit === "1") {
             entry.sugarValue = Math.round(entry.sugarValue * 18 * 100) / 100;
             entry.unit = "mg/dL";
         }
