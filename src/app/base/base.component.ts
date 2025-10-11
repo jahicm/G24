@@ -11,6 +11,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Utility } from '../utils/utility';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { EntryPayload } from '../models/entry-payload';
 
 @Component({
   selector: 'app-base',
@@ -119,7 +120,6 @@ export class BaseComponent implements OnInit {
     let status = '';
 
 
-
     const newEntry: Entry = {
       userId,
       dataEntryTime,
@@ -131,7 +131,18 @@ export class BaseComponent implements OnInit {
       status
     };
 
-    this.sharedService.addEntry(this.user!.userId, newEntry).subscribe(savedEntry => {
+    const entryPayload: EntryPayload = {
+      userId: newEntry.userId,
+      dataEntryTime: this.toLocalDateTimeString(newEntry.dataEntryTime),
+      measurementTime: this.toLocalDateTimeString(newEntry.measurementTime),
+      value: newEntry.value,
+      sugarValue: newEntry.sugarValue,
+      unit: newEntry.unit,
+      referenceValue: newEntry.referenceValue,
+      status: newEntry.status
+    };
+    
+    this.sharedService.addEntry(this.user!.userId, entryPayload).subscribe(savedEntry => {
       this.sharedService.loadEntries(this.user!.userId);
     });
     alert(this.translate.instant('error.thankyou'));
@@ -139,7 +150,7 @@ export class BaseComponent implements OnInit {
   }
   deleteProfile() {
     if (!this.user) {
-     console.log("User not found");
+      console.log("User not found");
       return;
     }
     this.userService.deleteProfile(this.user.userId).subscribe({
@@ -159,4 +170,17 @@ export class BaseComponent implements OnInit {
       }
     });
   }
+  toLocalDateTimeString(date: Date): string {
+    const pad = (n: number) => n.toString().padStart(2, '0');
+
+    const year = date.getFullYear();
+    const month = pad(date.getMonth() + 1);
+    const day = pad(date.getDate());
+    const hours = pad(date.getHours());
+    const minutes = pad(date.getMinutes());
+    const seconds = pad(date.getSeconds());
+
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+  }
+
 }

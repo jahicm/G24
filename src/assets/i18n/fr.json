@@ -144,7 +144,9 @@
         "email": "E-mail",
         "send": "Envoyer e-mail de réinitialisation",
         "cancel": "Annuler",
-        "password-sent": "Mot de passe envoyé à :"
+        "password-sent": "Mot de passe envoyé à :",
+        "error-sending": "Benutzername nicht gefunden. Bitte überprüfen Sie Ihren Benutzernamen und versuchen Sie es erneut."
+
     },
     "first-registration": {
         "email": "E-mail",

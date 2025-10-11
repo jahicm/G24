@@ -26,7 +26,7 @@
             "fasting": "Nüchtern",
             "post_meal_2hrs_after": "2 Stunden nach der Mahlzeit",
             "post_meal_1hr_after": "1 Stunde nach der Mahlzeit",
-            "random": "Beliebig",
+            "random": "Zufällig",
             "save-reading": "Messung speichern"
         },
         "user_profile": {
@@ -144,7 +144,8 @@
         "email": "E-Mail",
         "send": "Zurücksetz-E-Mail senden",
         "cancel": "Abbrechen",
-        "password-sent": "Passwort gesendet an :"
+        "password-sent": "Passwort gesendet an :",
+        "error-sending": "Benutzername nicht gefunden. Bitte überprüfen Sie Ihren Benutzernamen und versuchen Sie es erneut."
     },
     "first-registration": {
         "email": "E-Mail",

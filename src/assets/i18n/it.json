@@ -144,7 +144,9 @@
         "email": "Email",
         "send": "Invia email di reimpostazione",
         "cancel": "Annulla",
-        "password-sent": "Password inviata a :"
+        "password-sent": "Password inviata a :",
+        "error-sending":"Nome utente non trovato. Verifica il tuo nome utente e riprova."
+
     },
     "first-registration": {
         "email": "Email",

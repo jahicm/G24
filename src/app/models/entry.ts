@@ -1,7 +1,7 @@
 export interface Entry {
   userId:string;
   dataEntryTime: Date;
-  measurementTime: any;
+  measurementTime: Date;
   value: string;
   sugarValue: number;
   unit: string;

@@ -10,6 +10,7 @@ import { DiabetesDashboard } from '../models/dashboard/diabetes-dashboard';
 import { Reading } from '../models/dashboard/reading';
 import { GlucoseAnalysis, TimeSlot } from '../models/dashboard/glucose-analysis';
 import { SmartInsight, PriorityLevel } from '../models/dashboard/smart-insight';
+import { EntryPayload } from '../models/entry-payload';
 
 @Injectable({
   providedIn: 'root'
@@ -163,9 +164,9 @@ export class SharedService {
     }
   }
 
-  addEntry(userId: string, entry: Entry): Observable<Entry> {
-    entry.userId = userId;
-    return this.httpClient.post<Entry>(`${environment.apiBaseUrl}/addEntry`, entry)
+  addEntry(userId: string, entryPayload: EntryPayload): Observable<Entry> {
+    entryPayload.userId = userId;
+    return this.httpClient.post<Entry>(`${environment.apiBaseUrl}/addEntry`, entryPayload)
       .pipe(
         tap(newEntry => {
           if (this.lastEntriesUserId === userId) {

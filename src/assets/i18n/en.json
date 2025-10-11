@@ -148,7 +148,8 @@
         "email": "Email",
         "send": "Send Reset Email",
         "cancel": "Cancel",
-        "password-sent": "Password sent to :"
+        "password-sent": "Password sent to :",
+        "error-sending": "Failed finding your username. Please verify your username and try again."
     },
     "first-registration": {
         "email": "Email",

@@ -28,11 +28,11 @@ export class ForgetComponent {
     const email = this.dataForm.value.email;
     this.emailService.sendPasswordResetEmail(email).subscribe({
       next: (response) => {
-        alert(this.translate.instant('reset-email.password-sent')+ email);
+        alert(this.translate.instant('reset-email.password-sent')+" "+ email);
       },
       error: (err) => {
         console.error('❌ Failed to send password reset email:', err);
-        alert(' Failed to send password reset email');
+        alert(this.translate.instant('reset-email.error-sending')+" "+email);
       }
     });
 
