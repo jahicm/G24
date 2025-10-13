@@ -14,6 +14,7 @@ import { filter } from 'rxjs';
 export class AppComponent {
   title = 'G24';
   showHeaderFooter = true;
+  showHeader = false;
   currentLang = signal<string>('en');
 
   constructor(private translateService: TranslateService, private router: Router) {
@@ -23,8 +24,9 @@ export class AppComponent {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         const url = event.urlAfterRedirects || event.url;
-        this.showHeaderFooter = !url.startsWith('/login') && !url.startsWith('/first-registration') && !url.startsWith('/forget') && !url.startsWith('/reset-password');
+        this.showHeaderFooter = !url.startsWith('/login') && !url.startsWith('/first-registration') && !url.startsWith('/forget') && !url.startsWith('/reset-password') && !url.startsWith('/g24');
       });
+  
   }
   switchLanguage(lang: string) {
     this.currentLang.set(lang);  // update the signal

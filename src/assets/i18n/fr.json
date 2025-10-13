@@ -62,10 +62,10 @@
             "estimation": "Estimée à partir des données récentes de glucose"
         },
         "medications": {
-            "daily-medications":"Médicaments quotidiens",
+            "daily-medications": "Médicaments quotidiens",
             "No medications": "Aucun médicament",
-            "Insulin":"Insuline",
-            "Tablets":"Comprimés"
+            "Insulin": "Insuline",
+            "Tablets": "Comprimés"
         },
         "line-chart": {
             "weekly": "Vue hebdomadaire",
@@ -146,7 +146,6 @@
         "cancel": "Annuler",
         "password-sent": "Mot de passe envoyé à :",
         "error-sending": "Benutzername nicht gefunden. Bitte überprüfen Sie Ihren Benutzernamen und versuchen Sie es erneut."
-
     },
     "first-registration": {
         "email": "E-mail",
@@ -172,9 +171,9 @@
         "no-medication": "Aucun médicament",
         "select-option": "Sélectionner le médicament",
         "cancel": "Retour",
-        "weak":"Faible",
-        "medium":"Moyen",
-        "strong":"Fort",
+        "weak": "Faible",
+        "medium": "Moyen",
+        "strong": "Fort",
         "passwordRequired": "Mot de passe requis"
     },
     "login": {
@@ -199,5 +198,21 @@
         "city": "Ville",
         "date": "Date",
         "value": "Valeur"
+    },
+    "g24": {
+        "h1": "Contrôlez votre diabète facilement et en toute sécurité",
+        "p": "Suivez vos niveaux de sucre, recevez des conseils personnalisés et restez en bonne santé chaque jour.",
+        "login": "Essayez maintenant !",
+        "offer": "L'application G24 vous offre une solution complète pour gérer efficacement votre diabète !",
+        "feature1": "Suivi du glucose en temps réel",
+        "feature1-desc": "Surveillez facilement vos niveaux de sucre dans le sang",
+        "feature2": "Analyse et statistiques",
+        "feature2-desc": "Graphiques et tendances pour un meilleur contrôle",
+        "feature3": "Téléchargez vos rapports de laboratoire et analysez vos résultats hebdomadaires avec l’IA",
+        "feature3-desc": "Données analysées par l’intelligence artificielle",
+        "feature4": "Sécurité et confidentialité",
+        "feature4-desc": "Toutes les informations sont protégées et vous pouvez supprimer vos données à tout moment",
+        "feature5": "100 % gratuit",
+        "feature5-desc": "Profitez de toutes les fonctionnalités sans aucun coût"
     }
 }

@@ -202,5 +202,21 @@
         "city": "City",
         "date": "Date",
         "value": "Value"
+    },
+    "g24": {
+        "h1": "Easily and safely control your diabetes",
+        "p": "Track your sugar levels, get personalized tips, and stay healthy every day.",
+        "login": "Test it now!",
+        "offer": "G24 application offers you a comprehensive solution to manage your diabetes effectively!",
+        "feature1": "Real-time glucose monitoring",
+        "feature1-desc": "Keep track of your blood sugar levels with ease",
+        "feature2": "Analysis and statistics",
+        "feature2-desc": "Charts and trends for better control",
+        "feature3": "Upload lab report,review weekly sugar results using AI",
+        "feature3-desc": "Data analysed by Artificial Intelligence",
+        "feature4": "Security and privacy",
+        "feature4-desc": "All information protected and you can remove your data whenever you want",
+        "feature5": "100% Free",
+        "feature5-desc": "Use features without any cost"
     }
 }

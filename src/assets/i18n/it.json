@@ -39,8 +39,8 @@
             "post-code": "CAP",
             "city": "Città",
             "country": "Paese",
-            "delete-profile":"Elimina profilo",
-            "delete_confirm":"Sei sicuro di voler eliminare il tuo profilo?"
+            "delete-profile": "Elimina profilo",
+            "delete_confirm": "Sei sicuro di voler eliminare il tuo profilo?"
         },
         "summary": {
             "data-summary": "Riepilogo dati",
@@ -62,10 +62,10 @@
             "estimation": "Stimata dai dati recenti di glucosio"
         },
         "medications": {
-            "daily-medications":"Farmaci giornalieri",
+            "daily-medications": "Farmaci giornalieri",
             "No medications": "Nessun farmaco",
-            "Insulin":"Insulina",
-            "Tablets":"Compresse"
+            "Insulin": "Insulina",
+            "Tablets": "Compresse"
         },
         "line-chart": {
             "weekly": "Panoramica settimanale",
@@ -145,8 +145,7 @@
         "send": "Invia email di reimpostazione",
         "cancel": "Annulla",
         "password-sent": "Password inviata a :",
-        "error-sending":"Nome utente non trovato. Verifica il tuo nome utente e riprova."
-
+        "error-sending": "Nome utente non trovato. Verifica il tuo nome utente e riprova."
     },
     "first-registration": {
         "email": "Email",
@@ -172,9 +171,9 @@
         "no-medication": "Nessun farmaco",
         "select-option": "Seleziona farmaco",
         "cancel": "Indietro",
-        "weak":"Debole",
-        "medium":"Medio",
-        "strong":"Forte",
+        "weak": "Debole",
+        "medium": "Medio",
+        "strong": "Forte",
         "passwordRequired": "Password richiesta"
     },
     "login": {
@@ -199,5 +198,21 @@
         "city": "Città",
         "date": "Data",
         "value": "Valore"
+    },
+    "g24": {
+        "h1": "Controlla il tuo diabete in modo semplice e sicuro",
+        "p": "Tieni sotto controllo i tuoi livelli di zucchero, ricevi consigli personalizzati e rimani in salute ogni giorno.",
+        "login": "Provalo ora!",
+        "offer": "L'applicazione G24 ti offre una soluzione completa per gestire efficacemente il tuo diabete!",
+        "feature1": "Monitoraggio del glucosio in tempo reale",
+        "feature1-desc": "Tieni facilmente traccia dei tuoi livelli di zucchero nel sangue",
+        "feature2": "Analisi e statistiche",
+        "feature2-desc": "Grafici e tendenze per un migliore controllo",
+        "feature3": "Carica i referti di laboratorio e analizza i risultati settimanali con l'IA",
+        "feature3-desc": "Dati analizzati con l'intelligenza artificiale",
+        "feature4": "Sicurezza e privacy",
+        "feature4-desc": "Tutte le informazioni sono protette e puoi eliminare i tuoi dati in qualsiasi momento",
+        "feature5": "100% gratuito",
+        "feature5-desc": "Usa tutte le funzionalità senza alcun costo"
     }
 }
