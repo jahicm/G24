@@ -145,11 +145,15 @@
         "graph": "Graph"
     },
     "reset-email": {
+        "title": "Reset Your Password",
         "email": "Email",
         "send": "Send Reset Email",
         "cancel": "Cancel",
         "password-sent": "Password sent to :",
-        "error-sending": "Failed finding your username. Please verify your username and try again."
+        "error-sending": "Failed finding your username. Please verify your username and try again",
+        "password-reset": "Password Reset",
+        "new-password": "New Password",
+        "confirm-password": "Confirm Password"
     },
     "first-registration": {
         "email": "Email",
@@ -210,7 +214,7 @@
         "offer": "G24 application offers you a comprehensive solution to manage your diabetes effectively!",
         "feature1": "Real-time glucose monitoring",
         "feature1-desc": "Keep track of your blood sugar levels with ease",
-        "feature2": "Analysis and statistics",
+        "feature2": "Analysis and statistics.PDF export",
         "feature2-desc": "Charts and trends for better control",
         "feature3": "Upload lab report,review weekly sugar results using AI",
         "feature3-desc": "Data analysed by Artificial Intelligence",

@@ -141,11 +141,15 @@
         "graph": "Grafico"
     },
     "reset-email": {
+        "title": "Reimposta la tua password",
         "email": "Email",
         "send": "Invia email di reimpostazione",
         "cancel": "Annulla",
         "password-sent": "Password inviata a :",
-        "error-sending": "Nome utente non trovato. Verifica il tuo nome utente e riprova."
+        "error-sending": "Nome utente non trovato. Verifica il tuo nome utente e riprova",
+        "password-reset": "Reimpostazione password",
+        "new-password": "Nuova password",
+        "confirm-password": "Conferma password"
     },
     "first-registration": {
         "email": "Email",
@@ -206,7 +210,7 @@
         "offer": "L'applicazione G24 ti offre una soluzione completa per gestire efficacemente il tuo diabete!",
         "feature1": "Monitoraggio del glucosio in tempo reale",
         "feature1-desc": "Tieni facilmente traccia dei tuoi livelli di zucchero nel sangue",
-        "feature2": "Analisi e statistiche",
+        "feature2": "Analisi e statistiche.Esporta in PDF",
         "feature2-desc": "Grafici e tendenze per un migliore controllo",
         "feature3": "Carica i referti di laboratorio e analizza i risultati settimanali con l'IA",
         "feature3-desc": "Dati analizzati con l'intelligenza artificiale",

@@ -141,11 +141,15 @@
         "graph": "Diagramm"
     },
     "reset-email": {
+        "title": "Setzen Sie Ihr Passwort zurück",
         "email": "E-Mail",
         "send": "Zurücksetz-E-Mail senden",
         "cancel": "Abbrechen",
         "password-sent": "Passwort gesendet an :",
-        "error-sending": "Benutzername nicht gefunden. Bitte überprüfen Sie Ihren Benutzernamen und versuchen Sie es erneut."
+        "error-sending": "Benutzername nicht gefunden. Bitte überprüfen Sie Ihren Benutzernamen und versuchen Sie es erneut",
+        "password-reset": "Passwort zurücksetzen",
+        "new-password": "Neues Passwort",
+        "confirm-password": "Pass WORt bestätigen"
     },
     "first-registration": {
         "email": "E-Mail",
@@ -206,7 +210,7 @@
         "offer": "Die G24-Anwendung bietet Ihnen eine umfassende Lösung, um Ihren Diabetes effektiv zu managen!",
         "feature1": "Blutzuckermessung in Echtzeit",
         "feature1-desc": "Behalten Sie Ihre Blutzuckerwerte mühelos im Blick",
-        "feature2": "Analyse und Statistiken",
+        "feature2": "Analyse und Statistiken.PDF exportieren.",
         "feature2-desc": "Diagramme und Trends für eine bessere Kontrolle",
         "feature3": "Laden Sie Laborberichte hoch und analysieren Sie wöchentliche Zuckerergebnisse mit KI",
         "feature3-desc": "Daten analysiert durch Künstliche Intelligenz",

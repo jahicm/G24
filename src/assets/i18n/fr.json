@@ -141,11 +141,15 @@
         "graph": "Graphique"
     },
     "reset-email": {
+        "title": "Réinitialisez votre mot de passe",
         "email": "E-mail",
         "send": "Envoyer e-mail de réinitialisation",
         "cancel": "Annuler",
         "password-sent": "Mot de passe envoyé à :",
-        "error-sending": "Benutzername nicht gefunden. Bitte überprüfen Sie Ihren Benutzernamen und versuchen Sie es erneut."
+        "error-sending": "Benutzername nicht gefunden. Bitte überprüfen Sie Ihren Benutzernamen und versuchen Sie es erneut",
+        "password-reset": "Réinitialisation du mot de passe",
+        "new-password": "Nouveau mot de passe",
+        "confirm-password": "Confirmer le mot de passe"
     },
     "first-registration": {
         "email": "E-mail",
@@ -206,7 +210,7 @@
         "offer": "L'application G24 vous offre une solution complète pour gérer efficacement votre diabète !",
         "feature1": "Suivi du glucose en temps réel",
         "feature1-desc": "Surveillez facilement vos niveaux de sucre dans le sang",
-        "feature2": "Analyse et statistiques",
+        "feature2": "Analyse et statistiques.Exporter en PDF",
         "feature2-desc": "Graphiques et tendances pour un meilleur contrôle",
         "feature3": "Téléchargez vos rapports de laboratoire et analysez vos résultats hebdomadaires avec l’IA",
         "feature3-desc": "Données analysées par l’intelligence artificielle",
