@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Bootstrap": {
+    "G24": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -14,18 +14,32 @@
           "builder": "@angular/build:application",
           "options": {
             "baseHref": "/g24/",
-            "outputPath": "dist/bootstrap",
+            "outputPath": "dist/g24",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/assets", "src/favicon.ico"],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico"
+            ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "html2canvas",
+              "canvg",
+              "rgbcolor",
+              "raf",
+              "jspdf",
+              "core-js"
             ]
           },
           "configurations": {
@@ -42,7 +56,13 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
@@ -56,10 +76,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Bootstrap:build:production"
+              "buildTarget": "G24:build:production"
             },
             "development": {
-              "buildTarget": "Bootstrap:build:development"
+              "buildTarget": "G24:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -70,7 +90,10 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
