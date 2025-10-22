@@ -24,8 +24,8 @@ export class DataComponent implements OnInit {
   entries: Entry[] = [];
   pagedEntries: Entry[] = [];
   currentPage = 1;
-  pageSize = 6;
-  totalPages = 0;
+  pageSize = 10;
+  totalRecords = 0;
   totalPagesArray: number[] = [];
   filteredValues: Entry[] = [];
   filteredGraphValues: Entry[] = [];
@@ -38,7 +38,8 @@ export class DataComponent implements OnInit {
   measurementValueLabels: number[] = [];
   locale: string | undefined;
   data: any;
-
+  maxVisiblePages = 8;
+  totalPages:number=0;
 
   constructor(private datePipe: DatePipe, private dataService: DataService, private sharedService: SharedService,private translate: TranslateService) { }
 
@@ -64,6 +65,23 @@ export class DataComponent implements OnInit {
     this.sharedService.loadEntries(userId);
   }
 
+  getTotalPages():number {
+  return Math.ceil(this.totalRecords / this.pageSize);
+}
+
+get visiblePages() {
+  const pages = [];
+  let start = Math.max(this.currentPage - Math.floor(this.maxVisiblePages / 2), 1);
+  let end = Math.min(start + this.maxVisiblePages - 1, this.getTotalPages());
+
+  // Adjust start if we are at the end
+  start = Math.max(end - this.maxVisiblePages + 1, 1);
+
+  for (let i = start; i <= end; i++) {
+    pages.push(i);
+  }
+  return pages;
+}
   setupPagination(): void {
     this.totalPages = Math.ceil(this.filteredValues.length / this.pageSize);
     this.totalPagesArray = Array.from({ length: this.totalPages }, (_, i) => i + 1);

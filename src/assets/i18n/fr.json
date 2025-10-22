@@ -16,12 +16,12 @@
         "status": {
             "normal": "Normal",
             "high": "Élevé",
-            "low": "Bas",
+            "low": "Faible",
             "elevated": "Augmenté"
         },
         "add_reading": {
             "add-new-reading": "Ajouter une nouvelle mesure de glycémie",
-            "placeholder": "Valeur décimale uniquement avec . (ex: 8.5)",
+            "placeholder": "Valeur décimale avec . uniquement (ex. 8.5)",
             "time": "Heure de mesure",
             "fasting": "À jeun",
             "post_meal_2hrs_after": "2 heures après le repas",
@@ -48,7 +48,7 @@
             "readings": "Mesures",
             "best-time": "Meilleur moment",
             "worst-time": "Pire moment",
-            "tip": "Astuce",
+            "tip": "Conseil",
             "stable": "Stable",
             "last-week": "7 derniers jours",
             "ai-summary": "Résumé IA"
@@ -59,7 +59,7 @@
         },
         "hba1c": {
             "prediction": "Prédiction HbA1c",
-            "estimation": "Estimée à partir des données récentes de glucose"
+            "estimation": "Estimé à partir des données récentes de glycémie"
         },
         "medications": {
             "daily-medications": "Médicaments quotidiens",
@@ -70,6 +70,10 @@
         "line-chart": {
             "weekly": "Vue hebdomadaire",
             "chart-title": "Valeur de la glycémie"
+        },
+        "delete_profile": {
+            "delete_ok": "Profil supprimé avec succès",
+            "delete_nok": "Une erreur inattendue est survenue"
         }
     },
     "registration": {
@@ -84,7 +88,7 @@
         "diabetes-type": "Type de diabète",
         "medication": "Médicament",
         "select-medication": "Sélectionner le médicament",
-        "error-diabetes-type": "Veuillez sélectionner le type de diabète",
+        "error-diabetes-type": "Veuillez sélectionner un type de diabète",
         "error-medication": "Veuillez sélectionner un médicament",
         "send": "Envoyer",
         "diabetes-type-1": "Type 1",
@@ -96,43 +100,44 @@
         "cancel": "Retour"
     },
     "statistics": {
-        "sugar-statistics": "Statistiques de glycémie en %",
+        "sugar-statistics": "Statistiques du sucre en %",
         "start-date": "Date de début",
         "end-date": "Date de fin",
         "start": "Début",
         "normal": "Normal",
         "high": "Élevé",
-        "low": "Bas",
+        "low": "Faible",
         "elevated": "Augmenté"
     },
     "analyser": {
         "title": "Téléversement PDF pour analyse IA",
         "upload": "Téléverser & Analyser",
-        "analysys": "Analyse IA"
+        "analysys": "Analyse IA",
+        "instructions": "Exportez le PDF depuis l'onglet Historique pour la période souhaitée et téléversez-le ici pour l'analyse IA. Alternativement, les rapports PDF du laboratoire peuvent également être téléversés s'ils contiennent du texte."
     },
     "data": {
-        "title": "Historique des valeurs de glycémie",
+        "title": "Valeurs historiques de glycémie",
         "sortByDate": "Trier par date",
         "default": "Par défaut",
         "descending": "Décroissant",
         "ascending": "Croissant",
         "sortByValue": "Trier par valeur",
-        "highToLow": "Élevé à Bas",
-        "lowToHigh": "Bas à Élevé",
+        "highToLow": "Élevé à Faible",
+        "lowToHigh": "Faible à Élevé",
         "filterByStatus": "Filtrer par statut",
         "high": "Élevé",
-        "low": "Bas",
+        "low": "Faible",
         "normal": "Normal",
         "elevated": "Augmenté",
-        "dataEntryTime": "Heure d'entrée",
+        "dataEntryTime": "Heure d'entrée des données",
         "measurementTime": "Heure de mesure",
-        "value": "Glucose postprandial/à jeun",
+        "value": "Glycémie postprandiale/à jeun",
         "sugarValue": "Valeur de glycémie",
         "referenceValue": "Valeur de référence",
         "status": {
             "normal": "Normal",
             "high": "Élevé",
-            "low": "Bas",
+            "low": "Faible",
             "elevated": "Augmenté"
         },
         "previous": "Précédent",
@@ -141,20 +146,20 @@
         "graph": "Graphique"
     },
     "reset-email": {
-        "title": "Réinitialisez votre mot de passe",
-        "email": "E-mail",
-        "send": "Envoyer e-mail de réinitialisation",
+        "title": "Réinitialiser votre mot de passe",
+        "email": "E-Mail",
+        "send": "Envoyer le mail de réinitialisation",
         "cancel": "Annuler",
         "password-sent": "Mot de passe envoyé à :",
-        "error-sending": "Benutzername nicht gefunden. Bitte überprüfen Sie Ihren Benutzernamen und versuchen Sie es erneut",
-        "password-reset": "Réinitialisation du mot de passe",
+        "error-sending": "Nom d'utilisateur introuvable. Veuillez vérifier et réessayer",
+        "password-reset": "Mot de passe réinitialisé",
         "new-password": "Nouveau mot de passe",
         "confirm-password": "Confirmer le mot de passe"
     },
     "first-registration": {
-        "email": "E-mail",
+        "email": "E-Mail",
         "password": "Mot de passe",
-        "title": "Inscrire votre profil",
+        "title": "Enregistrer votre profil",
         "name": "Prénom",
         "surname": "Nom",
         "dob": "Date de naissance",
@@ -165,7 +170,7 @@
         "diabetes-type": "Type de diabète",
         "medication": "Médicament",
         "select-medication": "Sélectionner le médicament",
-        "error-diabetes-type": "Veuillez sélectionner le type de diabète",
+        "error-diabetes-type": "Veuillez sélectionner un type de diabète",
         "error-medication": "Veuillez sélectionner un médicament",
         "send": "Envoyer",
         "diabetes-type-1": "Type 1",
@@ -181,8 +186,8 @@
         "passwordRequired": "Mot de passe requis"
     },
     "login": {
-        "title": "Connexion",
-        "user": "Nom d'utilisateur",
+        "title": "Connexion à votre compte",
+        "user": "E-Mail",
         "password": "Mot de passe",
         "already-registered": "Connexion",
         "forgot-password": "Mot de passe oublié ?",
@@ -192,12 +197,12 @@
     "error": {
         "thankyou": "Merci !",
         "something-went-wrong": "Une erreur est survenue. Veuillez réessayer.",
-        "pdf-error": "Veuillez sélectionner les dates de début et de fin"
+        "pdf-error": "Veuillez sélectionner à la fois la date de début et la date de fin"
     },
     "pdf": {
         "title": "Valeurs de glycémie",
         "full-name": "Nom",
-        "dob": "Prénom",
+        "dob": "Nom de famille",
         "diabetes-type": "Type de diabète",
         "city": "Ville",
         "date": "Date",
@@ -208,15 +213,15 @@
         "p": "Suivez vos niveaux de sucre, recevez des conseils personnalisés et restez en bonne santé chaque jour.",
         "login": "Essayez maintenant !",
         "offer": "L'application G24 vous offre une solution complète pour gérer efficacement votre diabète !",
-        "feature1": "Suivi du glucose en temps réel",
-        "feature1-desc": "Surveillez facilement vos niveaux de sucre dans le sang",
-        "feature2": "Analyse et statistiques.Exporter en PDF",
+        "feature1": "Surveillance de la glycémie en temps réel",
+        "feature1-desc": "Suivez facilement vos niveaux de sucre",
+        "feature2": "Analyse et statistiques. Export PDF",
         "feature2-desc": "Graphiques et tendances pour un meilleur contrôle",
-        "feature3": "Téléchargez vos rapports de laboratoire et analysez vos résultats hebdomadaires avec l’IA",
-        "feature3-desc": "Données analysées par l’intelligence artificielle",
+        "feature3": "Téléversez le rapport de laboratoire, analysez les résultats hebdomadaires avec l'IA",
+        "feature3-desc": "Données analysées par l'intelligence artificielle",
         "feature4": "Sécurité et confidentialité",
         "feature4-desc": "Toutes les informations sont protégées et vous pouvez supprimer vos données à tout moment",
-        "feature5": "100 % gratuit",
-        "feature5-desc": "Profitez de toutes les fonctionnalités sans aucun coût"
+        "feature5": "100% Gratuit",
+        "feature5-desc": "Utilisez les fonctionnalités sans aucun coût"
     }
 }

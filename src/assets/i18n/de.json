@@ -11,7 +11,7 @@
             "latest-reading": "Neueste Messung"
         },
         "average": {
-            "weekly-average": "Wochendurchschnitt"
+            "weekly-average": "Wöchentlicher Durchschnitt"
         },
         "status": {
             "normal": "Normal",
@@ -21,12 +21,12 @@
         },
         "add_reading": {
             "add-new-reading": "Neue Blutzuckermessung hinzufügen",
-            "placeholder": "Dezimalwert nur mit . (z. B. 8.5)",
+            "placeholder": "Dezimalwert mit Punkt (z. B. 8.5)",
             "time": "Messzeit",
             "fasting": "Nüchtern",
-            "post_meal_2hrs_after": "2 Stunden nach der Mahlzeit",
-            "post_meal_1hr_after": "1 Stunde nach der Mahlzeit",
-            "random": "Zufällig",
+            "post_meal_2hrs_after": "2 Stunden nach Mahlzeit",
+            "post_meal_1hr_after": "1 Stunde nach Mahlzeit",
+            "random": "Beliebig",
             "save-reading": "Messung speichern"
         },
         "user_profile": {
@@ -44,7 +44,7 @@
         },
         "summary": {
             "data-summary": "Datenübersicht",
-            "weekly-avg": "Wochen-Durchschnitt",
+            "weekly-avg": "Wöchentlich",
             "readings": "Messungen",
             "best-time": "Beste Zeit",
             "worst-time": "Schlechteste Zeit",
@@ -59,7 +59,7 @@
         },
         "hba1c": {
             "prediction": "HbA1c-Vorhersage",
-            "estimation": "Geschätzt aus den aktuellen Glukosedaten"
+            "estimation": "Geschätzt anhand der letzten Glukosedaten"
         },
         "medications": {
             "daily-medications": "Tägliche Medikamente",
@@ -70,10 +70,14 @@
         "line-chart": {
             "weekly": "Wöchentliche Übersicht",
             "chart-title": "Blutzuckerwert"
+        },
+        "delete_profile": {
+            "delete_ok": "Profil erfolgreich gelöscht",
+            "delete_nok": "Ein unerwarteter Fehler ist aufgetreten"
         }
     },
     "registration": {
-        "title": "Ihr Profil aktualisieren",
+        "title": "Profil aktualisieren",
         "name": "Vorname",
         "surname": "Nachname",
         "dob": "Geburtsdatum",
@@ -84,8 +88,8 @@
         "diabetes-type": "Diabetes-Typ",
         "medication": "Medikament",
         "select-medication": "Medikament auswählen",
-        "error-diabetes-type": "Bitte Diabetes-Typ auswählen",
-        "error-medication": "Bitte Medikament auswählen",
+        "error-diabetes-type": "Bitte wählen Sie einen Diabetes-Typ aus",
+        "error-medication": "Bitte wählen Sie ein Medikament aus",
         "send": "Senden",
         "diabetes-type-1": "Typ 1",
         "diabetes-type-2": "Typ 2",
@@ -106,9 +110,10 @@
         "elevated": "Erhöht"
     },
     "analyser": {
-        "title": "PDF-Upload zur KI-Analyse",
+        "title": "PDF-Upload für KI-Analyse",
         "upload": "Hochladen & Analysieren",
-        "analysys": "KI-Analyse"
+        "analysys": "KI-Analyse",
+        "instructions": "Exportieren Sie das PDF aus dem Verlaufs-Tab für den gewünschten Zeitraum und laden Sie es hier für die KI-Analyse hoch. Alternativ können PDF-Berichte aus dem Labor hochgeladen werden, wenn sie textuelle Inhalte enthalten."
     },
     "data": {
         "title": "Historische Blutzuckerwerte",
@@ -124,7 +129,7 @@
         "low": "Niedrig",
         "normal": "Normal",
         "elevated": "Erhöht",
-        "dataEntryTime": "Eingabezeit",
+        "dataEntryTime": "Erfassungszeit",
         "measurementTime": "Messzeit",
         "value": "Postprandial/Nüchtern Glukose",
         "sugarValue": "Blutzuckerwert",
@@ -141,15 +146,15 @@
         "graph": "Diagramm"
     },
     "reset-email": {
-        "title": "Setzen Sie Ihr Passwort zurück",
+        "title": "Passwort zurücksetzen",
         "email": "E-Mail",
         "send": "Zurücksetz-E-Mail senden",
         "cancel": "Abbrechen",
-        "password-sent": "Passwort gesendet an :",
-        "error-sending": "Benutzername nicht gefunden. Bitte überprüfen Sie Ihren Benutzernamen und versuchen Sie es erneut",
-        "password-reset": "Passwort zurücksetzen",
+        "password-sent": "Passwort gesendet an:",
+        "error-sending": "Benutzername nicht gefunden. Bitte überprüfen Sie ihn und versuchen Sie es erneut",
+        "password-reset": "Passwort zurückgesetzt",
         "new-password": "Neues Passwort",
-        "confirm-password": "Pass WORt bestätigen"
+        "confirm-password": "Passwort bestätigen"
     },
     "first-registration": {
         "email": "E-Mail",
@@ -165,8 +170,8 @@
         "diabetes-type": "Diabetes-Typ",
         "medication": "Medikament",
         "select-medication": "Medikament auswählen",
-        "error-diabetes-type": "Bitte Diabetes-Typ auswählen",
-        "error-medication": "Bitte Medikament auswählen",
+        "error-diabetes-type": "Bitte wählen Sie einen Diabetes-Typ aus",
+        "error-medication": "Bitte wählen Sie ein Medikament aus",
         "send": "Senden",
         "diabetes-type-1": "Typ 1",
         "diabetes-type-2": "Typ 2",
@@ -181,18 +186,18 @@
         "passwordRequired": "Passwort erforderlich"
     },
     "login": {
-        "title": "Anmelden",
-        "user": "Benutzername",
+        "title": "In Ihr Konto einloggen",
+        "user": "E-Mail",
         "password": "Passwort",
         "already-registered": "Anmelden",
         "forgot-password": "Passwort vergessen?",
-        "not-registered": "Noch kein Konto?",
+        "not-registered": "Noch nicht registriert?",
         "sign-up": "Registrieren"
     },
     "error": {
-        "thankyou": "Danke!",
+        "thankyou": "Vielen Dank!",
         "something-went-wrong": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
-        "pdf-error": "Bitte wählen Sie sowohl Start- als auch Enddatum aus"
+        "pdf-error": "Bitte wählen Sie sowohl Start- als auch Enddatum"
     },
     "pdf": {
         "title": "Blutzuckerwerte",
@@ -207,16 +212,16 @@
         "h1": "Kontrollieren Sie Ihren Diabetes einfach und sicher",
         "p": "Verfolgen Sie Ihre Blutzuckerwerte, erhalten Sie personalisierte Tipps und bleiben Sie jeden Tag gesund.",
         "login": "Jetzt testen!",
-        "offer": "Die G24-Anwendung bietet Ihnen eine umfassende Lösung, um Ihren Diabetes effektiv zu managen!",
-        "feature1": "Blutzuckermessung in Echtzeit",
+        "offer": "Die G24-Anwendung bietet Ihnen eine umfassende Lösung zur effektiven Verwaltung Ihres Diabetes!",
+        "feature1": "Echtzeit-Glukoseüberwachung",
         "feature1-desc": "Behalten Sie Ihre Blutzuckerwerte mühelos im Blick",
-        "feature2": "Analyse und Statistiken.PDF exportieren.",
-        "feature2-desc": "Diagramme und Trends für eine bessere Kontrolle",
-        "feature3": "Laden Sie Laborberichte hoch und analysieren Sie wöchentliche Zuckerergebnisse mit KI",
-        "feature3-desc": "Daten analysiert durch Künstliche Intelligenz",
+        "feature2": "Analyse und Statistik. PDF-Export",
+        "feature2-desc": "Diagramme und Trends für bessere Kontrolle",
+        "feature3": "Laborbericht hochladen, wöchentliche Blutzuckerergebnisse mit KI überprüfen",
+        "feature3-desc": "Daten analysiert von künstlicher Intelligenz",
         "feature4": "Sicherheit und Datenschutz",
-        "feature4-desc": "Alle Informationen sind geschützt, und Sie können Ihre Daten jederzeit löschen",
-        "feature5": "100 % kostenlos",
-        "feature5-desc": "Nutzen Sie alle Funktionen ohne jegliche Kosten"
+        "feature4-desc": "Alle Informationen geschützt und Sie können Ihre Daten jederzeit löschen",
+        "feature5": "100% Kostenlos",
+        "feature5-desc": "Funktionen ohne Kosten nutzen"
     }
 }

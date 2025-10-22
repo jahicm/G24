@@ -30,18 +30,31 @@ export class AnalyserComponent {
     if (!this.selectedFile) {
       return;
     }
+    let langauge = sessionStorage.getItem('lang')||'en';
 
     this.isUploading = true;
     this.errorMessage = '';
 
-    this.analyserService.uploadFile(this.selectedFile).subscribe({
+    this.analyserService.uploadFile(this.selectedFile,langauge).subscribe({
       next: (event) => {
         if (event.type === HttpEventType.UploadProgress) {
           this.uploadProgress = Math.round((event.loaded / (event.total ?? 1)) * 100);
         } else if (event.type === HttpEventType.Response) {
           this.isUploading = false;
           if (event?.body) {
-            this.result = typeof event.body === 'string' ? event.body : JSON.stringify(event.body, null, 2);
+            if (typeof event.body === 'string') {
+              try {
+                // Try parsing as JSON
+                const json = JSON.parse(event.body);
+                this.result = this.convertJsonToText(json); // convert JSON to text
+              } catch (e) {
+                // Not JSON, treat as plain text
+                this.result = event.body;
+              }
+            } else {
+              // Already JSON object
+              this.result = this.convertJsonToText(event.body);
+            }
           } else {
             this.result = 'No response received from the server.';
           }
@@ -55,4 +68,31 @@ export class AnalyserComponent {
     });
 
   }
+  convertJsonToText(obj: any, indent: string = ''): string {
+    let result = '';
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        const value = obj[key];
+        if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+          result += `${indent}${this.capitalize(key)}:\n`;
+          result += this.convertJsonToText(value, indent + '  ');
+        } else if (Array.isArray(value)) {
+          result += `${indent}${this.capitalize(key)}:\n`;
+          value.forEach((v, i) => {
+            result += typeof v === 'object'
+              ? this.convertJsonToText(v, indent + '  - ')
+              : `${indent}  - ${v}\n`;
+          });
+        } else {
+          result += `${indent}${this.capitalize(key)}: ${value}\n`;
+        }
+      }
+    }
+    return result;
+  }
+
+  capitalize(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1).replace(/_/g, ' ');
+  }
+
 }

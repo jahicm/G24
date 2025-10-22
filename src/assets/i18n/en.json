@@ -112,7 +112,8 @@
     "analyser": {
         "title": "PDF upload for AI analysys",
         "upload": "Upload & Analyse",
-        "analysys": "AI Analysis"
+        "analysys": "AI Analysis",
+        "instructions": "Export the PDF from the History tab for the desired date range and upload it here for AI analysis.Alternatively, PDF reports from the lab can also be uploaded if they contain textual content."
     },
     "data": {
         "title": "Blood Sugar Historic Values",
@@ -186,7 +187,7 @@
     },
     "login": {
         "title": "Login to Your Account",
-        "user": "Username",
+        "user": "E-Mail",
         "password": "Password",
         "already-registered": "Login",
         "forgot-password": "Forgot Password?",
