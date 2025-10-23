@@ -19,12 +19,20 @@ export class AppComponent {
 
   constructor(private translateService: TranslateService, private router: Router) {
     translateService.setDefaultLang(this.currentLang());
-
+    
+    const hideHeaderFooterRoutes = [
+      '/',                // Root / redirecting to landing
+      '/g24',             // Landing page
+      '/login',
+      '/first-registration',
+      '/forget',
+      '/reset-password'
+    ];
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         const url = event.urlAfterRedirects || event.url;
-        this.showHeaderFooter = !url.startsWith('/login') && !url.startsWith('/first-registration') && !url.startsWith('/forget') && !url.startsWith('/reset-password') && !url.startsWith('/g24');
+       this.showHeaderFooter = !hideHeaderFooterRoutes.includes(url);
       });
   
   }
