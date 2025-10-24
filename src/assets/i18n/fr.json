@@ -143,7 +143,12 @@
         "previous": "Précédent",
         "next": "Suivant",
         "sugarStatus": "Statut glycémie",
-        "graph": "Graphique"
+        "graph": "Graphique",
+        "report": "Rapport",
+        "report-period": "Période du rapport",
+        "highest": "Valeur maximale",
+        "lowest": "Valeur minimale",
+        "average": "Moyenne"
     },
     "reset-email": {
         "title": "Réinitialiser votre mot de passe",

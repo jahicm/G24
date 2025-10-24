@@ -143,7 +143,12 @@
         "previous": "Vorherige",
         "next": "Nächste",
         "sugarStatus": "Blutzuckerstatus",
-        "graph": "Diagramm"
+        "graph": "Diagramm",
+        "report": "Bericht",
+        "report-period": "Berichtszeitraum",
+        "highest": "Höchster Wert",
+        "lowest": "Niedrigster Wert",
+        "average": "Durchschnitt"
     },
     "reset-email": {
         "title": "Passwort zurücksetzen",

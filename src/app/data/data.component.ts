@@ -39,9 +39,9 @@ export class DataComponent implements OnInit {
   locale: string | undefined;
   data: any;
   maxVisiblePages = 8;
-  totalPages:number=0;
+  totalPages: number = 0;
 
-  constructor(private datePipe: DatePipe, private dataService: DataService, private sharedService: SharedService,private translate: TranslateService) { }
+  constructor(private datePipe: DatePipe, private dataService: DataService, private sharedService: SharedService, private translate: TranslateService) { }
 
   ngOnInit(): void {
 
@@ -65,23 +65,23 @@ export class DataComponent implements OnInit {
     this.sharedService.loadEntries(userId);
   }
 
-  getTotalPages():number {
-  return Math.ceil(this.totalRecords / this.pageSize);
-}
-
-get visiblePages() {
-  const pages = [];
-  let start = Math.max(this.currentPage - Math.floor(this.maxVisiblePages / 2), 1);
-  let end = Math.min(start + this.maxVisiblePages - 1, this.getTotalPages());
-
-  // Adjust start if we are at the end
-  start = Math.max(end - this.maxVisiblePages + 1, 1);
-
-  for (let i = start; i <= end; i++) {
-    pages.push(i);
+  getTotalPages(): number {
+    return Math.ceil(this.totalRecords / this.pageSize);
   }
-  return pages;
-}
+
+  get visiblePages() {
+    const pages = [];
+    let start = Math.max(this.currentPage - Math.floor(this.maxVisiblePages / 2), 1);
+    let end = Math.min(start + this.maxVisiblePages - 1, this.getTotalPages());
+
+    // Adjust start if we are at the end
+    start = Math.max(end - this.maxVisiblePages + 1, 1);
+
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
+    }
+    return pages;
+  }
   setupPagination(): void {
     this.totalPages = Math.ceil(this.filteredValues.length / this.pageSize);
     this.totalPagesArray = Array.from({ length: this.totalPages }, (_, i) => i + 1);
@@ -168,6 +168,11 @@ get visiblePages() {
       return;
     }
 
+    this.filteredValues.forEach(entry => Utility.normalizeUnit(entry, this.user));
+    const highest = Math.max(...this.filteredValues.map(entry => entry.sugarValue));
+    const lowest = Math.min(...this.filteredValues.map(entry => entry.sugarValue));
+    const average = this.filteredValues.reduce((sum, entry) => sum + entry.sugarValue, 0) / this.filteredValues.length;
+
     this.sortByDate('asc');
     this.filteredValues = Utility.convertStringToDateAndFilter(this.entries, this.fromDate, this.toDate);
     const doc = new jsPDF();
@@ -175,13 +180,20 @@ get visiblePages() {
     doc.setFontSize(16);
     doc.text(this.translate.instant('pdf.title'), 14, 15);
 
+
     // ➤ Add user details
     doc.setFontSize(11);
     const details = [
-      this.translate.instant('pdf.full-name')+":"+`${this.user.name} ${this.user.lastName}`,
-      this.translate.instant('pdf.dob')+":"+`${this.user.dob}`,
-      this.translate.instant('pdf.diabetes-type')+":"+`${this.user.diabetesType}`,
-      this.translate.instant('pdf.city')+":"+`${this.user.city}`
+      this.translate.instant('pdf.full-name') + ":" + `${this.user.name} ${this.user.lastName}`,
+      this.translate.instant('pdf.dob') + ":" + `${this.user.dob}`,
+      this.translate.instant('pdf.diabetes-type') + ":" + `${this.user.diabetesType}`,
+      this.translate.instant('pdf.city') + ":" + `${this.user.city}`,
+      "----------------------------------",
+      this.translate.instant('pdf.report-period') + ":" + ` ${this.fromDate} - ${this.toDate}`,
+      this.translate.instant('pdf.highest') + ":" + highest+" "+(this.user.unit==="1"?"mg/dL":"mmol/L"),
+      this.translate.instant('pdf.lowest') + ":" + lowest+" "+(this.user.unit==="1"?"mg/dL":"mmol/L"),
+      this.translate.instant('pdf.average') + ":" + average.toFixed(2)+" "+(this.user.unit==="1"?"mg/dL":"mmol/L"),
+      "----------------------------------"
     ];
 
     details.forEach((line, index) => {
@@ -192,15 +204,16 @@ get visiblePages() {
     const tableStartY = 25 + details.length * 6 + 5;
 
     const tableData = this.filteredValues.map(entry => [
-      
-      formatDate(entry.measurementTime, 'HH:mm dd/MM/yyyy','en-US'),
-     
-      this.translate.instant('dashboard.add_reading.' +entry.value) +' '+entry.sugarValue+' '+ entry.unit]);
+
+      formatDate(entry.measurementTime, 'HH:mm dd.MM.yyyy', 'de-DE'),
+      this.translate.instant('dashboard.add_reading.' + entry.value) + ' ' + entry.sugarValue + ' ' + entry.unit]);
+
     autoTable(doc, {
       startY: tableStartY,
       head: [[this.translate.instant('pdf.date'), this.translate.instant('pdf.value')]],
       body: tableData
     });
+
 
     // ➤ Save PDF
     doc.save('blood-sugar-report.pdf');

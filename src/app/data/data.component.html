@@ -81,7 +81,8 @@
                             placeholder="From Date">
                         <input type="date" class="form-control form-control-sm" [(ngModel)]="toDate" name="toDate"
                             placeholder="To Date">
-                        <button class="btn btn-primary btn-sm" (click)="generatePDF()">PDF</button>
+                        <button class="btn btn-primary btn-sm" (click)="generatePDF()">{{'data.report' |
+                            translate}}</button>
                         <button class="btn btn-primary btn-sm" (click)="generateGraph()">{{'data.graph' |
                             translate}}</button>
                     </div>
@@ -90,7 +91,6 @@
                         <table class="table table-bordered table-hover text-center">
                             <thead class="table-primary">
                                 <tr>
-                                    <th>{{'data.dataEntryTime' | translate}}</th>
                                     <th>{{'data.measurementTime' | translate}}</th>
                                     <th>{{'data.value' | translate}}</th>
                                     <th>{{'data.sugarValue' | translate}}</th>
@@ -100,7 +100,6 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let entry of pagedEntries">
-                                    <td>{{ entry.dataEntryTime | date: 'HH:mm dd/MM/yyyy'}}</td>
                                     <td>{{ entry.measurementTime | date: 'HH:mm dd/MM/yyyy' }}</td>
                                     <td>{{ 'dashboard.add_reading.'+entry.value | translate}}</td>
                                     <td>{{ entry.sugarValue }} {{ entry.unit }}</td>

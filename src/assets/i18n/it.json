@@ -143,7 +143,12 @@
         "previous": "Precedente",
         "next": "Successivo",
         "sugarStatus": "Stato zucchero",
-        "graph": "Grafico"
+        "graph": "Grafico",
+        "report": "Rapporto",
+        "report-period": "Periodo del rapporto",
+        "highest": "Valore massimo",
+        "lowest": "Valore minimo",
+        "average": "Media"
     },
     "reset-email": {
         "title": "Reimposta la password",
