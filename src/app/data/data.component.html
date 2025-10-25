@@ -99,22 +99,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let entry of pagedEntries">
+                                @for (entry of pagedEntries; track entry) {
+                                <tr>
                                     <td>{{ entry.measurementTime | date: 'HH:mm dd/MM/yyyy' }}</td>
-                                    <td>{{ 'dashboard.add_reading.'+entry.value | translate}}</td>
+                                    <td>{{ 'dashboard.add_reading.' + entry.value | translate }}</td>
                                     <td>{{ entry.sugarValue }} {{ entry.unit }}</td>
                                     <td>{{ entry.referenceValue }}</td>
                                     <td>
                                         <span class="badge" [ngClass]="{
-                                        'bg-success': entry.status === 'normal',
-                                        'bg-danger': entry.status === 'high',
-                                        'bg-warning text-dark': entry.status === 'low',
-                                        'bg-secondary': entry.status === 'elevated'
-                                        }">
-                                            {{ ('data.status.' + entry.status | translate) | titlecase}}
+                                          'bg-success': entry.status === 'normal',
+                                          'bg-danger': entry.status === 'high',
+                                          'bg-warning text-dark': entry.status === 'low',
+                                          'bg-secondary': entry.status === 'elevated'
+                              }">
+                                            {{ ('data.status.' + entry.status | translate) | titlecase }}
                                         </span>
                                     </td>
                                 </tr>
+                                }
+
                             </tbody>
                         </table>
                     </div>
