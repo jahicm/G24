@@ -80,6 +80,11 @@
             },
             "development": {
               "buildTarget": "G24:build:development"
+            },
+            "terserOptions": {
+              "compress": {
+                "drop_console": true
+              }
             }
           },
           "defaultConfiguration": "development"

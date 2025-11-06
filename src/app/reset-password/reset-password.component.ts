@@ -45,14 +45,11 @@ export class ResetPasswordComponent implements OnInit {
       password: ['', [Validators.required]],
       password_repeat: ['', [Validators.required]]
     });
-
-    console.log('ResetPasswordComponent constructor');
   }
   ngOnInit(): void {
-    console.log('ngOnInit running');
+
     this.route.queryParams.subscribe(params => {
       this.token = params['token'];
-      console.log("Token ngOnInit:", this.token);
     });
   }
   isValid() {
@@ -69,7 +66,6 @@ export class ResetPasswordComponent implements OnInit {
 
    
     const body = {token: this.token, password: this.dataForm.value.password };
-    console.log("Resetting password with body:", body.token+"  "+body.password);
     this.registrationService.resetPassword(body).subscribe({
 
       next: (response) => {
@@ -84,7 +80,6 @@ export class ResetPasswordComponent implements OnInit {
     });
   }
   checkStrength(): void {
-    console.log("Checking password strength...");
     const password = this.dataForm.get('password')?.value || '';
     let strengthPoints = 0;
 

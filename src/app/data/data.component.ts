@@ -46,11 +46,6 @@ export class DataComponent implements OnInit {
   ngOnInit(): void {
 
     const userId = Utility.decodeUserIdFromToken(sessionStorage.getItem('token') || '');
-    if (userId) {
-      console.log('Decoded userId from token:', userId);
-    } else {
-      console.log('No valid token found or unable to decode userId.');
-    }
     this.sharedService.user$.subscribe(user => {
       if (user) {
         this.user = user;

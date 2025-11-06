@@ -43,17 +43,13 @@ export class SharedService {
     const cachedUser = sessionStorage.getItem('cachedUser');
     const cachedUserId = sessionStorage.getItem('lastUserId');
     if (cachedUser && cachedUserId) {
-      console.log('Loading user from sessionStorage:', JSON.parse(cachedUser));
       this.userSubject.next(JSON.parse(cachedUser));
       this.lastUserId = cachedUserId;
-    } else {
-      console.log('No user data in sessionStorage');
     }
   }
 
   private saveUserToSessionStorage(): void {
     if (this.userSubject.value) {
-      console.log('Saving user to sessionStorage:', this.userSubject.value);
       sessionStorage.setItem('cachedUser', JSON.stringify(this.userSubject.value));
       sessionStorage.setItem('lastUserId', this.lastUserId || '');
     }
@@ -61,12 +57,7 @@ export class SharedService {
 
   loadUser(userId: string, forceReload: boolean = false): void {
     if (!forceReload && this.lastUserId === userId && this.userSubject.value !== null) {
-      console.log('Using cached user from sessionStorage');
       return;
-    }
-
-    if (!environment.production) {
-      console.log(`Loading user for ID: ${userId}`);
     }
 
     this.httpClient.get<User>(`${environment.apiBaseUrl}/user/${userId}`)
@@ -81,9 +72,7 @@ export class SharedService {
           if (!isEqual(this.userSubject.value, user)) {
             this.userSubject.next(user);
             this.saveUserToSessionStorage();
-            if (!environment.production) {
-              console.log(`Loaded user: ${user.lastName ?? 'Unknown'}`);
-            }
+            
           }
         })
       )
@@ -92,7 +81,6 @@ export class SharedService {
 
   loadEntries(userId: string, forceReload: boolean = false): void {
     if (!forceReload && this.lastEntriesUserId === userId && this.entriesSubject.value.length > 0) {
-      console.log('Using cached entries');
       return;
     }
 
@@ -154,7 +142,6 @@ export class SharedService {
       this.saveUserToSessionStorage();
       this.lastDashboardUserId = null;
       this.dashboardSubject.next(null);
-      console.log('User updated, dashboard cache invalidated');
     }
   }
 
@@ -176,7 +163,6 @@ export class SharedService {
           }
           this.lastDashboardUserId = null;
           this.dashboardSubject.next(null);
-          console.log('Dashboard cache invalidated after adding entry');
         }),
         catchError(error => {
           console.error('Error adding entry:', error);
@@ -194,7 +180,7 @@ export class SharedService {
     this.dashboardSubject.next(null);
     sessionStorage.removeItem('cachedUser');
     sessionStorage.removeItem('lastUserId');
-    console.log('SharedService cleared');
+
   }
 
 }

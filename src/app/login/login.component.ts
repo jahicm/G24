@@ -25,13 +25,12 @@ export class LoginComponent {
 
   switchLanguage($event: Event) {
      const lang = ($event.target as HTMLSelectElement).value;
-    console.log('Current language from sessionStorage1:', lang);
     if (lang === null) {
       const language = ($event.target as HTMLSelectElement).value;
       this.appComponent.switchLanguage(language);
       sessionStorage.setItem('lang', language);
     } else {
-      console.log('Current language from sessionStorage2:', lang);
+   
       this.appComponent.switchLanguage(lang);
       sessionStorage.setItem('lang', lang);
     }
@@ -44,7 +43,6 @@ export class LoginComponent {
     });
   }
   logout() {
-    console.log("logout called");
     this.authService.logout();
     this.router.navigate(['/login']);
   }

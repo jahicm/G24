@@ -20,9 +20,6 @@ export class DiabetesDashboard {
 
     static fromJson(json: any): DiabetesDashboard {
         const data = json ?? {};
-
-        console.log("Dashboard response:", data);
-
         const latestReading = data.latest_readings?.reading
             ? new Reading(
                 data.latest_readings.reading.sugarValue ?? 0,

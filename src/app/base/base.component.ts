@@ -1,5 +1,5 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ChartComponent } from '../chart/chart.component';
 import { Entry } from '../models/entry';
 import { SharedService } from '../services/shared.service';
@@ -19,7 +19,7 @@ import { EntryPayload } from '../models/entry-payload';
   templateUrl: './base.component.html',
   styleUrl: './base.component.css',
 })
-export class BaseComponent implements OnInit {
+export class BaseComponent implements OnInit,OnDestroy {
 
 
   filteredValues: Entry[] = [];
@@ -45,11 +45,6 @@ export class BaseComponent implements OnInit {
 
     this.selectedTimeOfMeal = "fasting";
     const userId = Utility.decodeUserIdFromToken(sessionStorage.getItem('token') || '');
-    if (userId) {
-      console.log('Decoded userId from token:', userId);
-    } else {
-      console.log('No valid token found or unable to decode userId.');
-    }
 
     this.sharedService.loadUser(userId, true);
     this.sharedService.loadEntries(userId, true);
@@ -150,7 +145,6 @@ export class BaseComponent implements OnInit {
   }
   deleteProfile() {
     if (!this.user) {
-      console.log("User not found");
       return;
     }
     this.userService.deleteProfile(this.user.userId).subscribe({
