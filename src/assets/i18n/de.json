@@ -211,7 +211,11 @@
         "diabetes-type": "Diabetes-Typ",
         "city": "Stadt",
         "date": "Datum",
-        "value": "Wert"
+        "value": "Wert",
+        "report-period": "Berichtszeitraum",
+        "highest": "Höchster Wert",
+        "lowest": "Niedrigster Wert",
+        "average": "Durchschnitt"
     },
     "g24": {
         "h1": "Kontrollieren Sie Ihren Diabetes einfach und sicher",

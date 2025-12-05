@@ -211,7 +211,11 @@
         "diabetes-type": "Tipo di diabete",
         "city": "Città",
         "date": "Data",
-        "value": "Valore"
+        "value": "Valore",
+        "report-period": "Periodo del Rapporto",
+        "highest": "Valore Massimo",
+        "lowest": "Valore Minimo",
+        "average": "Media"
     },
     "g24": {
         "h1": "Controlla il tuo diabete facilmente e in sicurezza",
