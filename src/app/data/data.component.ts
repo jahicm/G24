@@ -184,7 +184,7 @@ export class DataComponent implements OnInit {
       this.translate.instant('pdf.diabetes-type') + ":" + `${this.user.diabetesType}`,
       this.translate.instant('pdf.city') + ":" + `${this.user.city}`,
       "----------------------------------",
-      this.translate.instant('pdf.report-period') + ":" + ` ${this.fromDate} - ${this.toDate}`,
+      this.translate.instant('pdf.report-period') + ":" + `${this.fromDate} - ${this.toDate}`,
       this.translate.instant('pdf.highest') + ":" + highest+" "+(this.user.unit==="1"?"mg/dL":"mmol/L"),
       this.translate.instant('pdf.lowest') + ":" + lowest+" "+(this.user.unit==="1"?"mg/dL":"mmol/L"),
       this.translate.instant('pdf.average') + ":" + average.toFixed(2)+" "+(this.user.unit==="1"?"mg/dL":"mmol/L"),
